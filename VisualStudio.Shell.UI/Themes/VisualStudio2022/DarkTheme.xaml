@@ -1,0 +1,398 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/AvalonDock.Themes.VisualStudio;component/Themes/VisualStudio2022/DarkTheme.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Color
+        x:Key="ControlShadow"
+        A="71"
+        B="00"
+        G="00"
+        R="00" />
+
+
+    <SolidColorBrush x:Key="ContextMenuBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ContextMenuBorderBrush" Color="#FF424242" />
+    <SolidColorBrush x:Key="ContextMenuRectangleFill" Color="#FF2E2E2E" />
+
+    <SolidColorBrush x:Key="CommonControlsButtonBackground" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsButtonDefault" Color="#FF403582" />
+    <SolidColorBrush x:Key="CommonControlsButtonDisabled" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsButtonFocused" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsButtonHover" Color="#FF4D4D4D" />
+    <SolidColorBrush x:Key="CommonControlsButtonPressed" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsButtonText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsButtonDefaultText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsButtonDisabledText" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="CommonControlsButtonFocusedText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsButtonHoverText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsButtonPressedText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderDefault" Color="#FF403582" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderFocused" Color="#FF999999" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderHover" Color="#FF4D4D4D" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderPressed" Color="#FF333333" />
+
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBackground" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBackgroundDisabled" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBackgroundFocused" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBackgroundHover" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBackgroundPressed" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBorder" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBorderDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBorderFocused" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBorderHover" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxBorderPressed" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxGlyphDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxGlyphFocused" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxGlyphHover" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxGlyphPressed" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxText" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxTextDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxTextFocused" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxTextHover" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsCheckBoxTextPressed" Color="#FFE5E5E5" />
+
+    <SolidColorBrush x:Key="CommonControlsComboBoxBackground" Color="#FF383838" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBackgroundDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBackgroundFocused" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBackgroundHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBackgroundPressed" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBorder" Color="#FF424242" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBorderDisabled" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBorderFocused" Color="#FF808080" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBorderHover" Color="#FF808080" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxBorderPressed" Color="#FF808080" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphDisabled" Color="#FF808080" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphFocused" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphHover" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphPressed" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphBackground" Color="#FF383838" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphBackgroundDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphBackgroundFocused" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphBackgroundHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxGlyphBackgroundPressed" Color="#FF3D3D3D" />
+
+    <SolidColorBrush x:Key="CommonControlsComboBoxListBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxListBorder" Color="#FF424242" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxListItemBackgroundHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxListItemBorderHover" Color="#FF707070" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxListItemText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxListItemTextHover" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxSeparator" Color="#FF383838" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxSeparatorFocused" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxSeparatorHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxSeparatorPressed" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxTextDisabled" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxTextHover" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxTextFocused" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxTextPressed" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsComboBoxTextInputSelection" Color="#FF0078DC" />
+
+    <SolidColorBrush x:Key="CommonControlsFocusVisualText" Color="#FFFAFAFA" />
+
+    <SolidColorBrush x:Key="CommonControlsTextBoxBackground" Color="#FF383838" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBackgroundDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBackgroundFocused" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBackgroundHover" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBorder" Color="#FF424242" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBorderDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBorderFocused" Color="#FF999999" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxBorderHover" Color="#FF999999" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxSelection" Color="#FF0078D7" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxText" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxTextDisabled" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxTextFocused" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxTextHover" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxErrorBackground" Color="#1F1F1F" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxErrorBorder" Color="#FFF1BBBD" />
+    <SolidColorBrush x:Key="CommonControlsTextBoxErrorForeground" Color="#FFF1BBBD" />
+
+
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBackground" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBackgroundDisabled" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBackgroundFocused" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBackgroundHover" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBackgroundPressed" Color="#FF333333" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBorder" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBorderDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBorderFocused" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBorderHover" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonBorderPressed" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonGlyphDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonGlyphFocused" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonGlyphHover" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonGlyphPressed" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonText" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonTextDisabled" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonTextFocused" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonTextHover" Color="#FFE5E5E5" />
+    <SolidColorBrush x:Key="CommonControlsRadioButtonTextPressed" Color="#FFE5E5E5" />
+
+
+    <SolidColorBrush x:Key="EnvironmentCommandBarToolBarSeparator" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentCommandBarToolBarSeparatorHighlight" Color="#00FFFFFF" />
+
+
+    <SolidColorBrush x:Key="EnvironmentMainWindowActiveDefaultBorder" Color="#FF7160E8" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowInactiveBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowInactiveCaptionText" Color="#FF999999" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonActive" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonActiveBorder" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonActiveGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverActive" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverActiveBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverActiveGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverInactive" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverInactiveBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonHoverInactiveGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonInactive" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonInactiveBorder" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonInactiveGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonDown" Color="#FF383838" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonDownBorder" Color="#FF383838" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowButtonDownGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowResizeGripLight" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="EnvironmentMainWindowResizeGripDark" Color="#FF2E2E2E" />
+
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowDisabledBackground" Color="#FF333333" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowMouseOverBackground" Color="#FF999999" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowPressedBackground" Color="#FF999999" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowGlyph" Color="#FF999999" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowGlyphDisabled" Color="#FF808080" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowGlyphMouseOver" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarArrowGlyphPressed" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarBorder" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarThumbBackground" Color="#FF4D4D4D" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarThumbDisabled" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarThumbMouseOverBackground" Color="#FF999999" />
+    <SolidColorBrush x:Key="EnvironmentScrollBarThumbPressedBackground" Color="#FF999999" />
+
+
+    <SolidColorBrush x:Key="ExpanderStaticCircleStroke" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="ExpanderStaticCircleFill" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="ExpanderStaticArrowStroke" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="ExpanderMouseOverCircleStroke" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ExpanderMouseOverCircleFill" Color="#FF333333" />
+    <SolidColorBrush x:Key="ExpanderMouseOverArrowStroke" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ExpanderPressedCircleStroke" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ExpanderPressedCircleFill" Color="#FF333333" />
+    <SolidColorBrush x:Key="ExpanderPressedArrowStroke" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ExpanderDisabledCircleStroke" Color="#FF7A7A7A" />
+    <SolidColorBrush x:Key="ExpanderDisabledCircleFill" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="ExpanderDisabledArrowStroke" Color="#FF808080" />
+
+
+    <SolidColorBrush x:Key="GroupBoxBackground" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="GroupBoxBorderBrush" Color="#FF9E9E9E" />
+
+    <SolidColorBrush x:Key="GridSplitterBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="GridSplitterPreviewFill" Color="#80000000" />
+
+    <SolidColorBrush x:Key="GridViewBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="GridViewBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="GridViewDisabledBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="GridViewDisabledBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="GridViewFocusedBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="GridViewFocusedBorder" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="GridViewItemFocusVisualStroke" Color="#FF505050" />
+    <SolidColorBrush x:Key="GridViewItemContainerBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="GridViewItemContainerHoverBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerHoverBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerHoverForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="GridViewItemContainerSelectedBackground" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="GridViewItemContainerSelectedBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="GridViewItemContainerSelectedForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="GridViewItemContainerDisabledBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerDisabledBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="GridViewItemContainerDisabledForeground" Color="#FF5C5C5C" />
+
+
+    <SolidColorBrush x:Key="HeaderGlyph" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="HeaderDefault" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="HeaderDefaultText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="HeaderDisabledText" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="HeaderSeparatorLine" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="HeaderMouseDown" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="HeaderMouseDownText" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="HeaderMouseOver" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="HeaderMouseOverText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="HeaderMouseOverGlyph" Color="#FFFFFFFF" />
+
+    <SolidColorBrush x:Key="HyperlinkNormal" Color="#FF0097FB" />
+    <SolidColorBrush x:Key="HyperlinkMouseOver" Color="#FF55AAFF" />
+    <SolidColorBrush x:Key="HyperlinkDisabled" Color="#FF656565" />
+
+
+    <SolidColorBrush x:Key="LabelText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="LabelTextDisabled" Color="#FF5C5C5C" />
+
+
+    <SolidColorBrush x:Key="ListBoxBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="ListBoxBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ListBoxDisabledBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ListBoxDisabledBorder" Color="#FF707070" />
+
+    <SolidColorBrush x:Key="ListBoxItemStaticBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ListBoxItemStaticBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ListBoxItemStaticForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ListBoxItemDisabledBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ListBoxItemDisabledBorder" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ListBoxItemDisabledForeground" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="ListBoxItemMouseOverBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ListBoxItemMouseOverBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ListBoxItemMouseOverForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedActiveBackground" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedActiveBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedActiveForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedInactiveBackground" Color="#FF383838" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedInactiveBorder" Color="#FF383838" />
+    <SolidColorBrush x:Key="ListBoxItemSelectedInactiveForeground" Color="#FFFAFAFA" />
+
+
+    <SolidColorBrush x:Key="TopLevelMenuItemBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBackgroundHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBackgroundPressed" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBackgroundDisabled" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBorderHover" Color="#FF707070" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBorderPressed" Color="#FF424242" />
+    <SolidColorBrush x:Key="TopLevelMenuItemBorderDisabled" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="MenuItemBackground" Color="#002E2E2E" />
+    <SolidColorBrush x:Key="MenuItemBackgroundHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="MenuItemBackgroundDisabled" Color="#002E2E2E" />
+    <SolidColorBrush x:Key="MenuItemBorder" Color="#00424242" />
+    <SolidColorBrush x:Key="MenuItemBorderHover" Color="#FF707070" />
+    <SolidColorBrush x:Key="MenuItemBorderDisabled" Color="#00424242" />
+    <SolidColorBrush x:Key="MenuItemForeground" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="MenuItemForegroundHover" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="MenuItemForegroundDisabled" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="MenuItemGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="MenuItemGlyphHover" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="MenuItemGlyphDisabled" Color="#FF5B5B5B" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanel" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanelHover" Color="#FF333333" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanelDisabled" Color="#002E2E2E" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanelBorder" Color="#00424242" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanelBorderHover" Color="#00424242" />
+    <SolidColorBrush x:Key="MenuItemGlyphPanelBorderDisabled" Color="#00424242" />
+    <SolidColorBrush x:Key="MenuItemRightArrow" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="MenuItemRightArrowHover" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="MenuItemRightArrowDisabled" Color="#FF5B5B5B" />
+    <SolidColorBrush x:Key="MenuItemSubMenuBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="MenuItemSubMenuBorder" Color="#FF424242" />
+
+
+    <SolidColorBrush x:Key="ProgressBarProgress" Color="#FF7160E8" />
+    <SolidColorBrush x:Key="ProgressBarBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="ProgressBarBorder" Color="#FF808080" />
+
+
+    <SolidColorBrush x:Key="ResizeGripperForeground" Color="#FFFAFAFA" />
+
+
+    <SolidColorBrush x:Key="TabControlBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="TabControlBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabControlForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TabControlForegroundDisabled" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="TabItemForeground" Color="#FFB2B2B2" />
+    <SolidColorBrush x:Key="TabItemStaticBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TabItemStaticBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TabItemStaticInBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TabItemStaticForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TabItemMouseOverBackground" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabItemMouseOverBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabItemMouseOverInBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabItemMouseOverForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TabItemDisabledBackground" Color="#FF333333" />
+    <SolidColorBrush x:Key="TabItemDisabledBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabItemDisabledInBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TabItemDisabledForeground" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="TabItemSelectedBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="TabItemSelectedBorder" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TabItemSelectedInBorder" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="TabItemSelectedForeground" Color="#FFFAFAFA" />
+
+
+    <SolidColorBrush x:Key="TreeViewBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="TreeViewForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TreeViewBorderBrush" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TreeViewGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="TreeViewGlyphMouseOver" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TreeViewGlyphSelected" Color="#FFD6D6D6" />
+
+    <SolidColorBrush x:Key="TreeViewItemMouseOverBackground" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TreeViewItemMouseOverBorderBrush" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="TreeViewItemMouseOverForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="TreeViewItemSelectedBackground" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="TreeViewItemSelectedBorderBrush" Color="#FF707070" />
+    <SolidColorBrush x:Key="TreeViewItemSelectedForeground" Color="#FFFAFAFA" />
+
+
+    <SolidColorBrush x:Key="ToolBarButton" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ToolBarButtonBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ToolBarButtonText" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="ToolBarButtonDisabled" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ToolBarButtonDisabledBorder" Color="#001F1F1F" />
+    <SolidColorBrush x:Key="ToolBarButtonDisabledText" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="ToolBarButtonFocused" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarButtonFocusedBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ToolBarButtonFocusedText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ToolBarButtonHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarButtonHoverBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ToolBarButtonHoverText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ToolBarButtonPressed" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ToolBarButtonPressedBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ToolBarButtonPressedText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ToolBarButtonChecked" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ToolBarButtonCheckedBorder" Color="#FF7160E8" />
+    <SolidColorBrush x:Key="ToolBarButtonCheckedText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ToolBarButtonCheckedHover" Color="#FF333333" />
+    <SolidColorBrush x:Key="ToolBarButtonCheckedHoverBorder" Color="#FF707070" />
+    <SolidColorBrush x:Key="ToolBarButtonCheckedHoverText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="ToolBarDisabledFill" Color="#FF383838" />
+    <SolidColorBrush x:Key="ToolBarDisabledBorder" Color="#FF484848" />
+    <SolidColorBrush x:Key="ToolBarSeparatorFill" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarHorizontalBackground" Color="#FF2D2D30" />
+    <SolidColorBrush x:Key="ToolBarVerticalBackground" Color="#FF1F1F1F" />
+
+    <SolidColorBrush x:Key="ToolBarThumbGlyph" Color="#FF666666" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackground" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundDisabled" Color="#00FFFFFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundFocused" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundHover" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundPress" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyph" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphDisabled" Color="#FF666666" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphFocused" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphHover" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphPress" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBackground" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBorderBrush" Color="#FF424242" />
+
+    <SolidColorBrush x:Key="ToolTipBackground" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="ToolTipBorderBrush" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ToolTipForeground" Color="#FFFAFAFA" />
+
+
+    <SolidColorBrush x:Key="StatusBarBackground" Color="#FF424242" />
+    <SolidColorBrush x:Key="StatusBarForeground" Color="#FFFAFAFA" />
+
+    <SolidColorBrush x:Key="SystemColorsControl" Color="#FF2E2E2E" />
+    <SolidColorBrush x:Key="SystemColorsControlText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="SystemColorsControlDarkDark" Color="#FF999999" />
+    <SolidColorBrush x:Key="SystemColorsControlLightLight" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="SystemColorsMenuText" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="SystemColorsGrayText" Color="#FF5C5C5C" />
+    <SolidColorBrush x:Key="SystemColorsWindow" Color="#FF1F1F1F" />
+    <SolidColorBrush x:Key="SystemColorsWindowText" Color="#FFFAFAFA" />
+</ResourceDictionary>

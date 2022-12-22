@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="FocusVisualTemplate">
+        <Rectangle
+            Margin="0"
+            SnapsToDevicePixels="true"
+            Stroke="{DynamicResource CommonControlsFocusVisualText}"
+            StrokeDashArray="1 2"
+            StrokeThickness="1" />
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="OptionMarkFocusVisualTemplate">
+        <Rectangle
+            Margin="14,0,0,0"
+            SnapsToDevicePixels="true"
+            Stroke="{DynamicResource CommonControlsFocusVisualText}"
+            StrokeDashArray="1 2"
+            StrokeThickness="1" />
+    </ControlTemplate>
+</ResourceDictionary>

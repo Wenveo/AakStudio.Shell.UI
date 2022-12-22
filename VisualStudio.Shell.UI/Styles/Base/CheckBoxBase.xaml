@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="CheckBoxBaseStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
+        <Setter Property="Background" Value="{DynamicResource CommonControlsCheckBoxBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CommonControlsCheckBoxBorder}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonControlsCheckBoxText}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Grid x:Name="templateRoot">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid
+                            Width="16"
+                            Height="16"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            SnapsToDevicePixels="True">
+                            <Border
+                                x:Name="checkBoxBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1" />
+                            <Grid x:Name="markGrid">
+                                <Path
+                                    x:Name="optionMark"
+                                    Width="9"
+                                    Height="8"
+                                    Margin="3,1,2,2"
+                                    Data="M6.22,11.02C6.22,11.02 2.5,7.24 2.5,7.24 2.5,7.24 4.05,5.71 4.05,5.71 4.05,5.71 5.97,7.65 5.97,7.65 5.97,7.65 10.52,1.38 10.52,1.38 10.52,1.38 13.19,1.38 13.19,1.38 13.19,1.38 6.22,11.02 6.22,11.02 6.22,11.02 6.22,11.02 6.22,11.02z"
+                                    Fill="{DynamicResource CommonControlsCheckBoxGlyph}"
+                                    Stretch="Uniform"
+                                    Visibility="Collapsed" />
+                                <Rectangle
+                                    x:Name="indeterminateMark"
+                                    Margin="3"
+                                    Fill="{DynamicResource CommonControlsCheckBoxGlyph}"
+                                    Visibility="Hidden" />
+                            </Grid>
+                        </Grid>
+                        <Border
+                            x:Name="paddingBorder"
+                            Grid.Column="1"
+                            Width="6"
+                            Background="Transparent"
+                            Visibility="Collapsed" />
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Grid.Column="2"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasContent" Value="True">
+                            <Setter Property="Padding" Value="0,1,0,0" />
+                            <Setter TargetName="paddingBorder" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="optionMark" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="indeterminateMark" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{DynamicResource CommonControlsCheckBoxBackgroundDisabled}" />
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{DynamicResource CommonControlsCheckBoxBorderDisabled}" />
+                            <Setter TargetName="optionMark" Property="Fill" Value="{DynamicResource CommonControlsCheckBoxGlyphDisabled}" />
+                            <Setter Property="Foreground" Value="{DynamicResource CommonControlsCheckBoxTextDisabled}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{DynamicResource CommonControlsCheckBoxBackgroundFocused}" />
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{DynamicResource CommonControlsCheckBoxBorderFocused}" />
+                            <Setter TargetName="optionMark" Property="Fill" Value="{DynamicResource CommonControlsCheckBoxGlyphFocused}" />
+                            <Setter Property="Foreground" Value="{DynamicResource CommonControlsCheckBoxTextFocused}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{DynamicResource CommonControlsCheckBoxBackgroundHover}" />
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{DynamicResource CommonControlsCheckBoxBorderHover}" />
+                            <Setter TargetName="optionMark" Property="Fill" Value="{DynamicResource CommonControlsCheckBoxGlyphHover}" />
+                            <Setter Property="Foreground" Value="{DynamicResource CommonControlsCheckBoxTextHover}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{DynamicResource CommonControlsCheckBoxBackgroundPressed}" />
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{DynamicResource CommonControlsCheckBoxBorderPressed}" />
+                            <Setter TargetName="optionMark" Property="Fill" Value="{DynamicResource CommonControlsCheckBoxGlyphPressed}" />
+                            <Setter Property="Foreground" Value="{DynamicResource CommonControlsCheckBoxTextPressed}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

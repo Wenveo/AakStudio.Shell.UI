@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="VisualStudio.Shell.UI.Showcase.Views.CheckBoxView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default CheckBox" />
+            <CheckBox
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                Content="{Binding IsChecked, RelativeSource={RelativeSource Self}}"
+                ContentStringFormat="IsChecked: {0}" />
+            <CheckBox
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                Content="Enabled" />
+            <CheckBox
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                Content="Disabled"
+                IsEnabled="False" />
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

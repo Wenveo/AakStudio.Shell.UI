@@ -1,0 +1,251 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controlzEx="urn:controlzex"
+    xmlns:ctrls="clr-namespace:VisualStudio.Shell.UI.Controls"
+    xmlns:strings="clr-namespace:VisualStudio.Shell.UI.Strings">
+
+    <Style x:Key="{x:Type ctrls:WindowSystemButton}" TargetType="{x:Type ctrls:WindowSystemButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Width" Value="45" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonActive}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonActiveBorder}" />
+        <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonActiveGlyph}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:WindowSystemButton}">
+                    <Border
+                        x:Name="Border"
+                        AutomationProperties.Name="{Binding ToolTip, RelativeSource={RelativeSource Self}}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Path
+                            x:Name="path"
+                            Width="10"
+                            Height="10"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Fill="{TemplateBinding Foreground}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            Stretch="Uniform"
+                            UseLayoutRounding="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="controlzEx:NonClientControlProperties.IsNCMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverActive}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonHoverActiveBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonHoverActiveGlyph}" />
+                        </Trigger>
+                        <Trigger Property="controlzEx:NonClientControlProperties.IsNCPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonDown}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonDownBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonDownGlyph}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverActive}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonHoverActiveBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonHoverActiveGlyph}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonDown}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonDownBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonDownGlyph}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonInactive}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonInactiveBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonInactiveGlyph}" />
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactive}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactiveBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactiveGlyph}" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
+                                <Condition Binding="{Binding Path=(controlzEx:NonClientControlProperties.IsNCMouseOver), RelativeSource={RelativeSource Self}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactive}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactiveBorder}" />
+                            <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactiveGlyph}" />
+                        </MultiDataTrigger>
+                        <Trigger Property="CurrentWinSysType" Value="Minimize">
+                            <Setter TargetName="Border" Property="ToolTip" Value="{x:Static strings:Resources.WinSysButton_Minimize}" />
+                            <Setter TargetName="path" Property="Data" Value="M14 8v1H3V8h11z" />
+                        </Trigger>
+                        <Trigger Property="CurrentWinSysType" Value="Maximize">
+                            <Setter TargetName="Border" Property="ToolTip" Value="{x:Static strings:Resources.WinSysButton_Maximize}" />
+                            <Setter TargetName="path" Property="Data" Value="M3 3v10h10V3H3zm9 9H4V4h8v8z" />
+                        </Trigger>
+                        <Trigger Property="CurrentWinSysType" Value="Restore">
+                            <Setter TargetName="Border" Property="ToolTip" Value="{x:Static strings:Resources.WinSysButton_Restore}" />
+                            <Setter TargetName="path" Property="Data" Value="M3 5v9h9V5H3zm8 8H4V6h7v7z M5 5h1V4h7v7h-1v1h2V3H5v2z" />
+                        </Trigger>
+                        <Trigger Property="CurrentWinSysType" Value="Close">
+                            <Setter TargetName="Border" Property="ToolTip" Value="{x:Static strings:Resources.WinSysButton_Close}" />
+                            <Setter TargetName="path" Property="Data" Value="M7.116 8l-4.558 4.558.884.884L8 8.884l4.558 4.558.884-.884L8.884 8l4.558-4.558-.884-.884L8 7.116 3.442 2.558l-.884.884L7.116 8z" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Opacity" Value="0.32" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="MetroWindowBaseTemplate" TargetType="{x:Type ctrls:MetroWindow}">
+        <Border
+            x:Name="PART_Border"
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+            <Grid x:Name="RootGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <DockPanel
+                    x:Name="PART_TitleBar"
+                    Grid.Row="0"
+                    controlzEx:NonClientControlProperties.HitTestResult="CAPTION"
+                    Background="Transparent">
+                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                        <ContentPresenter
+                            x:Name="PART_RightWindowCommands"
+                            controlzEx:WindowChrome.IsHitTestVisibleInChrome="True"
+                            Content="{Binding RightWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
+                        <ctrls:WindowSystemButton
+                            x:Name="MinimizeButton"
+                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
+                            controlzEx:NonClientControlProperties.HitTestResult="MINBUTTON"
+                            WinSysType="Minimize" />
+                        <ctrls:WindowSystemButton
+                            x:Name="MaximizeButton"
+                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
+                            controlzEx:NonClientControlProperties.HitTestResult="MAXBUTTON"
+                            WinSysType="Maximize" />
+                        <ctrls:WindowSystemButton
+                            x:Name="CloseButton"
+                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
+                            controlzEx:NonClientControlProperties.HitTestResult="CLOSE"
+                            WinSysType="Close" />
+                    </StackPanel>
+                    <Image
+                        x:Name="PART_Icon"
+                        Width="16"
+                        Height="16"
+                        Margin="10,5,0,0"
+                        VerticalAlignment="Top"
+                        Source="{TemplateBinding Icon}" />
+                    <TextBlock
+                        x:Name="PART_Title"
+                        Margin="5,5,0,0"
+                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="NoWrap" />
+                    <ContentPresenter
+                        x:Name="PART_LeftWindowCommands"
+                        HorizontalAlignment="Left"
+                        controlzEx:WindowChrome.IsHitTestVisibleInChrome="True"
+                        Content="{Binding LeftWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
+                </DockPanel>
+                <Grid Grid.Row="1">
+                    <AdornerDecorator>
+                        <ContentPresenter />
+                    </AdornerDecorator>
+
+                    <ResizeGrip
+                        x:Name="WindowResizeGrip"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        controlzEx:WindowChrome.ResizeGripDirection="BottomRight"
+                        IsTabStop="false"
+                        Visibility="Collapsed" />
+                </Grid>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsActive" Value="False">
+                <Setter TargetName="PART_TitleBar" Property="TextElement.Foreground" Value="{DynamicResource EnvironmentMainWindowInactiveCaptionText}" />
+                <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowInactiveBorder}" />
+            </Trigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_Title" Property="Margin" Value="10,5,0,0" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowIcon" Value="False">
+                <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_Title" Property="Margin" Value="10,5,0,0" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowTitle" Value="False">
+                <Setter TargetName="PART_Title" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowTitleBar" Value="False">
+                <Setter TargetName="PART_TitleBar" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowMinimizeButton" Value="False">
+                <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowMaximizeButton" Value="False">
+                <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="ctrls:MetroWindow.IsShowCloseButton" Value="False">
+                <Setter TargetName="CloseButton" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="Window.WindowState" Value="Maximized">
+                <Setter TargetName="PART_Border" Property="BorderThickness" Value="0" />
+                <Setter TargetName="PART_Border" Property="Padding" Value="{Binding OnMaximizedPadding, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Trigger>
+            <Trigger Property="Window.ResizeMode" Value="NoResize">
+                <Setter Property="ctrls:MetroWindow.IsShowMinimizeButton" Value="False" />
+                <Setter Property="ctrls:MetroWindow.IsShowMaximizeButton" Value="False" />
+            </Trigger>
+            <Trigger Property="Window.ResizeMode" Value="CanMinimize">
+                <Setter TargetName="MaximizeButton" Property="IsEnabled" Value="False" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Window.ResizeMode" Value="CanResizeWithGrip" />
+                    <Condition Property="Window.WindowState" Value="Normal" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="WindowResizeGrip" Property="Visibility" Value="Visible" />
+            </MultiTrigger>
+            <Trigger Property="Window.WindowStyle" Value="None">
+                <Setter TargetName="PART_TitleBar" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="Window.WindowStyle" Value="ToolWindow">
+                <Setter Property="ctrls:MetroWindow.IsShowMinimizeButton" Value="False" />
+                <Setter Property="ctrls:MetroWindow.IsShowMaximizeButton" Value="False" />
+                <Setter Property="ctrls:MetroWindow.IsShowCloseButton" Value="True" />
+                <Setter TargetName="CloseButton" Property="Height" Value="30" />
+                <Setter TargetName="CloseButton" Property="Width" Value="32" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="MetroWindowBaseStyle" TargetType="{x:Type ctrls:MetroWindow}">
+        <Setter Property="ActiveGlowBrush" Value="{DynamicResource EnvironmentMainWindowActiveDefaultBorder}" />
+        <Setter Property="InactiveGlowBrush" Value="{DynamicResource EnvironmentMainWindowInactiveBorder}" />
+        <Setter Property="Foreground" Value="{DynamicResource SystemColorsWindowText}" />
+        <Setter Property="Background" Value="{DynamicResource SystemColorsWindow}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowActiveDefaultBorder}" />
+        <Setter Property="Template" Value="{DynamicResource MetroWindowBaseTemplate}" />
+    </Style>
+</ResourceDictionary>
