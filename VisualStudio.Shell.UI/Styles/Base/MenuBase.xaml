@@ -2,7 +2,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="clr-namespace:VisualStudio.Shell.UI.Controls.Attach"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+
+    <sys:Double x:Key="TopLevelMenuPopupTopOpenedVerticalOffset">0</sys:Double>
 
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
     <Geometry x:Key="DownArrow">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
@@ -243,9 +246,9 @@
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                 <Popup
                     x:Name="PART_Popup"
-                    AllowsTransparency="true"
-                    Focusable="false"
-                    HorizontalOffset="-1"
+                    AllowsTransparency="True"
+                    Focusable="False"
+                    HorizontalOffset="0"
                     IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
                     Placement="Bottom"
                     PopupAnimation="None">
@@ -280,6 +283,7 @@
                                     </Grid>
                                 </ScrollViewer>
                                 <Border
+                                    x:Name="PART_TopLine"
                                     Height="1"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
@@ -322,6 +326,16 @@
                 <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource TopLevelMenuItemBorderDisabled}" />
                 <Setter Property="Foreground" Value="{DynamicResource MenuItemForegroundDisabled}" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSubmenuOpen" Value="True" />
+                    <Condition SourceName="PART_TopLine" Property="Width" Value="0" />
+                    <Condition SourceName="PART_TopLine" Property="Margin" Value="0" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter TargetName="PART_Popup" Property="VerticalOffset" Value="{DynamicResource TopLevelMenuPopupTopOpenedVerticalOffset}" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 

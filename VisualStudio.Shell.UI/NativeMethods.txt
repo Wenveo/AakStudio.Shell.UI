@@ -1,8 +1,3 @@
 ﻿GetCursorPos
-GetDeviceCaps
-GetDC
 GetMonitorInfo
-MonitorFromPoint
-ReleaseDC
-SetWindowPos
-ShowWindow
+SystemParametersInfo
