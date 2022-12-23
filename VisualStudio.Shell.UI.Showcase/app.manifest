@@ -8,7 +8,7 @@
 		</windowsSettings>
 	</application>
 
-	<assemblyIdentity version="1.0.0.0" name="MyApplication.app"/>
+	<assemblyIdentity version="1.0.0.0" name="VisualStudio.Shell.UI.Showcase"/>
 	<trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
 		<security>
 			<requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
