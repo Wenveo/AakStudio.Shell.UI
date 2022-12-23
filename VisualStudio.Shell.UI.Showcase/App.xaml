@@ -9,11 +9,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <vsui:XamlUIResources>
-                    <vsui:XamlUIResources.Theme>
-                        <vsui:VisualStudio2019Dark />
-                    </vsui:XamlUIResources.Theme>
-                </vsui:XamlUIResources>
+                <vsui:XamlUIResources />
                 <ResourceDictionary>
                     <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
