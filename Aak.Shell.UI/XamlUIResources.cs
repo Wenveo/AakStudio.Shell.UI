@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Aak.Shell.UI.Themes;
+using System;
 using System.Windows;
-using Aak.Shell.UI.Themes;
 
 namespace Aak.Shell.UI
 {
