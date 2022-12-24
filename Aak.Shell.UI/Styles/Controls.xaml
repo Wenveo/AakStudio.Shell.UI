@@ -28,9 +28,15 @@
         BasedOn="{StaticResource ButtonBaseStyle}"
         TargetType="{x:Type Button}" />
 
-    <Style BasedOn="{StaticResource CheckBoxBaseStyle}" TargetType="{x:Type CheckBox}" />
+    <Style
+        x:Key="{x:Type CheckBox}"
+        BasedOn="{StaticResource CheckBoxBaseStyle}"
+        TargetType="{x:Type CheckBox}" />
 
-    <Style BasedOn="{StaticResource ComboBoxItemBaseStyle}" TargetType="{x:Type ComboBoxItem}" />
+    <Style
+        x:Key="{x:Type ComboBoxItem}"
+        BasedOn="{StaticResource ComboBoxItemBaseStyle}"
+        TargetType="{x:Type ComboBoxItem}" />
 
     <Style
         x:Key="{x:Type ComboBox}"
@@ -84,7 +90,10 @@
         BasedOn="{StaticResource ListBoxBaseStyle}"
         TargetType="{x:Type ListBox}" />
 
-    <Style BasedOn="{StaticResource ListBoxItemStyle}" TargetType="{x:Type ListBoxItem}" />
+    <Style
+        x:Key="{x:Type ListBoxItem}"
+        BasedOn="{StaticResource ListBoxItemStyle}"
+        TargetType="{x:Type ListBoxItem}" />
 
     <Style
         x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}"
@@ -142,7 +151,10 @@
         BasedOn="{StaticResource ProgressBarBaseStyle}"
         TargetType="{x:Type ProgressBar}" />
 
-    <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="{x:Type RadioButton}">
+    <Style
+        x:Key="{x:Type RadioButton}"
+        BasedOn="{StaticResource RadioButtonBaseStyle}"
+        TargetType="{x:Type RadioButton}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
     </Style>
 
@@ -176,9 +188,15 @@
         BasedOn="{StaticResource StatusBarItemBaseStyle}"
         TargetType="{x:Type StatusBarItem}" />
 
-    <Style BasedOn="{StaticResource TabItemBaseStyle}" TargetType="{x:Type TabItem}" />
+    <Style
+        x:Key="{x:Type TabItem}"
+        BasedOn="{StaticResource TabItemBaseStyle}"
+        TargetType="{x:Type TabItem}" />
 
-    <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="{x:Type TabControl}" />
+    <Style
+        x:Key="{x:Type TabControl}"
+        BasedOn="{StaticResource TabControlBaseStyle}"
+        TargetType="{x:Type TabControl}" />
 
     <Style
         x:Key="{x:Type TextBoxBase}"
