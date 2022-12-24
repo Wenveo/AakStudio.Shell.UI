@@ -13,7 +13,7 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="AllowDrop" Value="True" />
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="TextBox.TextWrapping" Value="NoWrap" />
@@ -50,7 +50,7 @@
                         SnapsToDevicePixels="True">
                         <ScrollViewer
                             Name="PART_ContentHost"
-                            Focusable="false"
+                            Focusable="False"
                             HorizontalScrollBarVisibility="Hidden"
                             VerticalScrollBarVisibility="Hidden" />
                     </Border>
@@ -70,7 +70,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource CommonControlsTextBoxTextFocused}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource CommonControlsTextBoxBorderFocused}" />
                         </Trigger>
-                        <Trigger Property="Validation.HasError" Value="true">
+                        <Trigger Property="Validation.HasError" Value="True">
                             <!--
                                 OneTime is used to prevent a memory leak since ValidationError doesn't impl INotifyPropertyChanged and gets stored in a static: System.ComponentModel.ReflectTypeDescriptionProvider._propertyCache
                                 It holds a reference to the DataContext

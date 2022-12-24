@@ -170,7 +170,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         controlzEx:WindowChrome.ResizeGripDirection="BottomRight"
-                        IsTabStop="false"
+                        IsTabStop="False"
                         Visibility="Collapsed" />
                 </Grid>
             </Grid>

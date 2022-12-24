@@ -13,7 +13,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HasDropShadow" Value="False" />
         <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
-        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">

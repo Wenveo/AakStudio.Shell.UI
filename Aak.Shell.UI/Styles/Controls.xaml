@@ -20,7 +20,7 @@
         x:Key="{x:Type RepeatButton}"
         BasedOn="{StaticResource ButtonBaseStyle}"
         TargetType="{x:Type RepeatButton}">
-        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False" />
     </Style>
 
     <Style

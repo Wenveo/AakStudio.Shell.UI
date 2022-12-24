@@ -3,7 +3,7 @@
     <ControlTemplate x:Key="FocusVisualTemplate">
         <Rectangle
             Margin="0"
-            SnapsToDevicePixels="true"
+            SnapsToDevicePixels="True"
             Stroke="{DynamicResource CommonControlsFocusVisualText}"
             StrokeDashArray="1 2"
             StrokeThickness="1" />
@@ -12,7 +12,7 @@
     <ControlTemplate x:Key="OptionMarkFocusVisualTemplate">
         <Rectangle
             Margin="14,0,0,0"
-            SnapsToDevicePixels="true"
+            SnapsToDevicePixels="True"
             Stroke="{DynamicResource CommonControlsFocusVisualText}"
             StrokeDashArray="1 2"
             StrokeThickness="1" />

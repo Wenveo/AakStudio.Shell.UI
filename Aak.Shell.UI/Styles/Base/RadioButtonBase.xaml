@@ -48,7 +48,7 @@
                         <Trigger Property="HasContent" Value="True">
                             <Setter Property="Padding" Value="6,1,0,0" />
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="true">
+                        <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="optionMark" Property="Opacity" Value="1" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">

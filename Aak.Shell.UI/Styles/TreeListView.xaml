@@ -196,7 +196,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="true">
+                        SnapsToDevicePixels="True">
                         <Border Name="InnerBorder" BorderThickness="1">
                             <Grid Name="Grid">
                                 <Grid.RowDefinitions>
@@ -228,7 +228,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="true">
+                        SnapsToDevicePixels="True">
                         <Border Name="InnerBorder" BorderThickness="1">
                             <Grid Name="Grid">
                                 <Grid.RowDefinitions>
@@ -261,7 +261,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -273,7 +273,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="true">
+                        SnapsToDevicePixels="True">
                         <!--  Focusable=False (setter) is ignored in the style for some reason. Override it here  -->
                         <ScrollViewer
                             Padding="{TemplateBinding Padding}"
@@ -306,7 +306,7 @@
             <Trigger Property="View" Value="{x:Null}">
                 <Setter Property="ItemContainerStyle" Value="{StaticResource TreeListViewItemContainerBaseStyle}" />
             </Trigger>
-            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="True">
                 <Setter Property="ItemsPanel">
                     <Setter.Value>
                         <ItemsPanelTemplate>

@@ -15,7 +15,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource ContextMenuBorderBrush}" />
         <Setter Property="Padding" Value="2" />
-        <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+        <Setter Property="Grid.IsSharedSizeScope" Value="True" />
         <Setter Property="HasDropShadow" Value="{DynamicResource {x:Static SystemParameters.DropShadowKey}}" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
@@ -24,7 +24,7 @@
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
                     <theme:SystemDropShadowChrome
                         Name="Shadow"
-                        SnapsToDevicePixels="true"
+                        SnapsToDevicePixels="True"
                         Color="Transparent">
                         <Border
                             Name="ContextMenuBorder"
@@ -66,11 +66,11 @@
                         </Border>
                     </theme:SystemDropShadowChrome>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="HasDropShadow" Value="true">
+                        <Trigger Property="HasDropShadow" Value="True">
                             <Setter TargetName="Shadow" Property="Margin" Value="0,0,5,5" />
                             <Setter TargetName="Shadow" Property="Color" Value="{DynamicResource ControlShadow}" />
                         </Trigger>
-                        <Trigger SourceName="ContextMenuScrollViewer" Property="ScrollViewer.CanContentScroll" Value="false">
+                        <Trigger SourceName="ContextMenuScrollViewer" Property="ScrollViewer.CanContentScroll" Value="False">
                             <Setter TargetName="OpaqueRect" Property="Canvas.Top" Value="{Binding ElementName=ContextMenuScrollViewer, Path=VerticalOffset}" />
                             <Setter TargetName="OpaqueRect" Property="Canvas.Left" Value="{Binding ElementName=ContextMenuScrollViewer, Path=HorizontalOffset}" />
                         </Trigger>

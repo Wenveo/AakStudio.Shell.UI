@@ -29,13 +29,13 @@
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
+                        <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{Binding HoverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="Border" Property="Background" Value="{Binding HoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="{Binding HoverBorderThickness, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter Property="TextElement.Foreground" Value="{Binding HoverForeground, RelativeSource={RelativeSource Self}}" />
                         </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
+                        <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="Border" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="{Binding PressedBorderThickness, RelativeSource={RelativeSource TemplatedParent}}" />

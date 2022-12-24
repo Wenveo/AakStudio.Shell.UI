@@ -64,7 +64,7 @@
                             <Setter Property="Padding" Value="0,1,0,0" />
                             <Setter TargetName="paddingBorder" Property="Visibility" Value="Visible" />
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="true">
+                        <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="optionMark" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
