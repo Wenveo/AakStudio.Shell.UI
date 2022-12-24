@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using Aak.Shell.UI.Controls;
+﻿using Aak.Shell.UI.Controls;
+using System.Windows.Controls;
 
 namespace Aak.Shell.UI.Showcase.Views
 {

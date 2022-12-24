@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using Aak.Shell.UI.Themes;
+using System.Collections.ObjectModel;
 using System.Linq;
-using Aak.Shell.UI.Themes;
 
 namespace Aak.Shell.UI.Showcase.ViewModels;
 

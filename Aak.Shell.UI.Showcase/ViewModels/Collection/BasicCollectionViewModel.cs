@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Aak.Shell.UI.Showcase.Commands;
+using Aak.Shell.UI.Showcase.Views;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Views;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
 

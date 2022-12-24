@@ -1,6 +1,6 @@
+using Aak.Shell.UI.Showcase.ViewModels.Collection;
 using System;
 using System.Windows.Data;
-using Aak.Shell.UI.Showcase.ViewModels.Collection;
 
 namespace Aak.Shell.UI.Showcase.Converters;
 

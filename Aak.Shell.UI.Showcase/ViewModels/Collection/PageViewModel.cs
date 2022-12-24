@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using Aak.Shell.UI.Showcase.Commands;
+using System.Windows;
 using System.Windows.Input;
-using Aak.Shell.UI.Showcase.Commands;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
 

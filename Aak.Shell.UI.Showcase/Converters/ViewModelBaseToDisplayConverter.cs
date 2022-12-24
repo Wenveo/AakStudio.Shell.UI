@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Aak.Shell.UI.Showcase.ViewModels.Collection;
+using System;
 using System.Globalization;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media;
-using Aak.Shell.UI.Showcase.ViewModels.Collection;
 
 namespace Aak.Shell.UI.Showcase.Converters;
 

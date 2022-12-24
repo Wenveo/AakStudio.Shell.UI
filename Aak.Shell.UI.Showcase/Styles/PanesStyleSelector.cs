@@ -1,7 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using Aak.Shell.UI.Showcase.ViewModels;
+﻿using Aak.Shell.UI.Showcase.ViewModels;
 using Aak.Shell.UI.Showcase.ViewModels.Collection;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Aak.Shell.UI.Showcase.Styles;
 
