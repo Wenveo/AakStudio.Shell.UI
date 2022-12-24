@@ -23,6 +23,8 @@ public sealed partial class MainWindow : MetroWindow
         {
             mainStatusBar.ClearValue(BackgroundProperty);
             mainStatusBar.ClearValue(ForegroundProperty);
+
+            isCleanValue = true;
         }
     }
 }
