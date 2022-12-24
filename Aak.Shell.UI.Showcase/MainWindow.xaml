@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="clr-namespace:Aak.Shell.UI.Showcase.Attach"
     xmlns:collection="clr-namespace:Aak.Shell.UI.Showcase.ViewModels.Collection"
-    xmlns:controlzex="urn:controlzex"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -89,7 +88,8 @@
                 Grid.Column="1"
                 Margin="5,0,0,0"
                 VerticalAlignment="Top"
-                Background="{DynamicResource CommonControlsCheckBoxBackground}">
+                Background="{DynamicResource CommonControlsCheckBoxBackground}"
+                IsHitTestVisible="False">
                 <TextBlock
                     Margin="6,2,6,2"
                     HorizontalAlignment="Center"
