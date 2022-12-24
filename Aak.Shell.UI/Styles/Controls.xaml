@@ -132,7 +132,15 @@
         BasedOn="{StaticResource MenuBaseStyle}"
         TargetType="{x:Type Menu}" />
 
-    <Style BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="{x:Type ProgressBar}" />
+    <Style
+        x:Key="{x:Type PasswordBox}"
+        BasedOn="{StaticResource PasswordBoxBaseStyle}"
+        TargetType="{x:Type PasswordBox}" />
+
+    <Style
+        x:Key="{x:Type ProgressBar}"
+        BasedOn="{StaticResource ProgressBarBaseStyle}"
+        TargetType="{x:Type ProgressBar}" />
 
     <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="{x:Type RadioButton}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />

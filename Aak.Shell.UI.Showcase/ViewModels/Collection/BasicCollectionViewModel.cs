@@ -46,6 +46,7 @@ internal sealed class BasicCollectionViewModel : CollectionViewModel
             new PageViewModel(new ListBoxView(), "ListBox", this),
             new PageViewModel(new ListViewView(), "ListView", this),
             new PageViewModel(new MenuView(), "Menu", this),
+            new PageViewModel(new PasswordBoxView(), "PasswordBox", this),
             new PageViewModel(new ProgressBarView(), "ProgressBar", this),
             new PageViewModel(new ScrollViewView(), "ScrollView", this),
             new PageViewModel(new StatusBarView(), "StatusBar", this),

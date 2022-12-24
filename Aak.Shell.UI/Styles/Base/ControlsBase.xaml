@@ -13,6 +13,7 @@
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/ListBoxBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/ListViewBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/MenuBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/PasswordBoxBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/ProgressBarBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/RadioButtonBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/ResizeGripBase.xaml" />
