@@ -1,1 +1,1 @@
-# VisualStudio.Shell.UI
+# Aak.Shell.UI
