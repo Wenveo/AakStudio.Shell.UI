@@ -24,7 +24,9 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="100">
+                            CornerRadius="100"
+                            SnapsToDevicePixels="False"
+                            UseLayoutRounding="False">
                             <Grid x:Name="markGrid" Margin="2">
                                 <Ellipse
                                     x:Name="optionMark"
