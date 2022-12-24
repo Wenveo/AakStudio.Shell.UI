@@ -13,6 +13,7 @@
     Width="1280"
     Height="720"
     d:DataContext="{d:DesignInstance Type=vm:WorkSpaceViewModel}"
+    Activated="MetroWindow_Activated"
     IsShowIcon="False"
     IsShowTitle="False"
     ResizeMode="CanResizeWithGrip"
@@ -221,6 +222,8 @@
                     </styles:PanesStyleSelector.PageStyle>
                     <styles:PanesStyleSelector.StyleSelectorStyle>
                         <Style TargetType="{x:Type LayoutAnchorableItem}">
+                            <Setter Property="CanHide" Value="True" />
+                            <Setter Property="CanClose" Value="True" />
                             <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
                             <Setter Property="Title" Value="Wpf Base Styles" />
                         </Style>
