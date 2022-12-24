@@ -2,6 +2,7 @@
     x:Class="Aak.Shell.UI.Showcase.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     StartupUri="MainWindow.xaml">
@@ -9,13 +10,30 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlUIResources />
-                <ResourceDictionary>
-                    <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-
-                    <converters:ActiveDocumentConverter x:Key="ActiveDocumentConverter" />
-                    <converters:ViewModelBaseToDisplayConverter x:Key="ViewModelBaseToDisplayConverter" />
-                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+            <converters:ActiveDocumentConverter x:Key="ActiveDocumentConverter" />
+            <converters:DocumentWellTitleConverter x:Key="DocumentWellTitleConverter" />
+            <converters:ViewModelBaseToDisplayConverter x:Key="ViewModelBaseToDisplayConverter" />
+
+            <DataTemplate x:Key="AakDocumentWellTitleTemplate">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Text="{Binding Title, Converter={StaticResource DocumentWellTitleConverter}}"
+                    TextTrimming="CharacterEllipsis" />
+            </DataTemplate>
+
+            <Style
+                x:Key="{x:Type avalonDockControls:LayoutDocumentFloatingWindowControl}"
+                BasedOn="{StaticResource DocumentWellWindowBaseStyle}"
+                TargetType="{x:Type avalonDockControls:LayoutDocumentFloatingWindowControl}">
+                <Setter Property="AllowMinimize" Value="True" />
+                <Setter Property="ShowInTaskbar" Value="True" />
+                <Setter Property="OwnedByDockingManagerWindow" Value="False" />
+                <Setter Property="Icon" Value="{Binding MainWindow.Icon, Source={x:Static Application.Current}, Mode=OneWay}" />
+                <Setter Property="Title" Value="{Binding Model.SinglePane.SelectedContent.Title, RelativeSource={RelativeSource Self}, Converter={StaticResource DocumentWellTitleConverter}}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

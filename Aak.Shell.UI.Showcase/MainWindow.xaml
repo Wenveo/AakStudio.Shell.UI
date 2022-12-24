@@ -149,6 +149,7 @@
             ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}"
             ActiveContentChanged="dockingManager_ActiveContentChanged"
             AnchorablesSource="{Binding Anchorables}"
+            DocumentTitleTemplate="{StaticResource AakDocumentWellTitleTemplate}"
             DocumentsSource="{Binding DocumentViews}">
             <DockingManager.LayoutItemTemplateSelector>
                 <styles:PanesTemplateSelector>
@@ -234,7 +235,9 @@
             </DockingManager.LayoutItemContainerStyleSelector>
             <LayoutRoot>
                 <LayoutPanel Orientation="Horizontal">
-                    <LayoutDocumentPane />
+                    <LayoutDocumentPaneGroup>
+                        <LayoutDocumentPane />
+                    </LayoutDocumentPaneGroup>
                 </LayoutPanel>
             </LayoutRoot>
         </DockingManager>
