@@ -182,50 +182,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="ContextMenu">
-            <Setter.Value>
-                <ContextMenu>
-                    <MenuItem
-                        AutomationProperties.AutomationId="ScrollHere"
-                        Command="ScrollBar.ScrollHereCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_ScrollHere}" />
-                    <Separator />
-                    <MenuItem
-                        AutomationProperties.AutomationId="ScrollToTop"
-                        Command="ScrollBar.ScrollToTopCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_ScrollToTop}" />
-                    <MenuItem
-                        AutomationProperties.AutomationId="ScrollToBottom"
-                        Command="ScrollBar.ScrollToBottomCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_ScrollToBottom}" />
-                    <Separator />
-                    <MenuItem
-                        AutomationProperties.AutomationId="PageUp"
-                        Command="ScrollBar.PageUpCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_PageUp}" />
-                    <MenuItem
-                        AutomationProperties.AutomationId="PageDown"
-                        Command="ScrollBar.PageDownCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_PageDown}" />
-                    <Separator />
-                    <MenuItem
-                        AutomationProperties.AutomationId="LineUp"
-                        Command="ScrollBar.LineUpCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_LineUp}" />
-                    <MenuItem
-                        AutomationProperties.AutomationId="LineDown"
-                        Command="ScrollBar.LineDownCommand"
-                        CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                        Header="{x:Static strings:Resources.ScrollBar_LineDown}" />
-                </ContextMenu>
-            </Setter.Value>
-        </Setter>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Horizontal">
                 <Setter Property="Width" Value="Auto" />
@@ -272,50 +228,6 @@
                                 </Grid>
                             </Border>
                         </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="ContextMenu">
-                    <Setter.Value>
-                        <ContextMenu>
-                            <MenuItem
-                                AutomationProperties.AutomationId="ScrollHere"
-                                Command="ScrollBar.ScrollHereCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_ScrollHere}" />
-                            <Separator />
-                            <MenuItem
-                                AutomationProperties.AutomationId="ScrollToLeftEnd"
-                                Command="ScrollBar.ScrollToLeftEndCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_ScrollToLeftEnd}" />
-                            <MenuItem
-                                AutomationProperties.AutomationId="ScrollToRightEnd"
-                                Command="ScrollBar.ScrollToRightEndCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_ScrollToRightEnd}" />
-                            <Separator />
-                            <MenuItem
-                                AutomationProperties.AutomationId="PageLeft"
-                                Command="ScrollBar.PageLeftCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_PageLeft}" />
-                            <MenuItem
-                                AutomationProperties.AutomationId="PageRight"
-                                Command="ScrollBar.PageRightCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_PageRight}" />
-                            <Separator />
-                            <MenuItem
-                                AutomationProperties.AutomationId="LineLeft"
-                                Command="ScrollBar.LineLeftCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_LineLeft}" />
-                            <MenuItem
-                                AutomationProperties.AutomationId="LineRight"
-                                Command="ScrollBar.LineRightCommand"
-                                CommandTarget="{Binding PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Mode=OneWay}"
-                                Header="{x:Static strings:Resources.ScrollBar_LineRight}" />
-                        </ContextMenu>
                     </Setter.Value>
                 </Setter>
             </Trigger>
