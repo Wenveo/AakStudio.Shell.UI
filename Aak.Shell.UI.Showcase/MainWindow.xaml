@@ -10,12 +10,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:styles="clr-namespace:Aak.Shell.UI.Showcase.Styles"
     xmlns:vm="clr-namespace:Aak.Shell.UI.Showcase.ViewModels"
-    Title="Showcase"
+    Title="Aak.Shell.UI.Showcase"
     Width="1280"
     Height="720"
     d:DataContext="{d:DesignInstance Type=vm:WorkSpaceViewModel}"
     IsShowIcon="False"
-    IsShowTitle="True"
+    IsShowTitle="False"
     ResizeMode="CanResizeWithGrip"
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
@@ -95,7 +95,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontWeight="Bold"
-                    Text="MainWindow"
+                    Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                     TextTrimming="CharacterEllipsis">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
