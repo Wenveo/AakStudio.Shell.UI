@@ -4,12 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
-    xmlns:vsui="http://visualstudio.shell.ui"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <vsui:XamlUIResources />
+                <XamlUIResources />
                 <ResourceDictionary>
                     <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 

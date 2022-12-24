@@ -7,16 +7,16 @@ using System.Windows.Markup;
 [assembly: System.Resources.NeutralResourcesLanguage("en", System.Resources.UltimateResourceFallbackLocation.MainAssembly)]
 
 
-[assembly: XmlnsPrefix("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "vsui")]
+[assembly: XmlnsPrefix("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "aakui")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Controls")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Controls.Attach")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Converters")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Themes")]
 
-[assembly: XmlnsPrefix("http://visualstudio.shell.ui", "vsui")]
-[assembly: XmlnsDefinition("http://visualstudio.shell.ui", "Aak.Shell.UI")]
-[assembly: XmlnsDefinition("http://visualstudio.shell.ui", "Aak.Shell.UI.Controls")]
-[assembly: XmlnsDefinition("http://visualstudio.shell.ui", "Aak.Shell.UI.Controls.Attach")]
-[assembly: XmlnsDefinition("http://visualstudio.shell.ui", "Aak.Shell.UI.Converters")]
-[assembly: XmlnsDefinition("http://visualstudio.shell.ui", "Aak.Shell.UI.Themes")]
+[assembly: XmlnsPrefix("http://aak.shell.ui", "aakui")]
+[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI")]
+[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Controls")]
+[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Controls.Attach")]
+[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Converters")]
+[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Themes")]
