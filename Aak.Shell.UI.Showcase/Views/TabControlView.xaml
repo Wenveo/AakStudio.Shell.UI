@@ -1,0 +1,69 @@
+﻿<UserControl
+    x:Class="Aak.Shell.UI.Showcase.Views.TabControlView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default TabControl" />
+            <TabControl
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                TabStripPlacement="Bottom">
+                <TabItem Header="TabItemA">
+                    <Border Width="460" Height="230">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="TabItemB">
+                    <Border Width="460" Height="230">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="TabItemC">
+                    <Border Width="460" Height="230">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Hello World!">
+                    <Border Width="460" Height="230">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Thinking.jpg">
+                    <Border Width="230" Height="80">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Disabled" IsEnabled="False">
+                    <Border Width="230" Height="80">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" />
+                    </Border>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

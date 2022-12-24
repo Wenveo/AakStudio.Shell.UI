@@ -1,0 +1,320 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrls="clr-namespace:Aak.Shell.UI.Controls">
+
+
+    <DataTemplate DataType="{x:Type ctrls:TreeListViewNode}">
+        <DataTemplate.Resources>
+            <Style TargetType="{x:Type ToggleButton}">
+                <Setter Property="Focusable" Value="False" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border
+                                Width="16"
+                                Height="16"
+                                Background="Transparent">
+                                <Path
+                                    Name="ExpandPath"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="M0.5,0.5 L0.5,6.5 L6.5,0.5 z"
+                                    Fill="Transparent"
+                                    SnapsToDevicePixels="True"
+                                    Stroke="{DynamicResource TreeViewGlyph}">
+                                    <Path.RenderTransform>
+                                        <RotateTransform Angle="135" CenterX="3" CenterY="3" />
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="ExpandPath" Property="RenderTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="180" CenterX="3" CenterY="3" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyph}" />
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyph}" />
+                                </Trigger>
+                                <DataTrigger Binding="{Binding IsEnabled}" Value="False">
+                                    <Setter Property="Opacity" Value="0.3" />
+                                </DataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False" />
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="Transparent" />
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyph}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphMouseOver}" />
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="Transparent" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphMouseOver}" />
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyphMouseOver}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="Transparent" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False" />
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphSelected}" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelected)}" Value="True" />
+                                        <Condition Binding="{Binding (Selector.IsSelectionActive)}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter TargetName="ExpandPath" Property="Stroke" Value="{DynamicResource TreeViewGlyphMouseOver}" />
+                                    <Setter TargetName="ExpandPath" Property="Fill" Value="{DynamicResource TreeViewGlyphMouseOver}" />
+                                </MultiDataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </DataTemplate.Resources>
+        <Grid
+            Margin="{Binding LevelPadding}"
+            VerticalAlignment="Stretch"
+            Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--  TreeListViewItem.Content == Self -> Content.IsExpanded  -->
+            <ToggleButton
+                x:Name="Expander"
+                Grid.Column="0"
+                Margin="0,1,0,0"
+                ClickMode="Press"
+                DataContext="{Binding Container}"
+                IsChecked="{Binding Content.IsExpanded, Mode=TwoWay}" />
+            <ContentPresenter
+                x:Name="PART_Header"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="{Binding Content}" />
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding HasItems}" Value="False">
+                <Setter TargetName="Expander" Property="Visibility" Value="Hidden" />
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <Style x:Key="InternalTreeListViewItemBaseStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="{DynamicResource GridViewItemContainerBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GridViewItemContainerBorder}" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeViewForeground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource TreeViewItemMouseOverBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TreeViewItemMouseOverBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TreeViewItemMouseOverForeground}" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource TreeViewItemSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TreeViewItemSelectedBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TreeViewItemSelectedForeground}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Selector.IsSelectionActive" Value="False" />
+                    <Condition Property="IsSelected" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedInactiveBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemSelectedInactiveBorder}" />
+                <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedInactiveForeground}" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource SystemColorsGrayText}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="TreeGridViewItemContainerBaseStyle"
+        BasedOn="{StaticResource InternalTreeListViewItemBaseStyle}"
+        TargetType="{x:Type ListViewItem}">
+        <Setter Property="Margin" Value="-6,0,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <Border Name="InnerBorder" BorderThickness="1">
+                            <Grid Name="Grid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MaxHeight="11" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <GridViewRowPresenter
+                                    x:Name="GridViewRowPresenter"
+                                    Grid.RowSpan="2"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="TreeListViewItemContainerBaseStyle"
+        BasedOn="{StaticResource InternalTreeListViewItemBaseStyle}"
+        TargetType="{x:Type ListViewItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <Border Name="InnerBorder" BorderThickness="1">
+                            <Grid Name="Grid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MaxHeight="11" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    Grid.RowSpan="2"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="{x:Type ctrls:TreeListViewItem}"
+        BasedOn="{StaticResource TreeListViewItemContainerBaseStyle}"
+        TargetType="{x:Type ctrls:TreeListViewItem}" />
+
+    <Style x:Key="TreeListViewBaseStyle" TargetType="{x:Type ctrls:TreeListView}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="{DynamicResource GridViewBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GridViewBorder}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource TreeGridViewItemContainerBaseStyle}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrls:TreeListView}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <!--  Focusable=False (setter) is ignored in the style for some reason. Override it here  -->
+                        <ScrollViewer
+                            Padding="{TemplateBinding Padding}"
+                            Focusable="False"
+                            Style="{DynamicResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource GridViewDisabledBackground}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource GridViewDisabledBorder}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource GridViewFocusedBackground}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource GridViewFocusedBorder}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="True" />
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="View" Value="{x:Null}">
+                <Setter Property="ItemContainerStyle" Value="{StaticResource TreeListViewItemContainerBaseStyle}" />
+            </Trigger>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

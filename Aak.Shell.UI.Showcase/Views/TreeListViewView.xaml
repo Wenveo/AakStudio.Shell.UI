@@ -1,0 +1,94 @@
+﻿<UserControl
+    x:Class="Aak.Shell.UI.Showcase.Views.TreeListViewView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Aak.Shell.UI.Showcase.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    mc:Ignorable="d">
+    <UniformGrid HorizontalAlignment="Left">
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default TreeListView" />
+            <TreeListView
+                x:Name="DefaultTreeListView"
+                Width="250"
+                Height="150"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left" />
+        </StackPanel>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="TreeGridView" />
+            <TreeListView
+                x:Name="DefaultTreeGridView"
+                Width="250"
+                Height="150"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left">
+                <TreeListView.View>
+                    <GridView>
+                        <GridViewColumn Width="120" Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate DataType="{x:Type local:Book}">
+                                    <ContentPresenter Content="{Binding}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Order}"
+                            Header="Order" />
+                    </GridView>
+                </TreeListView.View>
+            </TreeListView>
+        </StackPanel>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Disabled TreeListView" />
+            <TreeListView
+                x:Name="DisabledTreeListView"
+                Width="250"
+                Height="150"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                IsEnabled="False" />
+        </StackPanel>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Disabled TreeGridView" />
+            <TreeListView
+                x:Name="DisabledTreeGridView"
+                Width="250"
+                Height="150"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                IsEnabled="False">
+                <TreeListView.View>
+                    <GridView>
+                        <GridViewColumn Width="120" Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate DataType="{x:Type local:Book}">
+                                    <ContentPresenter Content="{Binding}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Order}"
+                            Header="Order" />
+                    </GridView>
+                </TreeListView.View>
+            </TreeListView>
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

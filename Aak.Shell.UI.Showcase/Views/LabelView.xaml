@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="Aak.Shell.UI.Showcase.Views.LabelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default Label" />
+            <Label
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                Content="He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him." />
+            <Label
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                Content="He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him."
+                IsEnabled="False" />
+        </StackPanel>
+    </UniformGrid>
+</UserControl>
