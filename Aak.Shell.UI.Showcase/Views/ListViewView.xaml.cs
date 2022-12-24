@@ -22,5 +22,5 @@ namespace Aak.Shell.UI.Showcase.Views
         }
     }
 
-    public record SimpleData(int ID, string Name, string Description);
+    public record SimpleData(int Id, string Name, string Description);
 }
