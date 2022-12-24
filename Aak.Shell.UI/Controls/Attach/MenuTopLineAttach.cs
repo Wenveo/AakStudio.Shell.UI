@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Aak.Shell.UI.Helpers;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using Aak.Shell.UI.Helpers;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
@@ -130,7 +130,13 @@ namespace Aak.Shell.UI.Controls.Attach
                         // Normal
                         left = 0;
                         width = menuItemRightBottom.X - menuItemLeftTop.X - leftRightPadding;
+
+                        if (remainderDpi > 0 && remainderDpi < 0.5)
+                        {
+                            width += remainderDpi;
+                        }
                     }
+
 
                     // Fix High Dpi
                     if (remainderDpi >= 0.5)
