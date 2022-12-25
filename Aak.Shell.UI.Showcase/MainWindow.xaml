@@ -14,8 +14,10 @@
     Height="720"
     d:DataContext="{d:DesignInstance Type=vm:WorkSpaceViewModel}"
     Activated="MetroWindow_Activated"
+    Icon="pack://application:,,,/icon.ico"
     IsShowIcon="False"
     IsShowTitle="False"
+    RenderOptions.BitmapScalingMode="Fant"
     ResizeMode="CanResizeWithGrip"
     SnapsToDevicePixels="True"
     TextOptions.TextFormattingMode="Display"
@@ -29,10 +31,21 @@
     <MetroWindow.LeftWindowCommands>
         <Grid Margin="4,6">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Menu Grid.Column="0">
+            <Viewbox
+                Width="16"
+                Height="16"
+                Margin="4,2,8,0"
+                IsHitTestVisible="False">
+                <Rectangle
+                    Width="16"
+                    Height="16"
+                    Style="{StaticResource WindowIconRectangle}" />
+            </Viewbox>
+            <Menu Grid.Column="1" Margin="0,2,0,0">
                 <MenuItem Header="View">
                     <MenuItem
                         Command="{Binding ShowStylesViewCommand}"
@@ -42,8 +55,8 @@
                 </MenuItem>
             </Menu>
             <Border
-                Grid.Column="1"
-                Margin="5,0,0,0"
+                Grid.Column="2"
+                Margin="5,2,0,0"
                 VerticalAlignment="Top"
                 Background="{DynamicResource CommonControlsCheckBoxBackground}"
                 IsHitTestVisible="False">
