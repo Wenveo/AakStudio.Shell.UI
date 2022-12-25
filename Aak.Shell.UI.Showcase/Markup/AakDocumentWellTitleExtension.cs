@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace Aak.Shell.UI.Showcase.MarkupExtensions;
+namespace Aak.Shell.UI.Showcase.Markup;
 
 internal sealed class AakDocumentWellTitleExtension : MarkupExtension
 {

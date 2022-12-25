@@ -5,8 +5,8 @@
     xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
     xmlns:avalonDockThemes="http://aak.shell.ui.themes.avalondock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
-    xmlns:exts="clr-namespace:Aak.Shell.UI.Showcase.MarkupExtensions"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
+    xmlns:markup="clr-namespace:Aak.Shell.UI.Showcase.Markup"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -22,7 +22,7 @@
                 <TextBlock
                     x:Name="TitleTextBlock"
                     VerticalAlignment="Center"
-                    Text="{exts:AakDocumentWellTitle IsChangeWindowTitle=True}"
+                    Text="{markup:AakDocumentWellTitle IsChangeWindowTitle=True}"
                     TextTrimming="CharacterEllipsis" />
                 <DataTemplate.Triggers>
                     <MultiDataTrigger>
