@@ -1,18 +1,21 @@
-﻿using Aak.Shell.UI.Themes;
+﻿using Aak.Shell.UI.Showcase.Commands;
+using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Themes;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Aak.Shell.UI.Showcase.ViewModels;
 
 internal sealed class WorkSpaceViewModel : ViewModelBase
 {
-    public ObservableCollection<ViewModelBase> Anchorables
+    public ObservableCollection<IAakToolWell> Anchorables
     {
         get => anchorables;
         set => OnPropertyChanged(ref anchorables, value, nameof(Anchorables));
     }
 
-    public ObservableCollection<ViewModelBase> DocumentViews
+    public ObservableCollection<IAakDocumentWell> DocumentViews
     {
         get => documentViews;
         set => OnPropertyChanged(ref documentViews, value, nameof(DocumentViews));
@@ -34,14 +37,21 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
         }
     }
 
-    public ViewModelBase? ActiveDocument
+    public IAakViewElement? ActiveDocument
     {
         get => activeDocument;
         set => OnPropertyChanged(ref activeDocument, value, nameof(ActiveDocument));
     }
+
+    public ICommand ShowStylesViewCommand
+    {
+        get => showStylesViewCommand;
+        set => OnPropertyChanged(ref showStylesViewCommand, value, nameof(ShowStylesViewCommand));
+    }
+
     public WorkSpaceViewModel()
     {
-        stylesViewModel = new StyleSelectorViewModel(this);
+        StyleSelector = new StyleSelectorViewModel(this);
 
         themes = new ObservableCollection<Theme>()
         {
@@ -54,19 +64,23 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
         };
         currentTheme = themes.Last();
 
-        anchorables = new ObservableCollection<ViewModelBase>() { stylesViewModel };
-        documentViews = new ObservableCollection<ViewModelBase>();
+        anchorables = new ObservableCollection<IAakToolWell>() { StyleSelector };
+        documentViews = new ObservableCollection<IAakDocumentWell>();
+
+        showStylesViewCommand = new RelayCommand(ShowStylesView);
     }
 
-    private readonly StyleSelectorViewModel stylesViewModel;
+    public StyleSelectorViewModel StyleSelector { get; }
 
-    private ObservableCollection<ViewModelBase> anchorables;
-    private ObservableCollection<ViewModelBase> documentViews;
+    private ObservableCollection<IAakToolWell> anchorables;
+    private ObservableCollection<IAakDocumentWell> documentViews;
     private ObservableCollection<Theme> themes;
     private Theme currentTheme;
-    private ViewModelBase? activeDocument;
 
-    public void AddOrActiveDocument(ViewModelBase view)
+    private IAakViewElement? activeDocument;
+    private ICommand showStylesViewCommand;
+
+    public void AddOrActiveDocument(IAakDocumentWell view)
     {
         var item = DocumentViews.FirstOrDefault(x => x == view);
         if (item == null)
@@ -77,9 +91,8 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
         ActiveDocument = item;
     }
 
-    public void CloseDocument(ViewModelBase view)
+    public void CloseDocument(IAakDocumentWell view)
     {
-
         if (DocumentViews.Contains(view))
         {
             DocumentViews.Remove(view);
@@ -87,7 +100,18 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
         }
     }
 
-    public void CloseAnchor(ViewModelBase view)
+    public void AddOrActiveAnchor(IAakToolWell view)
+    {
+        var item = Anchorables.FirstOrDefault(x => x == view);
+        if (item == null)
+        {
+            item = view;
+            Anchorables.Add(item);
+        }
+        ActiveDocument = item;
+    }
+
+    public void CloseAnchor(IAakToolWell view)
     {
         if (Anchorables.Contains(view))
         {
@@ -101,5 +125,10 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
                 ActiveDocument = Anchorables.FirstOrDefault();
             }
         }
+    }
+
+    public void ShowStylesView()
+    {
+        AddOrActiveAnchor(StyleSelector);
     }
 }

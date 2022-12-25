@@ -1,53 +1,43 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
+﻿using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Showcase.Shell;
 using Aak.Shell.UI.Showcase.ViewModels.Collection;
+using Aak.Shell.UI.Showcase.Views;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace Aak.Shell.UI.Showcase.ViewModels;
 
-internal sealed class StyleSelectorViewModel : ViewModelBase
+internal sealed class StyleSelectorViewModel : AakToolWell
 {
-    private readonly WorkSpaceViewModel workSpaceViewModel;
-
-    public ObservableCollection<CollectionViewModel> Collections
+    public ObservableCollection<AakCollectionViewModel> Collections
     {
         get => collections;
-        set => OnPropertyChanged(ref collections, value, nameof(Collections));
-    }
-
-    public ICommand CloseCommand
-    {
-        get => closeCommand;
-        set => OnPropertyChanged(ref closeCommand, value, nameof(CloseCommand));
+        set => SetProperty(ref collections, value);
     }
 
     public StyleSelectorViewModel(WorkSpaceViewModel workSpaceViewModel)
     {
         this.workSpaceViewModel = workSpaceViewModel;
-        this.collections = new ObservableCollection<CollectionViewModel>
+        this.collections = new ObservableCollection<AakCollectionViewModel>
         {
             new AdvancedCollectionViewModel(this),
             new BasicCollectionViewModel(this)
         };
 
-        this.closeCommand = new RelayCommand(OnClose);
+        Title = "Wpf Base Styles";
+        View = new StyleSelectorView { DataContext = this };
     }
 
-    private ObservableCollection<CollectionViewModel> collections;
-    private ICommand closeCommand;
+    private readonly WorkSpaceViewModel workSpaceViewModel;
+    private ObservableCollection<AakCollectionViewModel> collections;
 
-    private void OnClose()
+
+    internal void ActiveDocument(IAakDocumentWell view)
     {
-        this.workSpaceViewModel.CloseAnchor(this);
+        this.workSpaceViewModel.AddOrActiveDocument(view);
     }
 
-    internal void ActiveDocument(ViewModelBase viewModelBase)
+    internal void CloseTab(IAakDocumentWell view)
     {
-        this.workSpaceViewModel.AddOrActiveDocument(viewModelBase);
-    }
-
-    internal void CloseTab(ViewModelBase viewModelBase)
-    {
-        this.workSpaceViewModel.CloseDocument(viewModelBase);
+        this.workSpaceViewModel.CloseDocument(view);
     }
 }

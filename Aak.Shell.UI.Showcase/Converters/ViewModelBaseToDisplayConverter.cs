@@ -1,4 +1,4 @@
-﻿using Aak.Shell.UI.Showcase.ViewModels.Collection;
+﻿using Aak.Shell.UI.Showcase.Interfaces;
 using System;
 using System.Globalization;
 using System.Windows.Data;
@@ -7,15 +7,15 @@ namespace Aak.Shell.UI.Showcase.Converters;
 
 internal sealed class ViewModelBaseToDisplayConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is CollectionViewModel isCollectionViewModel)
+        if (value is IAakCollection aakCollection)
         {
-            return isCollectionViewModel.DisplayName;
+            return aakCollection.DisplayName;
         }
-        else if (value is PageViewModel isPageViewModel)
+        else if (value is IAakDocumentWell aakDocumentWell)
         {
-            return isPageViewModel.DisplayName;
+            return aakDocumentWell.Title;
         }
         else
         {

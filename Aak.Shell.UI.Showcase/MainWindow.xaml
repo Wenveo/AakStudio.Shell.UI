@@ -2,11 +2,11 @@
     x:Class="Aak.Shell.UI.Showcase.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:attach="clr-namespace:Aak.Shell.UI.Showcase.Attach"
     xmlns:collection="clr-namespace:Aak.Shell.UI.Showcase.ViewModels.Collection"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shell="clr-namespace:Aak.Shell.UI.Showcase.Shell"
     xmlns:styles="clr-namespace:Aak.Shell.UI.Showcase.Styles"
     xmlns:vm="clr-namespace:Aak.Shell.UI.Showcase.ViewModels"
     Title="Aak.Shell.UI.Showcase"
@@ -33,59 +33,12 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Menu Grid.Column="0">
-                <MenuItem Header="File(_F)">
-                    <MenuItem Header="New(_N)" />
-                    <MenuItem Header="Open(_O)" />
-                    <Separator />
-                    <MenuItem Header="Close(_C)" />
-                    <Separator />
-                    <MenuItem Header="Save(_S)" />
-                    <MenuItem Header="SaveAs" />
-                </MenuItem>
-                <MenuItem Header="Edit(_E)">
-                    <MenuItem Header="Cut" />
-                    <MenuItem Header="Copy" />
-                    <MenuItem Header="Paste" />
-                </MenuItem>
                 <MenuItem Header="View">
-                    <MenuItem Header="Code" />
-                    <Separator />
-                    <MenuItem Header="Property Grid" />
-                    <Separator />
-                    <MenuItem Header="Error List" IsChecked="True" />
-                    <MenuItem Header="Output Window" IsEnabled="False" />
-                    <Separator />
-                    <MenuItem Header="Other">
-                        <MenuItem Header="None" />
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Tools">
-                    <MenuItem Header="Settings" />
-                </MenuItem>
-                <MenuItem Header="Help">
-                    <MenuItem Header="About" />
-                </MenuItem>
-                <MenuItem Header="None" IsEnabled="True">
-                    <MenuItem Header="Test1" IsEnabled="True" />
                     <MenuItem
-                        Header="Test2"
-                        IsChecked="True"
-                        IsEnabled="False">
-                        <MenuItem Header="Test1" />
-                        <MenuItem Header="Test2" />
-                        <MenuItem Header="Test3" />
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="None" IsEnabled="False">
-                    <MenuItem Header="Test1" IsEnabled="True" />
-                    <MenuItem
-                        Header="Test2"
-                        IsChecked="True"
-                        IsEnabled="False">
-                        <MenuItem Header="Test1" />
-                        <MenuItem Header="Test2" />
-                        <MenuItem Header="Test3" />
-                    </MenuItem>
+                        Command="{Binding ShowStylesViewCommand}"
+                        Header="Wpf Base Styles"
+                        IsCheckable="True"
+                        IsChecked="{Binding StyleSelector.IsVisible, Mode=TwoWay}" />
                 </MenuItem>
             </Menu>
             <Border
@@ -130,16 +83,6 @@
                 Content="✨" />
         </StackPanel>
     </MetroWindow.RightWindowCommands>
-    <MetroWindow.Resources>
-        <HierarchicalDataTemplate DataType="{x:Type collection:CollectionViewModel}" ItemsSource="{Binding Items}">
-            <TextBlock Text="{Binding DisplayName}" />
-            <HierarchicalDataTemplate.ItemTemplate>
-                <DataTemplate DataType="{x:Type collection:PageViewModel}">
-                    <TextBlock Text="{Binding DisplayName}" />
-                </DataTemplate>
-            </HierarchicalDataTemplate.ItemTemplate>
-        </HierarchicalDataTemplate>
-    </MetroWindow.Resources>
     <Grid x:Name="root">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -153,9 +96,9 @@
             DocumentTitleTemplate="{StaticResource AakDocumentWellTitleTemplate}"
             DocumentsSource="{Binding DocumentViews}">
             <DockingManager.LayoutItemTemplateSelector>
-                <styles:PanesTemplateSelector>
-                    <styles:PanesTemplateSelector.PageViewTemplate>
-                        <DataTemplate DataType="{x:Type collection:PageViewModel}">
+                <styles:AakTemplateSelector>
+                    <styles:AakTemplateSelector.AakDocumentWellTemplate>
+                        <DataTemplate DataType="{x:Type shell:AakDocumentWell}">
                             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                                 <Grid Margin="15">
                                     <Grid.RowDefinitions>
@@ -166,42 +109,19 @@
                                     <TextBlock
                                         FontSize="16"
                                         FontWeight="Bold"
-                                        Text="{Binding DisplayName}" />
+                                        Text="{Binding Title}" />
                                     <ContentPresenter Grid.Row="2" Content="{Binding View}" />
                                 </Grid>
                             </ScrollViewer>
                         </DataTemplate>
-                    </styles:PanesTemplateSelector.PageViewTemplate>
-                    <styles:PanesTemplateSelector.StyleSelectorTemplate>
-                        <DataTemplate DataType="{x:Type vm:StyleSelectorViewModel}">
-                            <TreeView
-                                x:Name="MainTreeView"
-                                BorderThickness="0"
-                                ItemsSource="{Binding Collections}">
-                                <TreeView.ItemContainerStyle>
-                                    <!--  Collection ViewModel  -->
-                                    <Style BasedOn="{StaticResource {x:Type TreeViewItem}}" TargetType="{x:Type TreeViewItem}">
-                                        <!--  PageViewModel Not IsExpanded  -->
-                                        <!--  Bind Error  -->
-                                        <Setter Property="IsExpanded" Value="{Binding IsExpanded}" />
-                                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                                        <Setter Property="ItemContainerStyle">
-                                            <Setter.Value>
-                                                <!--  PageViewModel Style  -->
-                                                <Style BasedOn="{StaticResource {x:Type TreeViewItem}}" TargetType="{x:Type TreeViewItem}">
-                                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                                                    <Setter Property="attach:MouseLeftDoubleClickAttach.Command" Value="{Binding ActiveCommand}" />
-                                                </Style>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="attach:MouseLeftDoubleClickAttach.Command" Value="{Binding ActiveCommand}" />
-                                    </Style>
-                                </TreeView.ItemContainerStyle>
-                            </TreeView>
+                    </styles:AakTemplateSelector.AakDocumentWellTemplate>
+                    <styles:AakTemplateSelector.AakToolWellTemplate>
+                        <DataTemplate DataType="{x:Type shell:AakToolWell}">
+                            <ContentPresenter Content="{Binding View}" />
                         </DataTemplate>
-                    </styles:PanesTemplateSelector.StyleSelectorTemplate>
-                    <styles:PanesTemplateSelector.CollectionViewTemplate>
-                        <DataTemplate DataType="{x:Type collection:CollectionViewModel}">
+                    </styles:AakTemplateSelector.AakToolWellTemplate>
+                    <styles:AakTemplateSelector.AakCollectionTemplate>
+                        <DataTemplate DataType="{x:Type shell:AakCollection}">
                             <Grid Margin="15">
                                 <StackPanel>
                                     <TextBlock FontSize="24" Text="{Binding Title}" />
@@ -209,32 +129,28 @@
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
-                    </styles:PanesTemplateSelector.CollectionViewTemplate>
-                </styles:PanesTemplateSelector>
+                    </styles:AakTemplateSelector.AakCollectionTemplate>
+                </styles:AakTemplateSelector>
             </DockingManager.LayoutItemTemplateSelector>
             <DockingManager.LayoutItemContainerStyleSelector>
-                <styles:PanesStyleSelector>
-                    <styles:PanesStyleSelector.PageStyle>
+                <styles:AakStyleSelector>
+                    <styles:AakStyleSelector.AakDocumentWellStyle>
                         <Style TargetType="{x:Type LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="ToolTip" Value="{Binding Model.ToolTip}" />
                             <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-                            <Setter Property="Title" Value="{Binding Model.DisplayName}" />
                         </Style>
-                    </styles:PanesStyleSelector.PageStyle>
-                    <styles:PanesStyleSelector.StyleSelectorStyle>
+                    </styles:AakStyleSelector.AakDocumentWellStyle>
+                    <styles:AakStyleSelector.AakToolWellStyle>
                         <Style TargetType="{x:Type LayoutAnchorableItem}">
-                            <Setter Property="CanHide" Value="True" />
-                            <Setter Property="CanClose" Value="True" />
-                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-                            <Setter Property="Title" Value="Wpf Base Styles" />
+                            <Setter Property="Title" Value="{Binding Model.Title}" />
+                            <Setter Property="CanHide" Value="{Binding Model.CanHide, Mode=TwoWay}" />
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}" />
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
+                            <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
                         </Style>
-                    </styles:PanesStyleSelector.StyleSelectorStyle>
-                    <styles:PanesStyleSelector.CollectionStyle>
-                        <Style TargetType="{x:Type LayoutItem}">
-                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
-                            <Setter Property="Title" Value="{Binding Model.DisplayName}" />
-                        </Style>
-                    </styles:PanesStyleSelector.CollectionStyle>
-                </styles:PanesStyleSelector>
+                    </styles:AakStyleSelector.AakToolWellStyle>
+                </styles:AakStyleSelector>
             </DockingManager.LayoutItemContainerStyleSelector>
             <LayoutRoot>
                 <LayoutPanel Orientation="Horizontal">

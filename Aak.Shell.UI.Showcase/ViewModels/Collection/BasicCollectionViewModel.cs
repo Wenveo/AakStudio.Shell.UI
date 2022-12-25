@@ -1,60 +1,36 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Views;
-using System.Collections.Generic;
+﻿using Aak.Shell.UI.Showcase.ControlViews;
+using Aak.Shell.UI.Showcase.Interfaces;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
 
-internal sealed class BasicCollectionViewModel : CollectionViewModel
+internal sealed class BasicCollectionViewModel : AakCollectionViewModel
 {
-    public IEnumerable<Label> Views
-    {
-        get
-        {
-            foreach (var item in Items)
-            {
-                Label linkLabel = new();
-                Hyperlink hyperlink = new(new Run(item.DisplayName))
-                {
-                    Command = new RelayCommand(() =>
-                    {
-                        item.IsSelected = true;
-                        ActiveDocument(item);
-                    })
-                };
-                linkLabel.Content = hyperlink;
-                yield return linkLabel;
-            }
-        }
-    }
-
     public BasicCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "WPF Basic Control Styles", "Basic", true)
     {
-        Items = new ObservableCollection<PageViewModel>()
+        Items = new ObservableCollection<IAakDocumentWell>()
         {
-            new PageViewModel(new ButtonView(), "Button", this),
-            new PageViewModel(new CheckBoxView(), "CheckBox", this),
-            new PageViewModel(new ComboBoxView(), "ComboBox", this),
-            new PageViewModel(new ContextMenuView(), "ContextMenu", this),
-            new PageViewModel(new ExpanderView(), "Expander", this),
-            new PageViewModel(new GridSplitterView(), "GridSplitter", this),
-            new PageViewModel(new GroupBoxView(), "GroupBox", this),
-            new PageViewModel(new HyperlinkView(), "Hyperlink", this),
-            new PageViewModel(new LabelView(), "Label", this),
-            new PageViewModel(new ListBoxView(), "ListBox", this),
-            new PageViewModel(new ListViewView(), "ListView", this),
-            new PageViewModel(new MenuView(), "Menu", this),
-            new PageViewModel(new PasswordBoxView(), "PasswordBox", this),
-            new PageViewModel(new ProgressBarView(), "ProgressBar", this),
-            new PageViewModel(new ScrollViewView(), "ScrollView", this),
-            new PageViewModel(new StatusBarView(), "StatusBar", this),
-            new PageViewModel(new TabControlView(), "TabControl", this),
-            new PageViewModel(new TextBoxView(), "TextBox", this),
-            new PageViewModel(new ToolBarView(), "ToolBar", this),
-            new PageViewModel(new ToolTipView(), "ToolTip", this),
-            new PageViewModel(new TreeViewView(), "TreeView", this)
+            new AakDocumentWellViewModel(new ButtonView(), "Button", this),
+            new AakDocumentWellViewModel(new CheckBoxView(), "CheckBox", this),
+            new AakDocumentWellViewModel(new ComboBoxView(), "ComboBox", this),
+            new AakDocumentWellViewModel(new ContextMenuView(), "ContextMenu", this),
+            new AakDocumentWellViewModel(new ExpanderView(), "Expander", this),
+            new AakDocumentWellViewModel(new GridSplitterView(), "GridSplitter", this),
+            new AakDocumentWellViewModel(new GroupBoxView(), "GroupBox", this),
+            new AakDocumentWellViewModel(new HyperlinkView(), "Hyperlink", this),
+            new AakDocumentWellViewModel(new LabelView(), "Label", this),
+            new AakDocumentWellViewModel(new ListBoxView(), "ListBox", this),
+            new AakDocumentWellViewModel(new ListViewView(), "ListView", this),
+            new AakDocumentWellViewModel(new MenuView(), "Menu", this),
+            new AakDocumentWellViewModel(new PasswordBoxView(), "PasswordBox", this),
+            new AakDocumentWellViewModel(new ProgressBarView(), "ProgressBar", this),
+            new AakDocumentWellViewModel(new ScrollViewView(), "ScrollView", this),
+            new AakDocumentWellViewModel(new StatusBarView(), "StatusBar", this),
+            new AakDocumentWellViewModel(new TabControlView(), "TabControl", this),
+            new AakDocumentWellViewModel(new TextBoxView(), "TextBox", this),
+            new AakDocumentWellViewModel(new ToolBarView(), "ToolBar", this),
+            new AakDocumentWellViewModel(new ToolTipView(), "ToolTip", this),
+            new AakDocumentWellViewModel(new TreeViewView(), "TreeView", this)
         };
     }
 }

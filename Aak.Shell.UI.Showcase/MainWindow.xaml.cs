@@ -20,8 +20,8 @@ public sealed partial class MainWindow : MetroWindow
     private void dockingManager_ActiveContentChanged(object sender, System.EventArgs e)
     {
         if (!isCleanValue && (
-            dockingManager.ActiveContent is CollectionViewModel ||
-            dockingManager.ActiveContent is PageViewModel))
+            dockingManager.ActiveContent is AakCollectionViewModel ||
+            dockingManager.ActiveContent is AakDocumentWellViewModel))
         {
             mainStatusBar.ClearValue(BackgroundProperty);
             mainStatusBar.ClearValue(ForegroundProperty);

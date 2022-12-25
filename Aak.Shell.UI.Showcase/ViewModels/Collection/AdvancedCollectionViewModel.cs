@@ -1,40 +1,16 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Views;
-using System.Collections.Generic;
+﻿using Aak.Shell.UI.Showcase.ControlViews;
+using Aak.Shell.UI.Showcase.Interfaces;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
 
-internal sealed class AdvancedCollectionViewModel : CollectionViewModel
+internal sealed class AdvancedCollectionViewModel : AakCollectionViewModel
 {
-    public IEnumerable<Label> Views
-    {
-        get
-        {
-            foreach (var item in Items)
-            {
-                Label linkLabel = new();
-                Hyperlink hyperlink = new(new Run(item.DisplayName))
-                {
-                    Command = new RelayCommand(() =>
-                    {
-                        item.IsSelected = true;
-                        ActiveDocument(item);
-                    })
-                };
-                linkLabel.Content = hyperlink;
-                yield return linkLabel;
-            }
-        }
-    }
-
     public AdvancedCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "Advanced Controls", "Advanced", true)
     {
-        Items = new ObservableCollection<PageViewModel>()
+        Items = new ObservableCollection<IAakDocumentWell>()
         {
-            new PageViewModel(new TreeListViewView(), "TreeListView", this),
+            new AakDocumentWellViewModel(new TreeListViewView(), "TreeListView", this),
         };
     }
 }

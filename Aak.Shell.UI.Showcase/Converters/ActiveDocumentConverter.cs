@@ -8,7 +8,7 @@ internal sealed class ActiveDocumentConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        if (value is PageViewModel || value is CollectionViewModel)
+        if (value is AakDocumentWellViewModel || value is AakCollectionViewModel)
             return value;
 
         return Binding.DoNothing;
@@ -16,7 +16,7 @@ internal sealed class ActiveDocumentConverter : IValueConverter
 
     public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        if (value is PageViewModel || value is CollectionViewModel)
+        if (value is AakDocumentWellViewModel || value is AakCollectionViewModel)
             return value;
 
         return Binding.DoNothing;
