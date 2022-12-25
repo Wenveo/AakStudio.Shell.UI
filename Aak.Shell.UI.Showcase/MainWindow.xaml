@@ -117,7 +117,7 @@
     <MetroWindow.RightWindowCommands>
         <StackPanel Orientation="Horizontal">
             <ComboBox
-                Width="157"
+                Width="160"
                 Margin="4,6"
                 DisplayMemberPath="Name"
                 ItemsSource="{Binding Themes, Mode=TwoWay}"
