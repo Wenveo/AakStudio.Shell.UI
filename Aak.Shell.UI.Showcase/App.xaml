@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
+    xmlns:exts="clr-namespace:Aak.Shell.UI.Showcase.MarkupExtensions"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -14,13 +15,12 @@
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
             <converters:ActiveDocumentConverter x:Key="ActiveDocumentConverter" />
-            <converters:DocumentWellTitleConverter x:Key="DocumentWellTitleConverter" />
             <converters:ViewModelBaseToDisplayConverter x:Key="ViewModelBaseToDisplayConverter" />
 
             <DataTemplate x:Key="AakDocumentWellTitleTemplate">
                 <TextBlock
                     VerticalAlignment="Center"
-                    Text="{Binding Title, Converter={StaticResource DocumentWellTitleConverter}}"
+                    Text="{exts:AakDocumentWellTitle IsChangeWindowTitle=True}"
                     TextTrimming="CharacterEllipsis" />
             </DataTemplate>
 
@@ -32,7 +32,6 @@
                 <Setter Property="ShowInTaskbar" Value="True" />
                 <Setter Property="OwnedByDockingManagerWindow" Value="False" />
                 <Setter Property="Icon" Value="{Binding MainWindow.Icon, Source={x:Static Application.Current}, Mode=OneWay}" />
-                <Setter Property="Title" Value="{Binding Model.SinglePane.SelectedContent.Title, RelativeSource={RelativeSource Self}, Converter={StaticResource DocumentWellTitleConverter}}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
