@@ -48,7 +48,6 @@
             <Menu Grid.Column="1" Margin="0,2,0,0">
                 <MenuItem Header="View(_V)">
                     <MenuItem
-                        Command="{Binding ShowStylesViewCommand}"
                         Header="{Binding StyleSelector.Title}"
                         IsCheckable="True"
                         IsChecked="{Binding StyleSelector.IsVisible, Mode=TwoWay}" />

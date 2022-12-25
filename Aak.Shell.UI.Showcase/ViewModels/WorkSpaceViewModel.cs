@@ -43,11 +43,6 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
         set => OnPropertyChanged(ref activeDocument, value, nameof(ActiveDocument));
     }
 
-    public ICommand ShowStylesViewCommand
-    {
-        get => showStylesViewCommand ??= new RelayCommand(OnShowStylesView);
-    }
-
     public ICommand ThemeSwitchCommand
     {
         get => themeSwitchCommand ??= new RelayCommand<string>(OnThemeSwitch);
@@ -80,14 +75,9 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
     private Theme currentTheme;
 
     private IAakViewElement? activeDocument;
-    private ICommand? showStylesViewCommand;
     private ICommand? themeSwitchCommand;
 
 
-    private void OnShowStylesView()
-    {
-        AddOrActiveAnchor(StyleSelector);
-    }
 
     private void OnThemeSwitch(string? themeIndexStr)
     {
