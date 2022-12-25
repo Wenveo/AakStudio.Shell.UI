@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
+    xmlns:avalonDockThemes="http://aak.shell.ui.themes.avalondock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
     xmlns:exts="clr-namespace:Aak.Shell.UI.Showcase.MarkupExtensions"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
@@ -19,9 +20,26 @@
 
             <DataTemplate x:Key="AakDocumentWellTitleTemplate">
                 <TextBlock
+                    x:Name="TitleTextBlock"
                     VerticalAlignment="Center"
                     Text="{exts:AakDocumentWellTitle IsChangeWindowTitle=True}"
                     TextTrimming="CharacterEllipsis" />
+                <DataTemplate.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding OwnedByDockingManagerWindow, RelativeSource={RelativeSource AncestorType={x:Type avalonDockControls:LayoutFloatingWindowControl}}}" Value="False" />
+                            <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type avalonDockControls:LayoutFloatingWindowControl}}}" Value="True" />
+                            <Condition Binding="{Binding MainWindow.IsActive, Source={x:Static Application.Current}}" Value="True" />
+                        </MultiDataTrigger.Conditions>
+                        <!--
+                            When a floating window is displayed in the taskbar
+                            and the main window is activated from the taskbar,
+                            both the floating window and the main window are activated ???
+                        -->
+                        <!-- <Setter TargetName="TitleTextBlock" Property="TextElement.Foreground" Value="Red" /> -->
+                        <Setter TargetName="TitleTextBlock" Property="TextElement.Foreground" Value="{DynamicResource {x:Static avalonDockThemes:ResourceKeys.DocumentFloatingWindowTitleBarText}}" />
+                    </MultiDataTrigger>
+                </DataTemplate.Triggers>
             </DataTemplate>
 
             <Style
