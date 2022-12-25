@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Aak.Shell.UI.Showcase.Converters;
 
-internal sealed class ViewModelBaseToDisplayConverter : IValueConverter
+internal sealed class AakViewElementToStringConverter : IValueConverter
 {
     public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
@@ -19,7 +19,7 @@ internal sealed class ViewModelBaseToDisplayConverter : IValueConverter
         }
         else
         {
-            return Binding.DoNothing;
+            return string.Empty;
         }
     }
 

@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace Aak.Shell.UI.Showcase.Converters;
 
-internal sealed class ActiveDocumentConverter : IValueConverter
+internal sealed class AakActiveDocumentConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {

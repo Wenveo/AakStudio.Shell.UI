@@ -15,8 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
-            <converters:ActiveDocumentConverter x:Key="ActiveDocumentConverter" />
-            <converters:ViewModelBaseToDisplayConverter x:Key="ViewModelBaseToDisplayConverter" />
+            <converters:AakActiveDocumentConverter x:Key="AakActiveDocumentConverter" />
+            <converters:AakViewElementToStringConverter x:Key="AakViewElementToStringConverter" />
 
             <DataTemplate x:Key="AakDocumentWellTitleTemplate">
                 <TextBlock

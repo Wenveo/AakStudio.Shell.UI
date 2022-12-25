@@ -90,7 +90,7 @@
         </Grid.RowDefinitions>
         <DockingManager
             x:Name="dockingManager"
-            ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource ActiveDocumentConverter}}"
+            ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource AakActiveDocumentConverter}}"
             ActiveContentChanged="dockingManager_ActiveContentChanged"
             AnchorablesSource="{Binding Anchorables}"
             DocumentTitleTemplate="{StaticResource AakDocumentWellTitleTemplate}"
@@ -169,7 +169,7 @@
             <StatusBarItem
                 Margin="0,0,20,0"
                 HorizontalAlignment="Right"
-                Content="{Binding ActiveDocument, Converter={StaticResource ViewModelBaseToDisplayConverter}}"
+                Content="{Binding ActiveDocument, Converter={StaticResource AakViewElementToStringConverter}}"
                 ContentStringFormat="Selected: {0}" />
         </StatusBar>
     </Grid>
