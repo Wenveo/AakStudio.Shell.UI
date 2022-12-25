@@ -19,7 +19,7 @@ internal sealed class AakViewElementToStringConverter : IValueConverter
         }
         else
         {
-            return string.Empty;
+            return Binding.DoNothing;
         }
     }
 
