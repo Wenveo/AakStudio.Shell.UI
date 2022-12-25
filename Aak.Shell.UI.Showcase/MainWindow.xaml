@@ -46,12 +46,50 @@
                     Style="{StaticResource WindowIconRectangle}" />
             </Viewbox>
             <Menu Grid.Column="1" Margin="0,2,0,0">
-                <MenuItem Header="View">
+                <MenuItem Header="View(_V)">
                     <MenuItem
                         Command="{Binding ShowStylesViewCommand}"
-                        Header="Wpf Base Styles"
+                        Header="{Binding StyleSelector.Title}"
                         IsCheckable="True"
                         IsChecked="{Binding StyleSelector.IsVisible, Mode=TwoWay}" />
+                </MenuItem>
+                <MenuItem Header="Themes(_T)">
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="0"
+                        Header="Visual Studio 2019 Blue"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2019 Blue}" />
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="1"
+                        Header="Visual Studio 2019 Dark"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2019 Dark}" />
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="2"
+                        Header="Visual Studio 2019 Light"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2019 Light}" />
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="3"
+                        Header="Visual Studio 2022 Blue"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2022 Blue}" />
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="4"
+                        Header="Visual Studio 2022 Dark"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2022 Dark}" />
+                    <MenuItem
+                        Command="{Binding ThemeSwitchCommand}"
+                        CommandParameter="5"
+                        Header="Visual Studio 2022 Light"
+                        IsCheckable="True"
+                        IsChecked="{Binding CurrentTheme, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource AakThemeToIsCheckedConverter}, ConverterParameter=Visual Studio 2022 Light}" />
                 </MenuItem>
             </Menu>
             <Border

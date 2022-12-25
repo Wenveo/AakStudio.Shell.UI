@@ -45,8 +45,12 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
 
     public ICommand ShowStylesViewCommand
     {
-        get => showStylesViewCommand;
-        set => OnPropertyChanged(ref showStylesViewCommand, value, nameof(ShowStylesViewCommand));
+        get => showStylesViewCommand ??= new RelayCommand(OnShowStylesView);
+    }
+
+    public ICommand ThemeSwitchCommand
+    {
+        get => themeSwitchCommand ??= new RelayCommand<string>(OnThemeSwitch);
     }
 
     public WorkSpaceViewModel()
@@ -66,8 +70,6 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
 
         anchorables = new ObservableCollection<IAakToolWell>() { StyleSelector };
         documentViews = new ObservableCollection<IAakDocumentWell>();
-
-        showStylesViewCommand = new RelayCommand(ShowStylesView);
     }
 
     public StyleSelectorViewModel StyleSelector { get; }
@@ -78,7 +80,25 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
     private Theme currentTheme;
 
     private IAakViewElement? activeDocument;
-    private ICommand showStylesViewCommand;
+    private ICommand? showStylesViewCommand;
+    private ICommand? themeSwitchCommand;
+
+
+    private void OnShowStylesView()
+    {
+        AddOrActiveAnchor(StyleSelector);
+    }
+
+    private void OnThemeSwitch(string? themeIndexStr)
+    {
+        if (!int.TryParse(themeIndexStr, out var index) ||
+            index < 0 || index > themes.Count - 1)
+        {
+            return;
+        }
+
+        CurrentTheme = themes[index];
+    }
 
     public void AddOrActiveDocument(IAakDocumentWell view)
     {
@@ -125,10 +145,5 @@ internal sealed class WorkSpaceViewModel : ViewModelBase
                 ActiveDocument = Anchorables.FirstOrDefault();
             }
         }
-    }
-
-    public void ShowStylesView()
-    {
-        AddOrActiveAnchor(StyleSelector);
     }
 }
