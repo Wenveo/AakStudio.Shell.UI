@@ -66,22 +66,6 @@
                         Text="{markup:AakDocumentWellTitle IsChangeWindowTitle=True}"
                         TextTrimming="CharacterEllipsis" />
                 </StackPanel>
-                <DataTemplate.Triggers>
-                    <MultiDataTrigger>
-                        <MultiDataTrigger.Conditions>
-                            <Condition Binding="{Binding OwnedByDockingManagerWindow, RelativeSource={RelativeSource AncestorType={x:Type avalonDockControls:LayoutFloatingWindowControl}}}" Value="False" />
-                            <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type avalonDockControls:LayoutFloatingWindowControl}}}" Value="True" />
-                            <Condition Binding="{Binding MainWindow.IsActive, Source={x:Static Application.Current}}" Value="True" />
-                        </MultiDataTrigger.Conditions>
-                        <!--
-                            When a floating window is displayed in the taskbar
-                            and the main window is activated from the taskbar,
-                            both the floating window and the main window are activated ???
-                        -->
-                        <!-- <Setter TargetName="TitleTextBlock" Property="TextElement.Foreground" Value="Red" /> -->
-                        <Setter TargetName="TitleTextBlock" Property="TextElement.Foreground" Value="{DynamicResource {x:Static avalonDockThemes:ResourceKeys.DocumentFloatingWindowTitleBarText}}" />
-                    </MultiDataTrigger>
-                </DataTemplate.Triggers>
             </DataTemplate>
 
             <Style
