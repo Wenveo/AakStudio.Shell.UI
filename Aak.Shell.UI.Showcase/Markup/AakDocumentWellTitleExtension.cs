@@ -39,6 +39,23 @@ internal sealed class AakDocumentWellTitleExtension : MarkupExtension
             _lockObject = new object();
             _groupToTargets = new Dictionary<LayoutDocumentPaneGroup, List<IProvideValueTarget>>();
             _groupToWindowData = new Dictionary<LayoutDocumentPaneGroup, FloatingWindowData>();
+
+            Application.Current.MainWindow.Closed += MainWindow_Closed;
+        }
+
+        private void MainWindow_Closed(object? sender, EventArgs e)
+        {
+            if (sender is Window window)
+            {
+                window.Closed -= MainWindow_Closed;
+                foreach (var item in _groupToWindowData.Values)
+                {
+                    if (!item.FloatingWindow.OwnedByDockingManagerWindow)
+                    {
+                        item.FloatingWindow.Close();
+                    }
+                }
+            }
         }
 
         public void AddTarget(FloatingWindowData floatingWindowData, LayoutDocumentPaneGroup group, IProvideValueTarget provideValueTarget)
@@ -89,6 +106,11 @@ internal sealed class AakDocumentWellTitleExtension : MarkupExtension
 
         private static void CoreceUpdateTargetPropertys(string itemTitle, List<IProvideValueTarget> targets, FloatingWindowData? floatingWindowData)
         {
+            if (Application.Current.MainWindow is null)
+            {
+                return;
+            }
+
             var prefix = Application.Current.MainWindow.Title;
             var title = $"{prefix} - {itemTitle}";
             for (var i = 0; i < targets.Count; i++)
