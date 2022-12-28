@@ -14,7 +14,7 @@ namespace Aak.Shell.UI.Helpers
             if (d is Window)
                 return null;
 
-            return GetParent<T>(d is Visual ? VisualTreeHelper.GetParent(d) : LogicalTreeHelper.GetParent(d));
+            return GetParent<T>(VisualTreeHelper.GetParent(d));
         }
     }
 }
