@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aak.Shell.UI.Themes.AvalonDock" Version="4.71.1-beta1228" />
+    <PackageReference Include="Aak.Shell.UI.Themes.AvalonDock" Version="4.71.1" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.164-beta">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
