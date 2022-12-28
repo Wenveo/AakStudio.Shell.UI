@@ -3,9 +3,6 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using Windows.Win32;
-using Windows.Win32.Foundation;
-using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace Aak.Shell.UI.Controls.Attach
 {
@@ -69,10 +66,10 @@ namespace Aak.Shell.UI.Controls.Attach
                 var panel = VisualHelper.GetParent<Panel>(topLine);
                 if (panel is null) return;
 
-                if (!GetWorkArea(out var workAreaRect)) return;
+                if (!Win32Helper.GetWorkArea(out var workAreaRect)) return;
 
                 var matrix = PresentationSource.FromVisual(menuItem).CompositionTarget.TransformToDevice;
-                var workAreaRectDpi = new Point(workAreaRect.right / matrix.M11, workAreaRect.bottom / matrix.M22);
+                var workAreaRectDpi = new Point(workAreaRect.Right / matrix.M11, workAreaRect.Bottom / matrix.M22);
 
                 var menuItemLeftTop = menuItem.PointToScreen(new Point());
                 menuItemLeftTop = new Point(menuItemLeftTop.X / matrix.M11, menuItemLeftTop.Y / matrix.M22);
@@ -194,17 +191,6 @@ namespace Aak.Shell.UI.Controls.Attach
         public static FrameworkElement GetTopLine(DependencyObject element)
         {
             return (FrameworkElement)element.GetValue(TopLineProperty);
-        }
-
-        private static BOOL GetWorkArea(out RECT rect)
-        {
-            unsafe
-            {
-                fixed (void* ptr = &rect)
-                {
-                    return PInvoke.SystemParametersInfo(SYSTEM_PARAMETERS_INFO_ACTION.SPI_GETWORKAREA, 0, ptr, 0);
-                }
-            }
         }
     }
 }
