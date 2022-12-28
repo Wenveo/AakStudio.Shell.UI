@@ -1,14 +1,15 @@
 ﻿using System.Windows;
 
-namespace Aak.Shell.UI.Showcase.Interfaces;
-
-internal interface IAakViewElement
+namespace Aak.Shell.UI.Showcase.Interfaces
 {
-    UIElement? View { get; }
+    internal interface IAakViewElement
+    {
+        UIElement? View { get; }
 
-    string? Title { get; }
+        string? Title { get; }
 
-    bool IsActive { get; set; }
+        bool IsActive { get; set; }
 
-    bool IsSelected { get; set; }
+        bool IsSelected { get; set; }
+    }
 }

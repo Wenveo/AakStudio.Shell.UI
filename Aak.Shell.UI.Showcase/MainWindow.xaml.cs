@@ -3,66 +3,67 @@ using Aak.Shell.UI.Showcase.ViewModels.Collection;
 using AvalonDock.Layout;
 using System.Linq;
 
-namespace Aak.Shell.UI.Showcase;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public sealed partial class MainWindow : MetroWindow
+namespace Aak.Shell.UI.Showcase
 {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public sealed partial class MainWindow : MetroWindow
     {
-        InitializeComponent();
-    }
-
-    private bool isCleanValue;
-
-    private void dockingManager_ActiveContentChanged(object sender, System.EventArgs e)
-    {
-        if (!isCleanValue && (
-            dockingManager.ActiveContent is AakCollectionViewModel ||
-            dockingManager.ActiveContent is AakDocumentWellViewModel))
+        public MainWindow()
         {
-            mainStatusBar.ClearValue(BackgroundProperty);
-            mainStatusBar.ClearValue(ForegroundProperty);
-
-            isCleanValue = true;
+            InitializeComponent();
         }
-    }
 
-    private void MetroWindow_Activated(object sender, System.EventArgs e)
-    {
-        // if the window is activated, then active the item in docking manager
-        var hasFloatingWindow = false;
+        private bool isCleanValue;
 
-        var items = dockingManager.Layout.Descendents().OfType<LayoutContent>().ToList();
-        for (var i = 0; i < items.Count; i++)
+        private void dockingManager_ActiveContentChanged(object sender, System.EventArgs e)
         {
-            var item = items[i];
-            if (item.IsFloating)
+            if (!isCleanValue && (
+                dockingManager.ActiveContent is AakCollectionViewModel ||
+                dockingManager.ActiveContent is AakDocumentWellViewModel))
             {
-                if (!hasFloatingWindow)
-                    hasFloatingWindow = true;
-                items.RemoveAt(i);
+                mainStatusBar.ClearValue(BackgroundProperty);
+                mainStatusBar.ClearValue(ForegroundProperty);
+
+                isCleanValue = true;
             }
         }
 
-        if (hasFloatingWindow && items.Count > 0)
+        private void MetroWindow_Activated(object sender, System.EventArgs e)
         {
-            var index = 0;
+            // if the window is activated, then active the item in docking manager
+            var hasFloatingWindow = false;
 
-            var tmpTimeStamp = items[0].LastActivationTimeStamp;
-            for (var j = 1; j < items.Count; j++)
+            var items = dockingManager.Layout.Descendents().OfType<LayoutContent>().ToList();
+            for (var i = 0; i < items.Count; i++)
             {
-                var item2 = items[j];
-                if (item2.LastActivationTimeStamp > tmpTimeStamp)
+                var item = items[i];
+                if (item.IsFloating)
                 {
-                    tmpTimeStamp = item2.LastActivationTimeStamp;
-                    index = j;
+                    if (!hasFloatingWindow)
+                        hasFloatingWindow = true;
+                    items.RemoveAt(i);
                 }
             }
 
-            items[index].IsActive = true;
+            if (hasFloatingWindow && items.Count > 0)
+            {
+                var index = 0;
+
+                var tmpTimeStamp = items[0].LastActivationTimeStamp;
+                for (var j = 1; j < items.Count; j++)
+                {
+                    var item2 = items[j];
+                    if (item2.LastActivationTimeStamp > tmpTimeStamp)
+                    {
+                        tmpTimeStamp = item2.LastActivationTimeStamp;
+                        index = j;
+                    }
+                }
+
+                items[index].IsActive = true;
+            }
         }
     }
 }

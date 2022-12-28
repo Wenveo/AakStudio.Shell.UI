@@ -2,43 +2,41 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace Aak.Shell.UI.Showcase.Commands;
-
-internal sealed class RelayCommand<T> : ICommand
+namespace Aak.Shell.UI.Showcase.Commands
 {
-    private readonly Action<T?> execute;
-
-    private readonly Predicate<T?>? canExecute;
-
-    public event EventHandler? CanExecuteChanged;
-
-    public RelayCommand(Action<T?> execute)
+    internal sealed class RelayCommand<T> : ICommand
     {
-        ArgumentNullException.ThrowIfNull(execute, nameof(execute));
-        this.execute = execute;
-    }
+        private readonly Action<T?> execute;
 
-    public RelayCommand(Action<T?> execute, Predicate<T?> canExecute)
-    {
-        ArgumentNullException.ThrowIfNull(execute, nameof(execute));
-        ArgumentNullException.ThrowIfNull(canExecute, nameof(canExecute));
-        this.execute = execute;
-        this.canExecute = canExecute;
-    }
+        private readonly Predicate<T?>? canExecute;
 
-    public void NotifyCanExecuteChanged()
-    {
-        this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-    }
+        public event EventHandler? CanExecuteChanged;
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool CanExecute(object? parameter)
-    {
-        return canExecute?.Invoke((T?)parameter) ?? true;
-    }
+        public RelayCommand(Action<T?> execute)
+        {
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        }
 
-    public void Execute(object? parameter)
-    {
-        this.execute((T?)parameter);
+        public RelayCommand(Action<T?> execute, Predicate<T?> canExecute)
+        {
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
+        }
+
+        public void NotifyCanExecuteChanged()
+        {
+            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool CanExecute(object? parameter)
+        {
+            return canExecute?.Invoke((T?)parameter) ?? true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            this.execute((T?)parameter);
+        }
     }
 }

@@ -2,13 +2,13 @@
 using Aak.Shell.UI.Showcase.Interfaces;
 using System.Collections.ObjectModel;
 
-namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
-
-internal sealed class BasicCollectionViewModel : AakCollectionViewModel
+namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {
-    public BasicCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "WPF Basic Control Styles", "Basic", true)
+    internal sealed class BasicCollectionViewModel : AakCollectionViewModel
     {
-        Items = new ObservableCollection<IAakDocumentWell>()
+        public BasicCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "WPF Basic Control Styles", "Basic", true)
+        {
+            Items = new ObservableCollection<IAakDocumentWell>()
         {
             new AakDocumentWellViewModel(new ButtonView(), "Button", this),
             new AakDocumentWellViewModel(new CheckBoxView(), "CheckBox", this),
@@ -32,5 +32,6 @@ internal sealed class BasicCollectionViewModel : AakCollectionViewModel
             new AakDocumentWellViewModel(new ToolTipView(), "ToolTip", this),
             new AakDocumentWellViewModel(new TreeViewView(), "TreeView", this)
         };
+        }
     }
 }

@@ -2,31 +2,32 @@
 using Aak.Shell.UI.Showcase.Interfaces;
 using System.Windows.Input;
 
-namespace Aak.Shell.UI.Showcase.Shell;
-
-internal abstract class AakDocumentWell : AakViewElement, IAakDocumentWell
+namespace Aak.Shell.UI.Showcase.Shell
 {
-    public ICommand ActiveCommand
+    internal abstract class AakDocumentWell : AakViewElement, IAakDocumentWell
     {
-        get => activeCommand ??= new RelayCommand(OnActive);
+        public ICommand ActiveCommand
+        {
+            get => activeCommand ??= new RelayCommand(OnActive);
+        }
+
+        public ICommand CloseCommand
+        {
+            get => closeCommand ??= new RelayCommand(OnClose);
+        }
+
+        public string? ToolTip
+        {
+            get => toolTip;
+            set => SetProperty(ref toolTip, value);
+        }
+
+        protected abstract void OnActive();
+
+        protected abstract void OnClose();
+
+        public ICommand? activeCommand;
+        public ICommand? closeCommand;
+        private string? toolTip;
     }
-
-    public ICommand CloseCommand
-    {
-        get => closeCommand ??= new RelayCommand(OnClose);
-    }
-
-    public string? ToolTip
-    {
-        get => toolTip;
-        set => SetProperty(ref toolTip, value);
-    }
-
-    protected abstract void OnActive();
-
-    protected abstract void OnClose();
-
-    public ICommand? activeCommand;
-    public ICommand? closeCommand;
-    private string? toolTip;
 }

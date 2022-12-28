@@ -22,5 +22,19 @@ namespace Aak.Shell.UI.Showcase.ControlViews
         }
     }
 
-    public record SimpleData(int Id, string Name, string Description);
+    public class SimpleData
+    {
+        public int Id { get; }
+
+        public string Name { get; }
+
+        public string Description { get; }
+
+        public SimpleData(int id, string name, string description)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+        }
+    }
 }

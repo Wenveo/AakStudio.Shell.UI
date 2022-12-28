@@ -3,28 +3,29 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Aak.Shell.UI.Showcase.Converters;
-
-internal sealed class AakViewElementToStringConverter : IValueConverter
+namespace Aak.Shell.UI.Showcase.Converters
 {
-    public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    internal sealed class AakViewElementToStringConverter : IValueConverter
     {
-        if (value is IAakCollection aakCollection)
+        public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return aakCollection.DisplayName;
+            if (value is IAakCollection aakCollection)
+            {
+                return aakCollection.DisplayName;
+            }
+            else if (value is IAakDocumentWell aakDocumentWell)
+            {
+                return aakDocumentWell.Title;
+            }
+            else
+            {
+                return Binding.DoNothing;
+            }
         }
-        else if (value is IAakDocumentWell aakDocumentWell)
-        {
-            return aakDocumentWell.Title;
-        }
-        else
-        {
-            return Binding.DoNothing;
-        }
-    }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

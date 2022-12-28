@@ -1,8 +1,9 @@
-﻿namespace Aak.Shell.UI.Showcase.Interfaces;
-
-internal interface IAakToolWell : IAakViewElement
+﻿namespace Aak.Shell.UI.Showcase.Interfaces
 {
-    bool CanHide { get; set; }
+    internal interface IAakToolWell : IAakViewElement
+    {
+        bool CanHide { get; set; }
 
-    bool IsVisible { get; set; }
+        bool IsVisible { get; set; }
+    }
 }

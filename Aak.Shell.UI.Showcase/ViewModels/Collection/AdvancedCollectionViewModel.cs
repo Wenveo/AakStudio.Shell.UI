@@ -2,15 +2,16 @@
 using Aak.Shell.UI.Showcase.Interfaces;
 using System.Collections.ObjectModel;
 
-namespace Aak.Shell.UI.Showcase.ViewModels.Collection;
-
-internal sealed class AdvancedCollectionViewModel : AakCollectionViewModel
+namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {
-    public AdvancedCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "Advanced Controls", "Advanced", true)
+    internal sealed class AdvancedCollectionViewModel : AakCollectionViewModel
     {
-        Items = new ObservableCollection<IAakDocumentWell>()
+        public AdvancedCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "Advanced Controls", "Advanced", true)
+        {
+            Items = new ObservableCollection<IAakDocumentWell>()
         {
             new AakDocumentWellViewModel(new TreeListViewView(), "TreeListView", this),
         };
+        }
     }
 }

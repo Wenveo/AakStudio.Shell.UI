@@ -3,23 +3,24 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Aak.Shell.UI.Showcase.Converters;
-
-[ValueConversion(typeof(Theme), typeof(bool))]
-internal sealed class AakThemeToIsCheckedConverter : IValueConverter
+namespace Aak.Shell.UI.Showcase.Converters
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    [ValueConversion(typeof(Theme), typeof(bool))]
+    internal sealed class AakThemeToIsCheckedConverter : IValueConverter
     {
-        if (value is not Theme theme || parameter is not string str)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return false;
+            if (value is not Theme theme || parameter is not string str)
+            {
+                return false;
+            }
+
+            return theme.Name == str;
         }
 
-        return theme.Name == str;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,96 +7,200 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace Aak.Shell.UI.Showcase.Markup;
-
-internal sealed class AakDocumentWellTitleExtension : MarkupExtension
+namespace Aak.Shell.UI.Showcase.Markup
 {
-    private sealed class FloatingWindowData
+    internal sealed class AakDocumentWellTitleExtension : MarkupExtension
     {
-        public LayoutDocumentFloatingWindowControl FloatingWindow { get; set; }
-
-        public bool IsChangeWindowTitle { get; set; }
-
-        public FloatingWindowData(LayoutDocumentFloatingWindowControl floatingWindow, bool isChangeWindowTitle)
+        private sealed class FloatingWindowData
         {
-            FloatingWindow = floatingWindow;
-            IsChangeWindowTitle = isChangeWindowTitle;
-        }
-    }
+            public LayoutDocumentFloatingWindowControl FloatingWindow { get; set; }
 
-    private sealed class ProvideValueTargetPool
-    {
-        private static ProvideValueTargetPool? _instance;
+            public bool IsChangeWindowTitle { get; set; }
 
-        public static ProvideValueTargetPool Instance => _instance ??= new ProvideValueTargetPool();
-
-        private readonly Dictionary<LayoutDocumentPaneGroup, FloatingWindowData> _groupToWindowData;
-        private readonly Dictionary<LayoutDocumentPaneGroup, List<IProvideValueTarget>> _groupToTargets;
-        private readonly object _lockObject;
-
-        public ProvideValueTargetPool()
-        {
-            _lockObject = new object();
-            _groupToTargets = new Dictionary<LayoutDocumentPaneGroup, List<IProvideValueTarget>>();
-            _groupToWindowData = new Dictionary<LayoutDocumentPaneGroup, FloatingWindowData>();
-
-            Application.Current.MainWindow.Closed += MainWindow_Closed;
-        }
-
-        private void MainWindow_Closed(object? sender, EventArgs e)
-        {
-            if (sender is Window window)
+            public FloatingWindowData(LayoutDocumentFloatingWindowControl floatingWindow, bool isChangeWindowTitle)
             {
-                window.Closed -= MainWindow_Closed;
-                foreach (var item in _groupToWindowData.Values)
+                FloatingWindow = floatingWindow;
+                IsChangeWindowTitle = isChangeWindowTitle;
+            }
+        }
+
+        private sealed class ProvideValueTargetPool
+        {
+            private static ProvideValueTargetPool? _instance;
+
+            public static ProvideValueTargetPool Instance => _instance ??= new ProvideValueTargetPool();
+
+            private readonly Dictionary<LayoutDocumentPaneGroup, FloatingWindowData> _groupToWindowData;
+            private readonly Dictionary<LayoutDocumentPaneGroup, List<IProvideValueTarget>> _groupToTargets;
+            private readonly object _lockObject;
+
+            public ProvideValueTargetPool()
+            {
+                _lockObject = new object();
+                _groupToTargets = new Dictionary<LayoutDocumentPaneGroup, List<IProvideValueTarget>>();
+                _groupToWindowData = new Dictionary<LayoutDocumentPaneGroup, FloatingWindowData>();
+
+                Application.Current.MainWindow.Closed += MainWindow_Closed;
+            }
+
+            private void MainWindow_Closed(object? sender, EventArgs e)
+            {
+                if (sender is Window window)
                 {
-                    if (!item.FloatingWindow.OwnedByDockingManagerWindow)
+                    window.Closed -= MainWindow_Closed;
+                    foreach (var item in _groupToWindowData.Values)
                     {
-                        item.FloatingWindow.Close();
+                        if (!item.FloatingWindow.OwnedByDockingManagerWindow)
+                        {
+                            item.FloatingWindow.Close();
+                        }
                     }
                 }
             }
-        }
 
-        public void AddTarget(FloatingWindowData floatingWindowData, LayoutDocumentPaneGroup group, IProvideValueTarget provideValueTarget)
-        {
-            lock (_lockObject)
+            public void AddTarget(FloatingWindowData floatingWindowData, LayoutDocumentPaneGroup group, IProvideValueTarget provideValueTarget)
             {
-                _groupToWindowData[group] = floatingWindowData;
-                if (!_groupToTargets.TryGetValue(group, out var targets))
+                lock (_lockObject)
                 {
-                    targets = new List<IProvideValueTarget>();
-                    _groupToTargets.Add(group, targets);
+                    _groupToWindowData[group] = floatingWindowData;
+                    if (!_groupToTargets.TryGetValue(group, out var targets))
+                    {
+                        targets = new List<IProvideValueTarget>();
+                        _groupToTargets.Add(group, targets);
 
-                    // Initialize
-                    group.ChildrenTreeChanged += this.RootPanel_ChildrenTreeChanged;
-                }
+                        // Initialize
+                        group.ChildrenTreeChanged += this.RootPanel_ChildrenTreeChanged;
+                    }
 
-                targets.Add(provideValueTarget);
-                NotifyProvideValueTargets(group, targets);
-            }
-        }
-
-        public void ClearTargets(LayoutDocumentPaneGroup group)
-        {
-            lock (_lockObject)
-            {
-                if (_groupToTargets.TryGetValue(group, out var targets))
-                {
-                    targets.Clear();
-                    group.ChildrenTreeChanged -= this.RootPanel_ChildrenTreeChanged;
-
-                    _groupToTargets.Remove(group);
+                    targets.Add(provideValueTarget);
+                    NotifyProvideValueTargets(group, targets);
                 }
             }
-        }
 
-        internal void UpdateIsChangeWindowTitle(LayoutDocumentPaneGroup group, bool isChangeWindowTitle)
-        {
-            if (_groupToWindowData.TryGetValue(group, out var windowData))
+            public void ClearTargets(LayoutDocumentPaneGroup group)
             {
-                windowData.IsChangeWindowTitle = isChangeWindowTitle;
+                lock (_lockObject)
+                {
+                    if (_groupToTargets.TryGetValue(group, out var targets))
+                    {
+                        targets.Clear();
+                        group.ChildrenTreeChanged -= this.RootPanel_ChildrenTreeChanged;
 
+                        _groupToTargets.Remove(group);
+                    }
+                }
+            }
+
+            internal void UpdateIsChangeWindowTitle(LayoutDocumentPaneGroup group, bool isChangeWindowTitle)
+            {
+                if (_groupToWindowData.TryGetValue(group, out var windowData))
+                {
+                    windowData.IsChangeWindowTitle = isChangeWindowTitle;
+
+                    if (_groupToTargets.TryGetValue(group, out var targets))
+                    {
+                        NotifyProvideValueTargets(group, targets);
+                    }
+                }
+            }
+
+            private static void CoreceUpdateTargetPropertys(string itemTitle, List<IProvideValueTarget> targets, FloatingWindowData? floatingWindowData)
+            {
+                var prefix = Application.Current.MainWindow.Title;
+                var title = $"{prefix} - {itemTitle}";
+                for (var i = 0; i < targets.Count; i++)
+                {
+                    var target = targets[i];
+                    if (target.TargetObject is DependencyObject elem &&
+                        target.TargetProperty is DependencyProperty dp)
+                    {
+                        elem.SetValue(dp, title);
+                    }
+                }
+
+
+                if (floatingWindowData is not null &&
+                    floatingWindowData.IsChangeWindowTitle)
+                {
+                    floatingWindowData.FloatingWindow.Title = title;
+                }
+            }
+
+            private void NotifyProvideValueTargets(LayoutDocumentPaneGroup group, List<IProvideValueTarget> targets)
+            {
+                lock (_lockObject)
+                {
+                    var items = group.Descendents().OfType<LayoutContent>().ToList();
+                    if (items.Count > 0)
+                    {
+                        var index = 0;
+
+                        Child_UnregisterEvents(items[0]);
+                        Child_RegisterEvents(items[0]);
+
+                        if (items.Count > 1)
+                        {
+                            var tmpTimeStamp = items[0].LastActivationTimeStamp;
+                            for (var i = 1; i < items.Count; i++)
+                            {
+                                var item = items[i];
+
+                                Child_UnregisterEvents(item);
+                                Child_RegisterEvents(item);
+
+                                if (item.LastActivationTimeStamp > tmpTimeStamp)
+                                {
+                                    tmpTimeStamp = item.LastActivationTimeStamp;
+                                    index = i;
+                                }
+                            }
+                        }
+
+                        CoreceUpdateTargetPropertys(items[index].Title, targets, _groupToWindowData[group]);
+                    }
+                }
+            }
+
+            private void Child_RegisterEvents(LayoutContent layoutContent)
+            {
+                layoutContent.IsActiveChanged += this.Child_IsActiveChanged;
+                layoutContent.Closed += this.Child_Closed;
+            }
+
+            private void Child_UnregisterEvents(LayoutContent layoutContent)
+            {
+                layoutContent.IsActiveChanged -= this.Child_IsActiveChanged;
+                layoutContent.Closed -= this.Child_Closed;
+            }
+
+            private void Child_IsActiveChanged(object? sender, EventArgs e)
+            {
+                if (sender is LayoutContent layoutContent)
+                {
+                    for (var parent = layoutContent.Parent; parent != null; parent = parent.Parent)
+                    {
+                        if (parent is LayoutDocumentPaneGroup group &&
+                            _groupToTargets.TryGetValue(group, out var targets))
+                        {
+                            CoreceUpdateTargetPropertys(layoutContent.Title, targets, _groupToWindowData[group]);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            private void Child_Closed(object? sender, EventArgs e)
+            {
+                if (sender is LayoutContent layoutContent)
+                {
+                    Child_UnregisterEvents(layoutContent);
+                }
+            }
+
+
+            private void RootPanel_ChildrenTreeChanged(object? sender, ChildrenTreeChangedEventArgs e)
+            {
+                if (sender is not LayoutDocumentPaneGroup group) return;
                 if (_groupToTargets.TryGetValue(group, out var targets))
                 {
                     NotifyProvideValueTargets(group, targets);
@@ -104,163 +208,60 @@ internal sealed class AakDocumentWellTitleExtension : MarkupExtension
             }
         }
 
-        private static void CoreceUpdateTargetPropertys(string itemTitle, List<IProvideValueTarget> targets, FloatingWindowData? floatingWindowData)
+        private LayoutDocumentFloatingWindowControl? _floatingWindow;
+        private bool _isChangeWindowTitle;
+
+        public bool IsChangeWindowTitle
         {
-            var prefix = Application.Current.MainWindow.Title;
-            var title = $"{prefix} - {itemTitle}";
-            for (var i = 0; i < targets.Count; i++)
+            get => _isChangeWindowTitle;
+            set
             {
-                var target = targets[i];
-                if (target.TargetObject is DependencyObject elem &&
-                    target.TargetProperty is DependencyProperty dp)
+                if (_isChangeWindowTitle != value)
                 {
-                    elem.SetValue(dp, title);
-                }
-            }
+                    _isChangeWindowTitle = value;
 
-
-            if (floatingWindowData is not null &&
-                floatingWindowData.IsChangeWindowTitle)
-            {
-                floatingWindowData.FloatingWindow.Title = title;
-            }
-        }
-
-        private void NotifyProvideValueTargets(LayoutDocumentPaneGroup group, List<IProvideValueTarget> targets)
-        {
-            lock (_lockObject)
-            {
-                var items = group.Descendents().OfType<LayoutContent>().ToList();
-                if (items.Count > 0)
-                {
-                    var index = 0;
-
-                    Child_UnregisterEvents(items[0]);
-                    Child_RegisterEvents(items[0]);
-
-                    if (items.Count > 1)
+                    if (_floatingWindow is not null &&
+                        _floatingWindow.Model is LayoutDocumentFloatingWindow model &&
+                        model.RootPanel is not null)
                     {
-                        var tmpTimeStamp = items[0].LastActivationTimeStamp;
-                        for (var i = 1; i < items.Count; i++)
-                        {
-                            var item = items[i];
-
-                            Child_UnregisterEvents(item);
-                            Child_RegisterEvents(item);
-
-                            if (item.LastActivationTimeStamp > tmpTimeStamp)
-                            {
-                                tmpTimeStamp = item.LastActivationTimeStamp;
-                                index = i;
-                            }
-                        }
-                    }
-
-                    CoreceUpdateTargetPropertys(items[index].Title, targets, _groupToWindowData[group]);
-                }
-            }
-        }
-
-        private void Child_RegisterEvents(LayoutContent layoutContent)
-        {
-            layoutContent.IsActiveChanged += this.Child_IsActiveChanged;
-            layoutContent.Closed += this.Child_Closed;
-        }
-
-        private void Child_UnregisterEvents(LayoutContent layoutContent)
-        {
-            layoutContent.IsActiveChanged -= this.Child_IsActiveChanged;
-            layoutContent.Closed -= this.Child_Closed;
-        }
-
-        private void Child_IsActiveChanged(object? sender, EventArgs e)
-        {
-            if (sender is LayoutContent layoutContent)
-            {
-                for (var parent = layoutContent.Parent; parent != null; parent = parent.Parent)
-                {
-                    if (parent is LayoutDocumentPaneGroup group &&
-                        _groupToTargets.TryGetValue(group, out var targets))
-                    {
-                        CoreceUpdateTargetPropertys(layoutContent.Title, targets, _groupToWindowData[group]);
-                        break;
+                        ProvideValueTargetPool.Instance.UpdateIsChangeWindowTitle(model.RootPanel, value);
                     }
                 }
             }
         }
 
-        private void Child_Closed(object? sender, EventArgs e)
+        public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            if (sender is LayoutContent layoutContent)
+            if (serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget &&
+                provideValueTarget.TargetObject is DependencyObject targetObject)
             {
-                Child_UnregisterEvents(layoutContent);
-            }
-        }
-
-
-        private void RootPanel_ChildrenTreeChanged(object? sender, ChildrenTreeChangedEventArgs e)
-        {
-            if (sender is not LayoutDocumentPaneGroup group) return;
-            if (_groupToTargets.TryGetValue(group, out var targets))
-            {
-                NotifyProvideValueTargets(group, targets);
-            }
-        }
-    }
-
-    private LayoutDocumentFloatingWindowControl? _floatingWindow;
-    private bool _isChangeWindowTitle;
-
-    public bool IsChangeWindowTitle
-    {
-        get => _isChangeWindowTitle;
-        set
-        {
-            if (_isChangeWindowTitle != value)
-            {
-                _isChangeWindowTitle = value;
-
-                if (_floatingWindow is not null &&
-                    _floatingWindow.Model is LayoutDocumentFloatingWindow model &&
-                    model.RootPanel is not null)
+                for (var parent = VisualTreeHelper.GetParent(targetObject); parent != null; parent = VisualTreeHelper.GetParent(parent))
                 {
-                    ProvideValueTargetPool.Instance.UpdateIsChangeWindowTitle(model.RootPanel, value);
+                    if (parent is LayoutDocumentFloatingWindowControl floatingWindow &&
+                        floatingWindow.Model is LayoutDocumentFloatingWindow model &&
+                        model.RootPanel is not null)
+                    {
+                        _floatingWindow = floatingWindow;
+                        _floatingWindow.Closed += this.FloatingWindow_Closed;
+                        ProvideValueTargetPool.Instance.AddTarget(new FloatingWindowData(floatingWindow, _isChangeWindowTitle), model.RootPanel, provideValueTarget);
+                    }
                 }
-            }
-        }
-    }
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
-    {
-        if (serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget &&
-            provideValueTarget.TargetObject is DependencyObject targetObject)
+                return Application.Current.MainWindow.Title;
+            }
+
+            return this;
+        }
+
+        private void FloatingWindow_Closed(object? sender, EventArgs e)
         {
-            for (var parent = VisualTreeHelper.GetParent(targetObject); parent != null; parent = VisualTreeHelper.GetParent(parent))
+            if (sender is LayoutDocumentFloatingWindowControl floatingWindow &&
+                floatingWindow.Model is LayoutDocumentFloatingWindow model &&
+                model.RootPanel is not null)
             {
-                if (parent is LayoutDocumentFloatingWindowControl floatingWindow &&
-                    floatingWindow.Model is LayoutDocumentFloatingWindow model &&
-                    model.RootPanel is not null)
-                {
-                    _floatingWindow = floatingWindow;
-                    _floatingWindow.Closed += this.FloatingWindow_Closed;
-                    ProvideValueTargetPool.Instance.AddTarget(new FloatingWindowData(floatingWindow, _isChangeWindowTitle), model.RootPanel, provideValueTarget);
-                }
+                floatingWindow.Closed -= FloatingWindow_Closed;
+                ProvideValueTargetPool.Instance.ClearTargets(model.RootPanel);
             }
-
-            return Application.Current.MainWindow.Title;
-        }
-
-        return this;
-    }
-
-    private void FloatingWindow_Closed(object? sender, EventArgs e)
-    {
-        if (sender is LayoutDocumentFloatingWindowControl floatingWindow &&
-            floatingWindow.Model is LayoutDocumentFloatingWindow model &&
-            model.RootPanel is not null)
-        {
-            floatingWindow.Closed -= FloatingWindow_Closed;
-            ProvideValueTargetPool.Instance.ClearTargets(model.RootPanel);
         }
     }
 }

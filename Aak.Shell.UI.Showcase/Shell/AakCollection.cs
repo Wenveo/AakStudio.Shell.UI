@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace Aak.Shell.UI.Showcase.Shell;
-
-internal abstract class AakCollection : AakDocumentWell, IAakCollection
+namespace Aak.Shell.UI.Showcase.Shell
 {
-    public bool IsExpanded
+    internal abstract class AakCollection : AakDocumentWell, IAakCollection
     {
-        get => isExpanded;
-        set => SetProperty(ref isExpanded, value);
-    }
-
-    public string? DisplayName
-    {
-        get => displayName;
-        set => SetProperty(ref displayName, value);
-    }
-
-    public virtual IEnumerable<UIElement>? Views
-    {
-        get
+        public bool IsExpanded
         {
-            yield break;
+            get => isExpanded;
+            set => SetProperty(ref isExpanded, value);
         }
-    }
 
-    public ObservableCollection<IAakDocumentWell>? Items
-    {
-        get => items;
-        set => SetProperty(ref items, value);
-    }
+        public string? DisplayName
+        {
+            get => displayName;
+            set => SetProperty(ref displayName, value);
+        }
 
-    private ObservableCollection<IAakDocumentWell>? items;
-    private string? displayName;
-    private bool isExpanded;
+        public virtual IEnumerable<UIElement>? Views
+        {
+            get
+            {
+                yield break;
+            }
+        }
+
+        public ObservableCollection<IAakDocumentWell>? Items
+        {
+            get => items;
+            set => SetProperty(ref items, value);
+        }
+
+        private ObservableCollection<IAakDocumentWell>? items;
+        private string? displayName;
+        private bool isExpanded;
+    }
 }

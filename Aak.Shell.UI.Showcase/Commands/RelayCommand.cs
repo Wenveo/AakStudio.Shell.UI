@@ -2,43 +2,41 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace Aak.Shell.UI.Showcase.Commands;
-
-internal sealed class RelayCommand : ICommand
+namespace Aak.Shell.UI.Showcase.Commands
 {
-    private readonly Action execute;
-
-    private readonly Func<bool>? canExecute;
-
-    public event EventHandler? CanExecuteChanged;
-
-    public RelayCommand(Action execute)
+    internal sealed class RelayCommand : ICommand
     {
-        ArgumentNullException.ThrowIfNull(execute, nameof(execute));
-        this.execute = execute;
-    }
+        private readonly Action execute;
 
-    public RelayCommand(Action execute, Func<bool> canExecute)
-    {
-        ArgumentNullException.ThrowIfNull(execute, nameof(execute));
-        ArgumentNullException.ThrowIfNull(canExecute, nameof(canExecute));
-        this.execute = execute;
-        this.canExecute = canExecute;
-    }
+        private readonly Func<bool>? canExecute;
 
-    public void NotifyCanExecuteChanged()
-    {
-        this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-    }
+        public event EventHandler? CanExecuteChanged;
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool CanExecute(object? parameter)
-    {
-        return canExecute?.Invoke() ?? true;
-    }
+        public RelayCommand(Action execute)
+        {
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        }
 
-    public void Execute(object? parameter)
-    {
-        this.execute();
+        public RelayCommand(Action execute, Func<bool> canExecute)
+        {
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
+        }
+
+        public void NotifyCanExecuteChanged()
+        {
+            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool CanExecute(object? parameter)
+        {
+            return canExecute?.Invoke() ?? true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            this.execute();
+        }
     }
 }
