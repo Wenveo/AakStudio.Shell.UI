@@ -9,36 +9,43 @@ namespace Aak.Shell.UI
         private static XamlUIResources? instance;
         public static XamlUIResources Instance
         {
-            get => instance ??= new XamlUIResources();
+            get
+            {
+                if (instance == null)
+                {
+                    throw new InvalidOperationException("The XamlUIResources is not loaded!");
+                }
+                return instance;
+            }
         }
 
         public Theme Theme
         {
-            get => this.theme;
-            set => this.CoerceSetTheme(this.theme = value);
+            get => theme;
+            set => CoerceSetTheme(theme = value);
         }
 
         public XamlUIResources()
         {
-            this.theme = new VisualStudio2022Light();
-            this.CoerceInitialize();
-
-            instance ??= this;
+            instance = this;
+            theme = new VisualStudio2022Light();
+            CoerceInitialize();
         }
 
         private Theme theme;
 
         private void CoerceInitialize()
         {
-            this.MergedDictionaries.Add(new ResourceDictionary
+            MergedDictionaries.Add(new ResourceDictionary
             {
                 Source = new Uri("/Aak.Shell.UI;component/Styles/Controls.xaml", UriKind.Relative)
             });
-            this.MergedDictionaries.Add(this.theme.Current);
+            MergedDictionaries.Add(theme.Current);
         }
+
         private void CoerceSetTheme(Theme theme)
         {
-            this.MergedDictionaries[1] = theme.Current;
+            MergedDictionaries[1] = theme.Current;
         }
     }
 }
