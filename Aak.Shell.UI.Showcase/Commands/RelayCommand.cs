@@ -25,7 +25,7 @@ namespace Aak.Shell.UI.Showcase.Commands
 
         public void NotifyCanExecuteChanged()
         {
-            this.CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -36,7 +36,7 @@ namespace Aak.Shell.UI.Showcase.Commands
 
         public void Execute(object? parameter)
         {
-            this.execute();
+            execute();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
         public StyleSelectorViewModel(WorkSpaceViewModel workSpaceViewModel)
         {
             this.workSpaceViewModel = workSpaceViewModel;
-            this.collections = new ObservableCollection<AakCollectionViewModel>
+            collections = new ObservableCollection<AakCollectionViewModel>
         {
             new AdvancedCollectionViewModel(this),
             new BasicCollectionViewModel(this)
@@ -33,12 +33,12 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
         internal void ActiveDocument(IAakDocumentWell view)
         {
-            this.workSpaceViewModel.AddOrActiveDocument(view);
+            workSpaceViewModel.AddOrActiveDocument(view);
         }
 
         internal void CloseTab(IAakDocumentWell view)
         {
-            this.workSpaceViewModel.CloseDocument(view);
+            workSpaceViewModel.CloseDocument(view);
         }
     }
 }

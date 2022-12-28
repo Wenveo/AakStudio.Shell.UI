@@ -15,30 +15,30 @@ namespace Aak.Shell.UI.Controls
 
         public TreeListViewCollection(TreeListViewNode parent)
         {
-            this._parent = parent;
+            _parent = parent;
         }
 
         public event NotifyCollectionChangedEventHandler? CollectionChanged;
 
         private void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
-            Debug.Assert(!this._isRaisingEvent);
-            this._isRaisingEvent = true;
+            Debug.Assert(!_isRaisingEvent);
+            _isRaisingEvent = true;
             try
             {
-                this._parent.OnChildrenChanged(e);
-                if (this.CollectionChanged != null)
-                    this.CollectionChanged(this, e);
+                _parent.OnChildrenChanged(e);
+                if (CollectionChanged != null)
+                    CollectionChanged(this, e);
             }
             finally
             {
-                this._isRaisingEvent = false;
+                _isRaisingEvent = false;
             }
         }
 
         private void ThrowOnReentrancy()
         {
-            if (this._isRaisingEvent)
+            if (_isRaisingEvent)
                 throw new InvalidOperationException();
         }
 
@@ -54,24 +54,24 @@ namespace Aak.Shell.UI.Controls
         {
             get
             {
-                return this._list[index];
+                return _list[index];
             }
             set
             {
-                this.ThrowOnReentrancy();
-                var oldItem = this._list[index];
+                ThrowOnReentrancy();
+                var oldItem = _list[index];
                 if (oldItem == value)
                     return;
 
-                this.ThrowIfValueIsNullOrHasParent(value);
-                this._list[index] = value;
-                this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, value, oldItem, index));
+                ThrowIfValueIsNullOrHasParent(value);
+                _list[index] = value;
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, value, oldItem, index));
             }
         }
 
         public int Count
         {
-            get { return this._list.Count; }
+            get { return _list.Count; }
         }
 
         bool ICollection<TreeListViewNode>.IsReadOnly
@@ -81,95 +81,95 @@ namespace Aak.Shell.UI.Controls
 
         public int IndexOf(TreeListViewNode node)
         {
-            if (node == null || node.NodeParent != this._parent)
+            if (node == null || node.NodeParent != _parent)
                 return -1;
             else
-                return this._list.IndexOf(node);
+                return _list.IndexOf(node);
         }
 
         public void Insert(int index, TreeListViewNode node)
         {
-            this.ThrowOnReentrancy();
-            this.ThrowIfValueIsNullOrHasParent(node);
-            this._list.Insert(index, node);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, node, index));
+            ThrowOnReentrancy();
+            ThrowIfValueIsNullOrHasParent(node);
+            _list.Insert(index, node);
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, node, index));
         }
 
         public void InsertRange(int index, IEnumerable<TreeListViewNode> nodes)
         {
             if (nodes == null)
                 throw new ArgumentNullException(nameof(nodes));
-            this.ThrowOnReentrancy();
+            ThrowOnReentrancy();
 
             List<TreeListViewNode> newNodes = nodes.ToList();
             if (newNodes.Count == 0)
                 return;
 
             foreach (TreeListViewNode node in newNodes)
-                this.ThrowIfValueIsNullOrHasParent(node);
+                ThrowIfValueIsNullOrHasParent(node);
 
-            this._list.InsertRange(index, newNodes);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, newNodes, index));
+            _list.InsertRange(index, newNodes);
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, newNodes, index));
         }
 
         public void RemoveAt(int index)
         {
-            this.ThrowOnReentrancy();
+            ThrowOnReentrancy();
 
-            var oldItem = this._list[index];
-            this._list.RemoveAt(index);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldItem, index));
+            var oldItem = _list[index];
+            _list.RemoveAt(index);
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldItem, index));
         }
 
         public void RemoveRange(int index, int count)
         {
-            this.ThrowOnReentrancy();
+            ThrowOnReentrancy();
             if (count == 0)
                 return;
 
-            var oldItems = this._list.GetRange(index, count);
-            this._list.RemoveRange(index, count);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldItems, index));
+            var oldItems = _list.GetRange(index, count);
+            _list.RemoveRange(index, count);
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldItems, index));
         }
 
         public void Add(TreeListViewNode node)
         {
-            this.ThrowOnReentrancy();
-            this.ThrowIfValueIsNullOrHasParent(node);
-            this._list.Add(node);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, node, _list.Count - 1));
+            ThrowOnReentrancy();
+            ThrowIfValueIsNullOrHasParent(node);
+            _list.Add(node);
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, node, _list.Count - 1));
         }
 
         public void AddRange(IEnumerable<TreeListViewNode> nodes)
         {
-            this.InsertRange(this.Count, nodes);
+            InsertRange(Count, nodes);
         }
 
         public void Clear()
         {
-            this.ThrowOnReentrancy();
+            ThrowOnReentrancy();
 
-            var oldList = this._list;
-            this._list = new List<TreeListViewNode>();
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldList, 0));
+            var oldList = _list;
+            _list = new List<TreeListViewNode>();
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldList, 0));
         }
 
         public bool Contains(TreeListViewNode node)
         {
-            return this.IndexOf(node) >= 0;
+            return IndexOf(node) >= 0;
         }
 
         public void CopyTo(TreeListViewNode[] array, int arrayIndex)
         {
-            this._list.CopyTo(array, arrayIndex);
+            _list.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(TreeListViewNode item)
         {
-            int pos = this.IndexOf(item);
+            int pos = IndexOf(item);
             if (pos >= 0)
             {
-                this.RemoveAt(pos);
+                RemoveAt(pos);
                 return true;
             }
             else
@@ -180,12 +180,12 @@ namespace Aak.Shell.UI.Controls
 
         public IEnumerator<TreeListViewNode> GetEnumerator()
         {
-            return this._list.GetEnumerator();
+            return _list.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this._list.GetEnumerator();
+            return _list.GetEnumerator();
         }
 
         public void RemoveAll(Predicate<TreeListViewNode> match)
@@ -193,25 +193,25 @@ namespace Aak.Shell.UI.Controls
             if (match == null)
                 throw new ArgumentNullException(nameof(match));
 
-            this.ThrowOnReentrancy();
+            ThrowOnReentrancy();
             int firstToRemove = 0;
-            for (int i = 0; i < this._list.Count; i++)
+            for (int i = 0; i < _list.Count; i++)
             {
                 bool removeNode;
-                this._isRaisingEvent = true;
+                _isRaisingEvent = true;
                 try
                 {
                     removeNode = match(_list[i]);
                 }
                 finally
                 {
-                    this._isRaisingEvent = false;
+                    _isRaisingEvent = false;
                 }
                 if (!removeNode)
                 {
                     if (firstToRemove < i)
                     {
-                        this.RemoveRange(firstToRemove, i - firstToRemove);
+                        RemoveRange(firstToRemove, i - firstToRemove);
                         i = firstToRemove - 1;
                     }
                     else
@@ -223,7 +223,7 @@ namespace Aak.Shell.UI.Controls
             }
             if (firstToRemove < _list.Count)
             {
-                this.RemoveRange(firstToRemove, this._list.Count - firstToRemove);
+                RemoveRange(firstToRemove, _list.Count - firstToRemove);
             }
         }
     }

@@ -9,19 +9,19 @@ namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 
         public AakDocumentWellViewModel(UIElement view, string title, AakCollectionViewModel parent)
         {
-            this.Parent = parent;
-            this.Title = title;
-            this.View = view;
+            Parent = parent;
+            Title = title;
+            View = view;
         }
 
         protected override void OnActive()
         {
-            this.Parent.ActiveDocument(this);
+            Parent.ActiveDocument(this);
         }
 
         protected override void OnClose()
         {
-            this.Parent.CloseTab(this);
+            Parent.CloseTab(this);
         }
     }
 }

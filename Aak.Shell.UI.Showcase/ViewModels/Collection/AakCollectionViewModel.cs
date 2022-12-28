@@ -56,23 +56,23 @@ namespace Aak.Shell.UI.Showcase.ViewModels.Collection
                 isSubItemActive = false;
                 return;
             }
-            this.Parent.ActiveDocument(this);
+            Parent.ActiveDocument(this);
         }
 
         protected override void OnClose()
         {
-            this.Parent.CloseTab(this);
+            Parent.CloseTab(this);
         }
 
         internal void ActiveDocument(IAakDocumentWell view)
         {
             isSubItemActive = true;
-            this.Parent.ActiveDocument(view);
+            Parent.ActiveDocument(view);
         }
 
         internal void CloseTab(IAakDocumentWell view)
         {
-            this.Parent.CloseTab(view);
+            Parent.CloseTab(view);
         }
     }
 }

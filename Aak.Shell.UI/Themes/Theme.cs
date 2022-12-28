@@ -12,10 +12,10 @@ namespace Aak.Shell.UI.Themes
 
         public Theme(string name, bool isDark, bool isLight, ResourceDictionary resourceDictionary)
         {
-            this.Name = name;
-            this.IsDark = isDark;
-            this.IsLight = isLight;
-            this.Current = resourceDictionary;
+            Name = name;
+            IsDark = isDark;
+            IsLight = isLight;
+            Current = resourceDictionary;
         }
     }
 }

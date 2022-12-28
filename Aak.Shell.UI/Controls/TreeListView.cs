@@ -74,16 +74,16 @@ namespace Aak.Shell.UI.Controls
 
         public void Reload()
         {
-            if (this.Root is null)
+            if (Root is null)
                 return;
 
-            var list = this.Root.ToList();
+            var list = Root.ToList();
             if (list.Any())
             {
                 list.RemoveAt(0);
-                this.Root.IsExpanded = true;
+                Root.IsExpanded = true;
             }
-            this.ItemsSource = list;
+            ItemsSource = list;
         }
 
         protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
@@ -91,7 +91,7 @@ namespace Aak.Shell.UI.Controls
             base.OnPropertyChanged(e);
             if (e.Property == RootProperty)
             {
-                this.Reload();
+                Reload();
             }
         }
     }

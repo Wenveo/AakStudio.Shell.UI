@@ -69,7 +69,7 @@ namespace Aak.Shell.UI.Showcase.Markup
                         _groupToTargets.Add(group, targets);
 
                         // Initialize
-                        group.ChildrenTreeChanged += this.RootPanel_ChildrenTreeChanged;
+                        group.ChildrenTreeChanged += RootPanel_ChildrenTreeChanged;
                     }
 
                     targets.Add(provideValueTarget);
@@ -84,7 +84,7 @@ namespace Aak.Shell.UI.Showcase.Markup
                     if (_groupToTargets.TryGetValue(group, out var targets))
                     {
                         targets.Clear();
-                        group.ChildrenTreeChanged -= this.RootPanel_ChildrenTreeChanged;
+                        group.ChildrenTreeChanged -= RootPanel_ChildrenTreeChanged;
 
                         _groupToTargets.Remove(group);
                     }
@@ -163,14 +163,14 @@ namespace Aak.Shell.UI.Showcase.Markup
 
             private void Child_RegisterEvents(LayoutContent layoutContent)
             {
-                layoutContent.IsActiveChanged += this.Child_IsActiveChanged;
-                layoutContent.Closed += this.Child_Closed;
+                layoutContent.IsActiveChanged += Child_IsActiveChanged;
+                layoutContent.Closed += Child_Closed;
             }
 
             private void Child_UnregisterEvents(LayoutContent layoutContent)
             {
-                layoutContent.IsActiveChanged -= this.Child_IsActiveChanged;
-                layoutContent.Closed -= this.Child_Closed;
+                layoutContent.IsActiveChanged -= Child_IsActiveChanged;
+                layoutContent.Closed -= Child_Closed;
             }
 
             private void Child_IsActiveChanged(object? sender, EventArgs e)
@@ -242,7 +242,7 @@ namespace Aak.Shell.UI.Showcase.Markup
                         model.RootPanel is not null)
                     {
                         _floatingWindow = floatingWindow;
-                        _floatingWindow.Closed += this.FloatingWindow_Closed;
+                        _floatingWindow.Closed += FloatingWindow_Closed;
                         ProvideValueTargetPool.Instance.AddTarget(new FloatingWindowData(floatingWindow, _isChangeWindowTitle), model.RootPanel, provideValueTarget);
                     }
                 }

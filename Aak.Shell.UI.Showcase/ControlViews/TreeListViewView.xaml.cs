@@ -12,11 +12,11 @@ namespace Aak.Shell.UI.Showcase.ControlViews
         {
             InitializeComponent();
 
-            this.DefaultTreeListView.Root = CreateTreeListViewRoot();
-            this.DefaultTreeGridView.Root = CreateTreeGridViewRoot();
+            DefaultTreeListView.Root = CreateTreeListViewRoot();
+            DefaultTreeGridView.Root = CreateTreeGridViewRoot();
 
-            this.DisabledTreeListView.Root = CreateTreeListViewRoot();
-            this.DisabledTreeGridView.Root = CreateTreeGridViewRoot();
+            DisabledTreeListView.Root = CreateTreeListViewRoot();
+            DisabledTreeGridView.Root = CreateTreeGridViewRoot();
         }
 
         private TreeListViewNode CreateTreeListViewRoot()
@@ -67,8 +67,8 @@ namespace Aak.Shell.UI.Showcase.ControlViews
 
         public Book(string text, int order) : base()
         {
-            this.Order = order;
-            this.Content = text;
+            Order = order;
+            Content = text;
         }
     }
 }

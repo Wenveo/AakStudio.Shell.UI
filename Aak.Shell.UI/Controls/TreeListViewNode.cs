@@ -11,23 +11,23 @@ namespace Aak.Shell.UI.Controls
     {
         public bool IsExpanded
         {
-            get => this.isExpanded;
+            get => isExpanded;
             set
             {
-                var oldValue = this.isExpanded;
-                this.SetProperty(ref this.isExpanded, value, nameof(IsExpanded));
-                this.OnIsExpandedChanged(new RoutedPropertyChangedEventArgs<bool>(oldValue, value));
+                var oldValue = isExpanded;
+                SetProperty(ref isExpanded, value, nameof(IsExpanded));
+                OnIsExpandedChanged(new RoutedPropertyChangedEventArgs<bool>(oldValue, value));
             }
         }
 
         public object? Content
         {
-            get => this.content;
+            get => content;
             set
             {
-                var oldValue = this.content;
-                this.SetProperty(ref this.content, value, nameof(Content));
-                this.OnContentChanged(new RoutedPropertyChangedEventArgs<object?>(oldValue, value));
+                var oldValue = content;
+                SetProperty(ref content, value, nameof(Content));
+                OnContentChanged(new RoutedPropertyChangedEventArgs<object?>(oldValue, value));
             }
         }
 
@@ -45,9 +45,9 @@ namespace Aak.Shell.UI.Controls
         {
             get
             {
-                if (this.NodeParent is null || this.NodeParent.IsRoot)
+                if (NodeParent is null || NodeParent.IsRoot)
                     return 0;
-                return this.NodeParent.Level + 1;
+                return NodeParent.Level + 1;
             }
         }
 
@@ -55,23 +55,23 @@ namespace Aak.Shell.UI.Controls
 
         internal bool IsLoaded
         {
-            get => this.isLoaded;
+            get => isLoaded;
             set
             {
-                if (this.isLoaded == value)
+                if (isLoaded == value)
                     return;
 
-                this.isLoaded = value;
-                if (this.isLoaded)
-                    this.Loaded?.Invoke(this, new RoutedEventArgs());
+                isLoaded = value;
+                if (isLoaded)
+                    Loaded?.Invoke(this, new RoutedEventArgs());
                 else
-                    this.UnLoaded?.Invoke(this, new RoutedEventArgs());
+                    UnLoaded?.Invoke(this, new RoutedEventArgs());
             }
         }
 
         public TreeListViewNode()
         {
-            this.Children = new TreeListViewCollection(this);
+            Children = new TreeListViewCollection(this);
         }
 
         private bool isLoaded;
@@ -85,12 +85,12 @@ namespace Aak.Shell.UI.Controls
 
         public virtual void OnContentChanged(RoutedPropertyChangedEventArgs<object?> e)
         {
-            this.ContentChanged?.Invoke(this, e);
+            ContentChanged?.Invoke(this, e);
         }
 
         public virtual void OnIsExpandedChanged(RoutedPropertyChangedEventArgs<bool> e)
         {
-            this.ExpandedChanged?.Invoke(this, e);
+            ExpandedChanged?.Invoke(this, e);
         }
 
         public virtual void OnChildrenChanged(NotifyCollectionChangedEventArgs e)
@@ -120,9 +120,9 @@ namespace Aak.Shell.UI.Controls
                 this
             };
 
-            if (this.IsExpanded && this.HasItems)
+            if (IsExpanded && HasItems)
             {
-                foreach (var child in this.Children)
+                foreach (var child in Children)
                 {
                     var nodes = child.ToList();
                     list.AddRange(nodes);
@@ -133,13 +133,13 @@ namespace Aak.Shell.UI.Controls
 
         protected void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         protected void SetProperty<T>(ref T property, T newValue, [CallerMemberName] string? propertyName = null)
         {
             property = newValue;
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
