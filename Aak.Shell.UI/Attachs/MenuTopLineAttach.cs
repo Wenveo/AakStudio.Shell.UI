@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace Aak.Shell.UI.Controls.Attach
+namespace Aak.Shell.UI.Attachs
 {
     public class MenuTopLineAttach
     {
@@ -156,7 +156,7 @@ namespace Aak.Shell.UI.Controls.Attach
                             left += xrPadding;
 
                             width -= 1;
-                            if (menuItemRightBottom.X > (workAreaRectDpi.X - SystemPopupRightPadding))
+                            if (menuItemRightBottom.X > workAreaRectDpi.X - SystemPopupRightPadding)
                             {
                                 width -= 1 - Math.Abs(remainderDpi);
                                 if (width < 0)
