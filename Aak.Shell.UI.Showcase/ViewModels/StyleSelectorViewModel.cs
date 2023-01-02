@@ -18,10 +18,9 @@ namespace Aak.Shell.UI.Showcase.ViewModels
         {
             this.workSpaceViewModel = workSpaceViewModel;
             collections = new ObservableCollection<AakCollectionViewModel>
-        {
-            new AdvancedCollectionViewModel(this),
-            new BasicCollectionViewModel(this)
-        };
+            {
+                new BasicCollectionViewModel(this)
+            };
 
             Title = "Wpf Base Styles";
             View = new StyleSelectorView { DataContext = this };

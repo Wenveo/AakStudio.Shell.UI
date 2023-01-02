@@ -8,7 +8,6 @@
         <!--  Custom Controls  -->
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/MetroWindow.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/TabButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/TreeListView.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
@@ -286,14 +285,4 @@
         x:Key="{x:Type ctrls:TabButton}"
         BasedOn="{StaticResource TabButtonBaseStyle}"
         TargetType="{x:Type ctrls:TabButton}" />
-
-    <Style
-        x:Key="{x:Type ctrls:TreeListViewItem}"
-        BasedOn="{StaticResource TreeListViewItemContainerBaseStyle}"
-        TargetType="{x:Type ctrls:TreeListViewItem}" />
-
-    <Style
-        x:Key="{x:Type ctrls:TreeListView}"
-        BasedOn="{StaticResource TreeListViewBaseStyle}"
-        TargetType="{x:Type ctrls:TreeListView}" />
 </ResourceDictionary>
