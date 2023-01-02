@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aak.Shell.UI.Themes.AvalonDock" Version="4.71.1" />
+    <PackageReference Include="Aak.Shell.UI.Themes.AvalonDock" Version="4.71.1.1" />
   </ItemGroup>
     
   <ItemGroup Condition=" '$(TargetFramework.StartsWith(net4))' == 'true' ">
