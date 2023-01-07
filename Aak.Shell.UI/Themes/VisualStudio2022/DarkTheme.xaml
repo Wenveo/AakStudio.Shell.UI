@@ -391,6 +391,7 @@
 
     <SolidColorBrush x:Key="StatusBarBackground" Color="#FF424242" />
     <SolidColorBrush x:Key="StatusBarForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="StatusBarSeparatorFill" Color="#FF999999" />
 
     <SolidColorBrush x:Key="SystemColorsControl" Color="#FF2E2E2E" />
     <SolidColorBrush x:Key="SystemColorsControlText" Color="#FFFAFAFA" />
