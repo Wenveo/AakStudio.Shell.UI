@@ -53,14 +53,14 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             StyleSelector = new StyleSelectorViewModel(this);
 
             themes = new ObservableCollection<Theme>()
-        {
-            new VisualStudio2019Blue    (),
-            new VisualStudio2019Dark    (),
-            new VisualStudio2019Light   (),
-            new VisualStudio2022Blue    (),
-            new VisualStudio2022Dark    (),
-            new VisualStudio2022Light   (),
-        };
+            {
+                new VisualStudio2019Blue    (),
+                new VisualStudio2019Dark    (),
+                new VisualStudio2019Light   (),
+                new VisualStudio2022Blue    (),
+                new VisualStudio2022Dark    (),
+                new VisualStudio2022Light   (),
+            };
             currentTheme = themes.Last();
 
             anchorables = new ObservableCollection<IAakToolWell>() { StyleSelector };

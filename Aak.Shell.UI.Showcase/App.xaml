@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
-    xmlns:avalonDockThemes="http://aak.shell.ui.themes.avalondock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     xmlns:markup="clr-namespace:Aak.Shell.UI.Showcase.Markup"
@@ -12,12 +11,14 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlUIResources />
+                <ResourceDictionary Source="/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
             <converters:AakActiveDocumentConverter x:Key="AakActiveDocumentConverter" />
             <converters:AakThemeToIsCheckedConverter x:Key="AakThemeToIsCheckedConverter" />
             <converters:AakViewElementToStringConverter x:Key="AakViewElementToStringConverter" />
+            <converters:AakThemeToAvalonDockThemeConverter x:Key="AakThemeToAvalonDockThemeConverter" />
 
             <Style x:Key="WindowIconRectangle" TargetType="{x:Type Rectangle}">
                 <Setter Property="Fill">

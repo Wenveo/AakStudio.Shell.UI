@@ -154,7 +154,8 @@
             ActiveContentChanged="dockingManager_ActiveContentChanged"
             AnchorablesSource="{Binding Anchorables}"
             DocumentTitleTemplate="{StaticResource AakDocumentWellTitleTemplate}"
-            DocumentsSource="{Binding DocumentViews}">
+            DocumentsSource="{Binding DocumentViews}"
+            Theme="{Binding CurrentTheme, Mode=OneWay, Converter={StaticResource AakThemeToAvalonDockThemeConverter}}">
             <DockingManager.LayoutItemTemplateSelector>
                 <styles:AakTemplateSelector>
                     <styles:AakTemplateSelector.AakDocumentWellTemplate>
