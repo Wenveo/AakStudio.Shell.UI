@@ -1,4 +1,5 @@
-﻿using Aak.Shell.UI.Helpers;
+﻿using Aak.Shell.UI.Controls;
+using Aak.Shell.UI.Helpers;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,12 +11,13 @@ namespace Aak.Shell.UI.Attachs
     {
         private const double SystemPopupRightPadding = 6.0d;
 
-        public static readonly DependencyProperty PopupProperty = DependencyProperty.RegisterAttached(
-            "Popup", typeof(Popup), typeof(MenuTopLineAttach), new PropertyMetadata(default(Popup), OnPopupChanged));
+        public static readonly DependencyProperty PopupProperty =
+            DependencyProperty.RegisterAttached("Popup", typeof(Popup),
+                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBox.NullBox, OnPopupChanged));
 
-        public static readonly DependencyProperty TopLineProperty = DependencyProperty.RegisterAttached(
-            "TopLine", typeof(FrameworkElement), typeof(MenuTopLineAttach),
-            new PropertyMetadata(default(FrameworkElement)));
+        public static readonly DependencyProperty TopLineProperty =
+            DependencyProperty.RegisterAttached("TopLine", typeof(FrameworkElement),
+                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBox.NullBox));
 
         private static void OnPopupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

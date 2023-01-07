@@ -22,12 +22,12 @@ namespace Aak.Shell.UI.Controls
     public sealed class WindowSystemButton : ButtonBase
     {
         public static readonly DependencyProperty WinSysTypeProperty =
-            DependencyProperty.Register(nameof(WinSysType), typeof(WinSysType), typeof(WindowSystemButton),
-                new FrameworkPropertyMetadata(WinSysType.Minimize, OnWinSysTypeChanged));
+            DependencyProperty.Register(nameof(WinSysType), typeof(WinSysType),
+                typeof(WindowSystemButton), new FrameworkPropertyMetadata(WinSysType.Minimize, OnWinSysTypeChanged));
 
         internal static readonly DependencyProperty CurrentWinSysTypeProperty =
-            DependencyProperty.Register(nameof(CurrentWinSysType), typeof(CurrentWinSysType), typeof(WindowSystemButton),
-                new FrameworkPropertyMetadata(CurrentWinSysType.Minimize));
+            DependencyProperty.Register(nameof(CurrentWinSysType), typeof(CurrentWinSysType),
+                typeof(WindowSystemButton), new FrameworkPropertyMetadata(CurrentWinSysType.Minimize));
 
         private Window? _window;
 
