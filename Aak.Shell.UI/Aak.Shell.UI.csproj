@@ -32,13 +32,13 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Aak.Shell.UI.Themes.AvalonDock" Version="4.71.1.1" />
-  </ItemGroup>
     
   <ItemGroup Condition=" '$(TargetFramework.StartsWith(net4))' == 'true' ">
     <Reference Include="PresentationFramework.Aero" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="ControlzEx" Version="6.0.0-alpha0270" />
   </ItemGroup>
 
 </Project>
