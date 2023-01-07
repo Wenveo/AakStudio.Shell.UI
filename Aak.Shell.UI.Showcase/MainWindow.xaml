@@ -17,6 +17,7 @@
     Icon="pack://application:,,,/icon.ico"
     IsShowIcon="False"
     IsShowTitle="False"
+    OnMaximizedPadding="0"
     RenderOptions.BitmapScalingMode="Fant"
     ResizeMode="CanResizeWithGrip"
     SnapsToDevicePixels="True"
@@ -95,8 +96,17 @@
                 Grid.Column="2"
                 Margin="5,2,0,0"
                 VerticalAlignment="Top"
-                Background="{DynamicResource CommonControlsCheckBoxBackground}"
                 IsHitTestVisible="False">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource SystemColorsWindowPanel}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
                 <TextBlock
                     Margin="6,4,6,4"
                     HorizontalAlignment="Center"

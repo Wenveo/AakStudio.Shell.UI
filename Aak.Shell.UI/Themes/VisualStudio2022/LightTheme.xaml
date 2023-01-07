@@ -401,4 +401,5 @@
     <SolidColorBrush x:Key="SystemColorsGrayText" Color="#FFA2A4A5" />
     <SolidColorBrush x:Key="SystemColorsWindow" Color="#FFEEEEF2" />
     <SolidColorBrush x:Key="SystemColorsWindowText" Color="#FF000000" />
+    <SolidColorBrush x:Key="SystemColorsWindowPanel" Color="#FFFEFEFE" />
 </ResourceDictionary>
