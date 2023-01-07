@@ -302,7 +302,7 @@
     <SolidColorBrush x:Key="ProgressBarBorder" Color="#FF5D6B99" />
 
 
-    <SolidColorBrush x:Key="ResizeGripperForeground" Color="#E0E0E0" />
+    <SolidColorBrush x:Key="ResizeGripperForeground" Color="#FFE0E0E0" />
 
 
     <SolidColorBrush x:Key="TabControlBackground" Color="#FFF7F9FE" />
@@ -381,8 +381,8 @@
     <SolidColorBrush x:Key="ToolBarOverflowGlyphFocused" Color="#FF1B293E" />
     <SolidColorBrush x:Key="ToolBarOverflowGlyphHover" Color="#FF1B293E" />
     <SolidColorBrush x:Key="ToolBarOverflowGlyphPress" Color="#FF1B293E" />
-    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBackground" Color="#E9EEFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBorderBrush" Color="#94A6CA" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBackground" Color="#FFE9EEFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBorderBrush" Color="#FF94A6CA" />
 
     <SolidColorBrush x:Key="ToolTipBackground" Color="#FFE7E8EC" />
     <SolidColorBrush x:Key="ToolTipBorderBrush" Color="#FF767676" />

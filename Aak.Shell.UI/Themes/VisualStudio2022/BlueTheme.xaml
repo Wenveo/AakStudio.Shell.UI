@@ -370,19 +370,19 @@
     <SolidColorBrush x:Key="ToolBarHorizontalBackground" Color="#FFF5F5F5" />
     <SolidColorBrush x:Key="ToolBarVerticalBackground" Color="#FFF6F6F6" />
 
-    <SolidColorBrush x:Key="ToolBarThumbGlyph" Color="#3A4470" />
+    <SolidColorBrush x:Key="ToolBarThumbGlyph" Color="#FF3A4470" />
     <SolidColorBrush x:Key="ToolBarOverflowButtonBackground" Color="#00FFFFFF" />
     <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundDisabled" Color="#00FFFFFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundFocused" Color="#F6FBFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundHover" Color="#F6FBFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundPress" Color="#F6FBFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowGlyph" Color="#1B293E" />
-    <SolidColorBrush x:Key="ToolBarOverflowGlyphDisabled" Color="#A2A4A5" />
-    <SolidColorBrush x:Key="ToolBarOverflowGlyphFocused" Color="#1B293E" />
-    <SolidColorBrush x:Key="ToolBarOverflowGlyphHover" Color="#1B293E" />
-    <SolidColorBrush x:Key="ToolBarOverflowGlyphPress" Color="#1B293E" />
-    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBackground" Color="#E9EEFF" />
-    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBorderBrush" Color="#94A6CA" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundFocused" Color="#FFF6FBFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundHover" Color="#FFF6FBFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowButtonBackgroundPress" Color="#FFF6FBFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyph" Color="#FF1B293E" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphDisabled" Color="#FFA2A4A5" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphFocused" Color="#FF1B293E" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphHover" Color="#FF1B293E" />
+    <SolidColorBrush x:Key="ToolBarOverflowGlyphPress" Color="#FF1B293E" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBackground" Color="#FFE9EEFF" />
+    <SolidColorBrush x:Key="ToolBarOverflowOverflowPopupBorderBrush" Color="#FF94A6CA" />
 
     <SolidColorBrush x:Key="ToolTipBackground" Color="#FFE7E8EC" />
     <SolidColorBrush x:Key="ToolTipBorderBrush" Color="#FF767676" />

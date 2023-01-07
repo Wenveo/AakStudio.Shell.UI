@@ -302,7 +302,7 @@
     <SolidColorBrush x:Key="ProgressBarBorder" Color="#FF006CBE" />
 
 
-    <SolidColorBrush x:Key="ResizeGripperForeground" Color="#E0E0E0" />
+    <SolidColorBrush x:Key="ResizeGripperForeground" Color="#FFE0E0E0" />
 
 
     <SolidColorBrush x:Key="TabControlBackground" Color="#FFF5F5F5" />
