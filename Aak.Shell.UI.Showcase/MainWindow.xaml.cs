@@ -43,7 +43,7 @@ namespace Aak.Shell.UI.Showcase
                 {
                     if (!hasFloatingWindow)
                         hasFloatingWindow = true;
-                    items.RemoveAt(i);
+                    items.RemoveAt(i--);
                 }
             }
 
