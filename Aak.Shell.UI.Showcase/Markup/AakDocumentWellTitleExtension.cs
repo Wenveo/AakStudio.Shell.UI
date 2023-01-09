@@ -106,6 +106,8 @@ namespace Aak.Shell.UI.Showcase.Markup
 
             private static void CoreceUpdateTargetPropertys(string itemTitle, List<IProvideValueTarget> targets, FloatingWindowData? floatingWindowData)
             {
+                if (Application.Current is null || Application.Current.MainWindow is null) return;
+
                 var prefix = Application.Current.MainWindow.Title;
                 var title = $"{prefix} - {itemTitle}";
                 for (var i = 0; i < targets.Count; i++)
