@@ -1,6 +1,6 @@
 ﻿using Aak.Shell.UI.Showcase.Commands;
 using Aak.Shell.UI.Showcase.Interfaces;
-using Aak.Shell.UI.Themes;
+
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -21,18 +21,18 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             set => OnPropertyChanged(ref documentViews, value, nameof(DocumentViews));
         }
 
-        public ObservableCollection<Theme> Themes
+        public ObservableCollection<AakTheme> Themes
         {
             get => themes;
             set => OnPropertyChanged(ref themes, value, nameof(Themes));
         }
 
-        public Theme CurrentTheme
+        public AakTheme CurrentTheme
         {
             get => currentTheme;
             set
             {
-                XamlUIResources.Instance.Theme = value;
+                AakXamlUIResource.Instance.Theme = value;
                 OnPropertyChanged(ref currentTheme, value, nameof(CurrentTheme));
             }
         }
@@ -52,14 +52,14 @@ namespace Aak.Shell.UI.Showcase.ViewModels
         {
             StyleSelector = new StyleSelectorViewModel(this);
 
-            themes = new ObservableCollection<Theme>()
+            themes = new ObservableCollection<AakTheme>()
             {
-                new VisualStudio2019Blue    (),
-                new VisualStudio2019Dark    (),
-                new VisualStudio2019Light   (),
-                new VisualStudio2022Blue    (),
-                new VisualStudio2022Dark    (),
-                new VisualStudio2022Light   (),
+                new AakVS2019Blue(),
+                new AakVS2019Dark(),
+                new AakVS2019Light(),
+                new AakVS2022Blue(),
+                new AakVS2022Dark(),
+                new AakVS2022Light(),
             };
             currentTheme = themes.Last();
 
@@ -71,8 +71,8 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
         private ObservableCollection<IAakToolWell> anchorables;
         private ObservableCollection<IAakDocumentWell> documentViews;
-        private ObservableCollection<Theme> themes;
-        private Theme currentTheme;
+        private ObservableCollection<AakTheme> themes;
+        private AakTheme currentTheme;
 
         private IAakViewElement? activeDocument;
         private ICommand? themeSwitchCommand;

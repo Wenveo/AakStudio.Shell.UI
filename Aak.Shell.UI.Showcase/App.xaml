@@ -2,7 +2,6 @@
     x:Class="Aak.Shell.UI.Showcase.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:avalonDockControls="https://github.com/Dirkster99/AvalonDock"
     xmlns:converters="clr-namespace:Aak.Shell.UI.Showcase.Converters"
     xmlns:local="clr-namespace:Aak.Shell.UI.Showcase"
     xmlns:markup="clr-namespace:Aak.Shell.UI.Showcase.Markup"
@@ -10,15 +9,13 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <XamlUIResources />
-                <ResourceDictionary Source="/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml" />
+                <local:AakXamlUIResource />
             </ResourceDictionary.MergedDictionaries>
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
             <converters:AakActiveDocumentConverter x:Key="AakActiveDocumentConverter" />
             <converters:AakThemeToIsCheckedConverter x:Key="AakThemeToIsCheckedConverter" />
             <converters:AakViewElementToStringConverter x:Key="AakViewElementToStringConverter" />
-            <converters:AakThemeToAvalonDockThemeConverter x:Key="AakThemeToAvalonDockThemeConverter" />
 
             <Style x:Key="WindowIconRectangle" TargetType="{x:Type Rectangle}">
                 <Setter Property="Fill">
@@ -69,14 +66,16 @@
                 </StackPanel>
             </DataTemplate>
 
-            <Style
-                x:Key="{x:Type avalonDockControls:LayoutDocumentFloatingWindowControl}"
-                BasedOn="{StaticResource DocumentWellWindowBaseStyle}"
-                TargetType="{x:Type avalonDockControls:LayoutDocumentFloatingWindowControl}">
+            <Style x:Key="CustomizeDocumentFloatingWindowStyle" TargetType="{x:Type LayoutDocumentFloatingWindowControl}">
                 <Setter Property="AllowMinimize" Value="True" />
                 <Setter Property="ShowInTaskbar" Value="True" />
                 <Setter Property="OwnedByDockingManagerWindow" Value="False" />
                 <Setter Property="Icon" Value="{Binding MainWindow.Icon, Source={x:Static Application.Current}, Mode=OneWay}" />
+            </Style>
+
+            <Style x:Key="{x:Type LayoutDocumentFloatingWindowControl}" TargetType="{x:Type LayoutDocumentFloatingWindowControl}">
+                <Setter Property="DynamicResourceStyle.BasedOn" Value="{DynamicResource DocumentWellWindowBaseStyle}" />
+                <Setter Property="DynamicResourceStyle.Derived" Value="{DynamicResource CustomizeDocumentFloatingWindowStyle}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
