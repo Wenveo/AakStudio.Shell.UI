@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Windows;
 
-
 namespace Aak.Shell.UI.Showcase
 {
     public abstract class AakTheme : ResourceDictionary
     {
         public abstract string Name { get; }
 
-        public abstract IEnumerable<ResourceDictionary> ThemeResources { get; }
+        public abstract IEnumerable<string> ThemeResources { get; }
 
         public AakTheme()
         {
             foreach (var item in ThemeResources)
             {
-                MergedDictionaries.Add(item);
+                MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri(item, UriKind.Relative)
+                });
             }
         }
     }
@@ -24,19 +26,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2019 Blue";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2019/BlueTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/BlueTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2019/BlueTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/BlueTheme.xaml";
             }
         }
     }
@@ -45,19 +40,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2019 Dark";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2019/DarkTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/DarkTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2019/DarkTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/DarkTheme.xaml";
             }
         }
     }
@@ -66,19 +54,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2019 Light";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2019/LightTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/LightTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2019/LightTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/LightTheme.xaml";
             }
         }
     }
@@ -88,19 +69,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2022 Blue";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2022/BlueTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/BlueTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2022/BlueTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/BlueTheme.xaml";
             }
         }
     }
@@ -109,19 +83,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2022 Dark";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2022/DarkTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/DarkTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2022/DarkTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/DarkTheme.xaml";
             }
         }
     }
@@ -130,19 +97,12 @@ namespace Aak.Shell.UI.Showcase
     {
         public override string Name => "Visual Studio 2022 Light";
 
-        public override IEnumerable<ResourceDictionary> ThemeResources
+        public override IEnumerable<string> ThemeResources
         {
             get
             {
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI;component/Themes/VisualStudio2022/LightTheme.xaml", UriKind.Relative)
-                };
-
-                yield return new ResourceDictionary()
-                {
-                    Source = new Uri("/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml", UriKind.Relative)
-                };
+                yield return "/Aak.Shell.UI;component/Themes/VisualStudio2022/LightTheme.xaml";
+                yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml";
             }
         }
     }
