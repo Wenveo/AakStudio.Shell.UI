@@ -32,7 +32,7 @@ namespace Aak.Shell.UI.Showcase
 
         private void MetroWindow_Activated(object sender, System.EventArgs e)
         {
-            // if the window is activated, then active the item in docking manager
+            // if the window is activated, then active the last actived item in docking manager
             var hasFloatingWindow = false;
 
             var items = dockingManager.Layout.Descendents().OfType<LayoutContent>().ToList();
