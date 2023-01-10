@@ -151,7 +151,7 @@
         <DockingManager
             x:Name="dockingManager"
             ActiveContent="{Binding ActiveDocument, Mode=TwoWay, Converter={StaticResource AakActiveDocumentConverter}}"
-            ActiveContentChanged="dockingManager_ActiveContentChanged"
+            ActiveContentChanged="DockingManager_ActiveContentChanged"
             AnchorablesSource="{Binding Anchorables}"
             DocumentTitleTemplate="{StaticResource AakDocumentWellTitleTemplate}"
             DocumentsSource="{Binding DocumentViews}">

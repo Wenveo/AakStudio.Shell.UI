@@ -2,6 +2,7 @@
 using Aak.Shell.UI.Showcase.ViewModels.Collection;
 using AvalonDock.Layout;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Aak.Shell.UI.Showcase
 {
@@ -17,20 +18,34 @@ namespace Aak.Shell.UI.Showcase
 
         private bool isCleanValue;
 
-        private void dockingManager_ActiveContentChanged(object sender, System.EventArgs e)
+        private void DockingManager_ActiveContentChanged(object sender, System.EventArgs e)
         {
-            if (!isCleanValue && (
-                dockingManager.ActiveContent is AakCollectionViewModel ||
-                dockingManager.ActiveContent is AakDocumentWellViewModel))
+            if (!isCleanValue && IsNotToolWell(dockingManager.ActiveContent))
             {
                 mainStatusBar.ClearValue(BackgroundProperty);
                 mainStatusBar.ClearValue(ForegroundProperty);
 
                 isCleanValue = true;
             }
+            // On Theme Changed
+            else if (IsActive && IsNotToolWell(dockingManager.ActiveContent))
+            {
+                ActiveContentOfDockingManager();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private bool IsNotToolWell(object value)
+        {
+            return value is AakCollectionViewModel || value is AakDocumentWellViewModel;
         }
 
         private void MetroWindow_Activated(object sender, System.EventArgs e)
+        {
+            ActiveContentOfDockingManager();
+        }
+
+        private void ActiveContentOfDockingManager()
         {
             // if the window is activated, then active the last actived item in docking manager
             var hasFloatingWindow = false;
