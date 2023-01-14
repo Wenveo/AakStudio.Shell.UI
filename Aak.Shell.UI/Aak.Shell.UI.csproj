@@ -38,7 +38,7 @@
   </ItemGroup>
     
   <ItemGroup>
-    <PackageReference Include="ControlzEx" Version="6.0.0-alpha0255" />
+    <PackageReference Include="ControlzEx" Version="6.0.0-alpha0272" />
   </ItemGroup>
 
 </Project>
