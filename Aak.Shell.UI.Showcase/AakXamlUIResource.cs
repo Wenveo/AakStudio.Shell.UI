@@ -4,13 +4,13 @@ using System.Windows;
 
 namespace Aak.Shell.UI.Showcase
 {
-    public abstract class AakTheme : ResourceDictionary
+    internal abstract class AakTheme : ResourceDictionary
     {
         public abstract string Name { get; }
 
         public abstract IEnumerable<string> ThemeResources { get; }
 
-        public AakTheme()
+        internal AakTheme()
         {
             foreach (var item in ThemeResources)
             {
@@ -22,8 +22,10 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public sealed class AakVS2019Blue : AakTheme
+    internal sealed class AakVS2019Blue : AakTheme
     {
+        public static AakVS2019Blue Default = new();
+
         public override string Name => "Visual Studio 2019 Blue";
 
         public override IEnumerable<string> ThemeResources
@@ -36,8 +38,10 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public sealed class AakVS2019Dark : AakTheme
+    internal sealed class AakVS2019Dark : AakTheme
     {
+        public static AakVS2019Dark Default = new();
+
         public override string Name => "Visual Studio 2019 Dark";
 
         public override IEnumerable<string> ThemeResources
@@ -50,8 +54,10 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public sealed class AakVS2019Light : AakTheme
+    internal sealed class AakVS2019Light : AakTheme
     {
+        public static AakVS2019Light Default = new();
+
         public override string Name => "Visual Studio 2019 Light";
 
         public override IEnumerable<string> ThemeResources
@@ -65,8 +71,10 @@ namespace Aak.Shell.UI.Showcase
     }
 
 
-    public sealed class AakVS2022Blue : AakTheme
+    internal sealed class AakVS2022Blue : AakTheme
     {
+        public static AakVS2022Blue Default = new();
+
         public override string Name => "Visual Studio 2022 Blue";
 
         public override IEnumerable<string> ThemeResources
@@ -79,8 +87,10 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public sealed class AakVS2022Dark : AakTheme
+    internal sealed class AakVS2022Dark : AakTheme
     {
+        public static AakVS2022Dark Default = new();
+
         public override string Name => "Visual Studio 2022 Dark";
 
         public override IEnumerable<string> ThemeResources
@@ -93,8 +103,10 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public sealed class AakVS2022Light : AakTheme
+    internal sealed class AakVS2022Light : AakTheme
     {
+        public static AakVS2022Light Default = new();
+
         public override string Name => "Visual Studio 2022 Light";
 
         public override IEnumerable<string> ThemeResources
@@ -107,7 +119,7 @@ namespace Aak.Shell.UI.Showcase
         }
     }
 
-    public class AakXamlUIResource : ResourceDictionary
+    internal class AakXamlUIResource : ResourceDictionary
     {
         private static AakXamlUIResource? instance;
         public static AakXamlUIResource Instance
@@ -131,7 +143,7 @@ namespace Aak.Shell.UI.Showcase
         public AakXamlUIResource()
         {
             instance = this;
-            theme = new AakVS2022Light();
+            theme = AakVS2022Light.Default;
 
             InitializeThemes();
         }
@@ -153,4 +165,5 @@ namespace Aak.Shell.UI.Showcase
             MergedDictionaries[1] = theme;
         }
     }
+
 }

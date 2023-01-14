@@ -14,7 +14,7 @@
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
             <converters:AakActiveDocumentConverter x:Key="AakActiveDocumentConverter" />
-            <converters:AakThemeToIsCheckedConverter x:Key="AakThemeToIsCheckedConverter" />
+            <converters:AakThemesToBooleanConverter x:Key="AakThemesToBooleanConverter" />
             <converters:AakViewElementToStringConverter x:Key="AakViewElementToStringConverter" />
 
             <Style x:Key="WindowIconRectangle" TargetType="{x:Type Rectangle}">

@@ -1,9 +1,9 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Interfaces;
-
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+
+using Aak.Shell.UI.Showcase.Commands;
+using Aak.Shell.UI.Showcase.Interfaces;
 
 namespace Aak.Shell.UI.Showcase.ViewModels
 {
@@ -19,12 +19,6 @@ namespace Aak.Shell.UI.Showcase.ViewModels
         {
             get => documentViews;
             set => OnPropertyChanged(ref documentViews, value, nameof(DocumentViews));
-        }
-
-        public ObservableCollection<AakTheme> Themes
-        {
-            get => themes;
-            set => OnPropertyChanged(ref themes, value, nameof(Themes));
         }
 
         public AakTheme CurrentTheme
@@ -45,23 +39,13 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
         public ICommand ThemeSwitchCommand
         {
-            get => themeSwitchCommand ??= new RelayCommand<string>(OnThemeSwitch);
+            get => themeSwitchCommand ??= new RelayCommand<AakTheme>(OnThemeSwitch);
         }
 
         public WorkSpaceViewModel()
         {
             StyleSelector = new StyleSelectorViewModel(this);
-
-            themes = new ObservableCollection<AakTheme>()
-            {
-                new AakVS2019Blue(),
-                new AakVS2019Dark(),
-                new AakVS2019Light(),
-                new AakVS2022Blue(),
-                new AakVS2022Dark(),
-                new AakVS2022Light(),
-            };
-            currentTheme = themes.Last();
+            currentTheme = AakXamlUIResource.Instance.Theme;
 
             anchorables = new ObservableCollection<IAakToolWell>() { StyleSelector };
             documentViews = new ObservableCollection<IAakDocumentWell>();
@@ -71,7 +55,6 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
         private ObservableCollection<IAakToolWell> anchorables;
         private ObservableCollection<IAakDocumentWell> documentViews;
-        private ObservableCollection<AakTheme> themes;
         private AakTheme currentTheme;
 
         private IAakViewElement? activeDocument;
@@ -79,15 +62,12 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
 
 
-        private void OnThemeSwitch(string? themeIndexStr)
+        private void OnThemeSwitch(AakTheme? newTheme)
         {
-            if (!int.TryParse(themeIndexStr, out var index) ||
-                index < 0 || index > themes.Count - 1)
+            if (newTheme is not null)
             {
-                return;
+                CurrentTheme = newTheme;
             }
-
-            CurrentTheme = themes[index];
         }
 
         public void AddOrActiveDocument(IAakDocumentWell view)
