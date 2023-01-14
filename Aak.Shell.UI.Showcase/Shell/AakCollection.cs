@@ -1,7 +1,8 @@
-﻿using Aak.Shell.UI.Showcase.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+
+using Aak.Shell.UI.Showcase.Interfaces;
 
 namespace Aak.Shell.UI.Showcase.Shell
 {

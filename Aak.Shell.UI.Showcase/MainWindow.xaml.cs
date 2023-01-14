@@ -1,8 +1,10 @@
-﻿using Aak.Shell.UI.Controls;
-using Aak.Shell.UI.Showcase.ViewModels.Collection;
-using AvalonDock.Layout;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.CompilerServices;
+
+using Aak.Shell.UI.Controls;
+using Aak.Shell.UI.Showcase.ViewModels.Collection;
+
+using AvalonDock.Layout;
 
 namespace Aak.Shell.UI.Showcase
 {

@@ -1,10 +1,11 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Interfaces;
-using Aak.Shell.UI.Showcase.Shell;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+
+using Aak.Shell.UI.Showcase.Commands;
+using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {

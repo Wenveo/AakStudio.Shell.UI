@@ -1,6 +1,7 @@
-using Aak.Shell.UI.Showcase.Shell;
 using System.Windows;
 using System.Windows.Controls;
+
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.Styles
 {

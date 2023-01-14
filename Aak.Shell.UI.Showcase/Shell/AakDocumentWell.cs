@@ -1,6 +1,7 @@
-﻿using Aak.Shell.UI.Showcase.Commands;
+﻿using System.Windows.Input;
+
+using Aak.Shell.UI.Showcase.Commands;
 using Aak.Shell.UI.Showcase.Interfaces;
-using System.Windows.Input;
 
 namespace Aak.Shell.UI.Showcase.Shell
 {

@@ -1,8 +1,9 @@
-﻿using Aak.Shell.UI.Showcase.Interfaces;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Windows;
+
+using Aak.Shell.UI.Showcase.Interfaces;
 
 namespace Aak.Shell.UI.Showcase.Shell
 {

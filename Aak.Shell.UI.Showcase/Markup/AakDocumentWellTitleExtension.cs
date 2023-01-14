@@ -1,11 +1,12 @@
-﻿using AvalonDock.Controls;
-using AvalonDock.Layout;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
+
+using AvalonDock.Controls;
+using AvalonDock.Layout;
 
 namespace Aak.Shell.UI.Showcase.Markup
 {

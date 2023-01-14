@@ -1,5 +1,6 @@
-﻿using Aak.Shell.UI.Showcase.Shell;
-using System.Windows;
+﻿using System.Windows;
+
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {

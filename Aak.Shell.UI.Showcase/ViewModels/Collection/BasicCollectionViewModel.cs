@@ -1,6 +1,7 @@
-﻿using Aak.Shell.UI.Showcase.ControlViews;
+﻿using System.Collections.ObjectModel;
+
+using Aak.Shell.UI.Showcase.ControlViews;
 using Aak.Shell.UI.Showcase.Interfaces;
-using System.Collections.ObjectModel;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {
