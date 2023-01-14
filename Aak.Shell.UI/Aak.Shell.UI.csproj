@@ -23,7 +23,7 @@
 
 	<PropertyGroup>
 		<Authors>Noisrev</Authors>
-		<Description>Wpf control styles and themes of Aak.Shell</Description>
+		<Description>Wpf control styles and themes for Aak.Shell</Description>
 		<Summary>$(Description)</Summary>
 		<Copyright>Copyright © 2022 - $([System.DateTime]::Today.ToString(yyyy))</Copyright>
 		<AssemblyName>Aak.Shell.UI</AssemblyName>
