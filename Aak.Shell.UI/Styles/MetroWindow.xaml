@@ -231,6 +231,21 @@
                 <Setter TargetName="CloseButton" Property="Height" Value="30" />
                 <Setter TargetName="CloseButton" Property="Width" Value="32" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Window.WindowStyle" Value="ToolWindow" />
+                    <Condition Property="ctrls:MetroWindow.IsShowIcon" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="PART_Icon" Property="Margin" Value="8,8,0,0" />
+                <Setter TargetName="PART_Title" Property="Margin" Value="5,8,0,0" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Window.WindowStyle" Value="ToolWindow" />
+                    <Condition Property="ctrls:MetroWindow.IsShowIcon" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="PART_Title" Property="Margin" Value="8,8,0,0" />
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
