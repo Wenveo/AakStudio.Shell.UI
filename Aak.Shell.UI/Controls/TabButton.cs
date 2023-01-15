@@ -8,39 +8,39 @@ namespace Aak.Shell.UI.Controls
     {
         public static readonly DependencyProperty GlyphForegroundProperty =
             DependencyProperty.Register(nameof(GlyphForeground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty HoverBackgroundProperty =
             DependencyProperty.Register(nameof(HoverBackground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty HoverBorderBrushProperty =
             DependencyProperty.Register(nameof(HoverBorderBrush), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty HoverForegroundProperty =
             DependencyProperty.Register(nameof(HoverForeground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty PressedBackgroundProperty =
             DependencyProperty.Register(nameof(PressedBackground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty PressedBorderBrushProperty =
             DependencyProperty.Register(nameof(PressedBorderBrush), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty PressedForegroundProperty =
             DependencyProperty.Register(nameof(PressedForeground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         public static readonly DependencyProperty HoverBorderThicknessProperty =
             DependencyProperty.Register(nameof(HoverBorderThickness), typeof(Thickness),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.ThicknessBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         public static readonly DependencyProperty PressedBorderThicknessProperty =
             DependencyProperty.Register(nameof(PressedBorderThickness), typeof(Thickness),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBox.ThicknessBox));
+                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         public Brush GlyphForeground
         {

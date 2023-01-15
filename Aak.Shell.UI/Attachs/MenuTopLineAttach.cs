@@ -14,11 +14,11 @@ namespace Aak.Shell.UI.Attachs
 
         public static readonly DependencyProperty PopupProperty =
             DependencyProperty.RegisterAttached("Popup", typeof(Popup),
-                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBox.NullBox, OnPopupChanged));
+                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBoxes.NullBox, OnPopupChanged));
 
         public static readonly DependencyProperty TopLineProperty =
             DependencyProperty.RegisterAttached("TopLine", typeof(FrameworkElement),
-                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(MenuTopLineAttach), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         private static void OnPopupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

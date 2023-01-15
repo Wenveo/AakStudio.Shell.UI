@@ -11,74 +11,74 @@ namespace Aak.Shell.UI.Controls
     {
         public static readonly DependencyProperty ActiveGlowBrushProperty =
             DependencyProperty.Register(nameof(ActiveGlowBrush), typeof(SolidColorBrush),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BrushesBox.TransparentBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         public static readonly DependencyProperty InactiveGlowBrushProperty =
             DependencyProperty.Register(nameof(InactiveGlowBrush), typeof(SolidColorBrush),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BrushesBox.TransparentBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         ///     Left side of title bar
         /// </summary>
         public static readonly DependencyProperty LeftWindowCommandsProperty =
             DependencyProperty.Register(nameof(LeftWindowCommands), typeof(FrameworkElement),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         /// <summary>
         ///     Right side of title bar
         /// </summary>
         public static readonly DependencyProperty RightWindowCommandsProperty =
             DependencyProperty.Register(nameof(RightWindowCommands), typeof(FrameworkElement),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBox.NullBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         /// <summary>
         ///     Sets whether Icon is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowIconProperty =
             DependencyProperty.Register(nameof(IsShowIcon), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether Title is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowTitleProperty =
             DependencyProperty.Register(nameof(IsShowTitle), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether TitleBar is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowTitleBarProperty =
             DependencyProperty.Register(nameof(IsShowTitleBar), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether MinimizeButton is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowMinimizeButtonProperty =
             DependencyProperty.Register(nameof(IsShowMinimizeButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether MaximizeButton is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowMaximizeButtonProperty =
             DependencyProperty.Register(nameof(IsShowMaximizeButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether CloseButton is displayed
         /// </summary>
         public static readonly DependencyProperty IsShowCloseButtonProperty =
             DependencyProperty.Register(nameof(IsShowCloseButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBox.TrueBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         ///     Sets whether CloseButton is displayed
         /// </summary>
         public static readonly DependencyProperty OnMaximizedPaddingProperty =
             DependencyProperty.Register(nameof(OnMaximizedPadding), typeof(Thickness),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBox.ThicknessBox));
+                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         public SolidColorBrush ActiveGlowBrush
         {
@@ -107,37 +107,37 @@ namespace Aak.Shell.UI.Controls
         public bool IsShowIcon
         {
             get => (bool)GetValue(IsShowIconProperty);
-            set => SetValue(IsShowIconProperty, value);
+            set => SetValue(IsShowIconProperty, BooleanBoxes.Box(value));
         }
 
         public bool IsShowTitle
         {
             get => (bool)GetValue(IsShowTitleProperty);
-            set => SetValue(IsShowTitleProperty, value);
+            set => SetValue(IsShowTitleProperty, BooleanBoxes.Box(value));
         }
 
         public bool IsShowTitleBar
         {
             get => (bool)GetValue(IsShowTitleBarProperty);
-            set => SetValue(IsShowTitleBarProperty, value);
+            set => SetValue(IsShowTitleBarProperty, BooleanBoxes.Box(value));
         }
 
         public bool IsShowMinimizeButton
         {
             get => (bool)GetValue(IsShowMinimizeButtonProperty);
-            set => SetValue(IsShowMinimizeButtonProperty, value);
+            set => SetValue(IsShowMinimizeButtonProperty, BooleanBoxes.Box(value));
         }
 
         public bool IsShowMaximizeButton
         {
             get => (bool)GetValue(IsShowMaximizeButtonProperty);
-            set => SetValue(IsShowMaximizeButtonProperty, value);
+            set => SetValue(IsShowMaximizeButtonProperty, BooleanBoxes.Box(value));
         }
 
         public bool IsShowCloseButton
         {
             get => (bool)GetValue(IsShowCloseButtonProperty);
-            set => SetValue(IsShowCloseButtonProperty, value);
+            set => SetValue(IsShowCloseButtonProperty, BooleanBoxes.Box(value));
         }
 
         public Thickness OnMaximizedPadding
@@ -148,7 +148,7 @@ namespace Aak.Shell.UI.Controls
 
         static MetroWindow()
         {
-            var resourceKey = "MetroWindowBaseStyle";
+            const string resourceKey = "MetroWindowBaseStyle";
             var windowStyle = Application.Current.TryFindResource(resourceKey);
             if (windowStyle == null)
             {

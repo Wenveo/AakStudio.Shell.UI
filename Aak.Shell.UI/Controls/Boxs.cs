@@ -3,29 +3,26 @@ using System.Windows.Media;
 
 namespace Aak.Shell.UI.Controls
 {
-    internal static class BooleanBox
+    internal static class BooleanBoxes
     {
         public static readonly object TrueBox = true;
         public static readonly object FalseBox = false;
 
         public static object Box(bool value)
         {
-            if (value)
-            {
-                return TrueBox;
-            }
-            return FalseBox;
+            return value ? TrueBox : FalseBox;
+        }
+
+        public static object? Box(bool? value)
+        {
+            return value.HasValue ? value.Value ? TrueBox : FalseBox : null;
         }
     }
 
-    internal static class BrushesBox
-    {
-        public static readonly object TransparentBox = Brushes.Transparent;
-    }
-
-    internal static class ObjectBox
+    internal static class ObjectBoxes
     {
         public static readonly object NullBox = null!;
         public static readonly object ThicknessBox = default(Thickness);
+        public static readonly object TransparentBox = Brushes.Transparent;
     }
 }
