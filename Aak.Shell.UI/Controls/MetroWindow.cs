@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+
+using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
-
-using Microsoft.Xaml.Behaviors;
 
 namespace Aak.Shell.UI.Controls
 {
@@ -167,16 +167,26 @@ namespace Aak.Shell.UI.Controls
         private void InitializeGlowWindowBehaviorEx()
         {
             var behavior = new ControlzEx.Behaviors.GlowWindowBehavior();
-            _ = BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.GlowWindowBehavior.GlowColorProperty,
+
+            BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.GlowWindowBehavior.GlowColorProperty,
                 new Binding { Path = new PropertyPath("ActiveGlowBrush.Color"), Source = this });
-            _ = BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.GlowWindowBehavior.NonActiveGlowColorProperty,
+            BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.GlowWindowBehavior.NonActiveGlowColorProperty,
                 new Binding { Path = new PropertyPath("InactiveGlowBrush.Color"), Source = this });
 
             Interaction.GetBehaviors(this).Add(behavior);
         }
 
         private void InitializeWindowChromeEx()
-        => Interaction.GetBehaviors(this).Add(new ControlzEx.Behaviors.WindowChromeBehavior());
+        {
+            var behavior = new ControlzEx.Behaviors.WindowChromeBehavior();
+
+            BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.WindowChromeBehavior.EnableMinimizeProperty,
+                new Binding { Path = new PropertyPath(IsShowMinimizeButtonProperty), Source = this });
+            BindingOperations.SetBinding(behavior, ControlzEx.Behaviors.WindowChromeBehavior.EnableMaxRestoreProperty,
+                new Binding { Path = new PropertyPath(IsShowMaximizeButtonProperty), Source = this });
+
+            Interaction.GetBehaviors(this).Add(behavior);
+        }
 
         public override void OnApplyTemplate()
         {
