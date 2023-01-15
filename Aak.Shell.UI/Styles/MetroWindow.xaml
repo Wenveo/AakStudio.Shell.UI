@@ -16,6 +16,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonActiveBorder}" />
         <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonActiveGlyph}" />
+        <Setter Property="controlzEx:NonClientControlProperties.ClickStrategy" Value="MouseEvent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrls:WindowSystemButton}">
@@ -93,6 +94,15 @@
                         <Trigger Property="CurrentWinSysType" Value="Close">
                             <Setter TargetName="path" Property="Data" Value="M7.116 8l-4.558 4.558.884.884L8 8.884l4.558 4.558.884-.884L8.884 8l4.558-4.558-.884-.884L8 7.116 3.442 2.558l-.884.884L7.116 8z" />
                         </Trigger>
+                        <Trigger Property="WinSysType" Value="Minimize">
+                            <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="MINBUTTON" />
+                        </Trigger>
+                        <Trigger Property="WinSysType" Value="Maximize">
+                            <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="MAXBUTTON" />
+                        </Trigger>
+                        <Trigger Property="WinSysType" Value="Close">
+                            <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="CLOSE" />
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" Value="Transparent" />
                             <Setter Property="Opacity" Value="0.32" />
@@ -117,7 +127,6 @@
                 </Grid.RowDefinitions>
                 <DockPanel
                     x:Name="PART_TitleBar"
-                    Grid.Row="0"
                     controlzEx:NonClientControlProperties.HitTestResult="CAPTION"
                     Background="Transparent">
                     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
@@ -127,19 +136,10 @@
                             Content="{Binding RightWindowCommands, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
                         <ctrls:WindowSystemButton
                             x:Name="MinimizeButton"
-                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
-                            controlzEx:NonClientControlProperties.HitTestResult="MINBUTTON"
+                            controlzEx:WindowChrome.IsHitTestVisibleInChrome="False"
                             WinSysType="Minimize" />
-                        <ctrls:WindowSystemButton
-                            x:Name="MaximizeButton"
-                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
-                            controlzEx:NonClientControlProperties.HitTestResult="MAXBUTTON"
-                            WinSysType="Maximize" />
-                        <ctrls:WindowSystemButton
-                            x:Name="CloseButton"
-                            controlzEx:NonClientControlProperties.ClickStrategy="MouseEvent"
-                            controlzEx:NonClientControlProperties.HitTestResult="CLOSE"
-                            WinSysType="Close" />
+                        <ctrls:WindowSystemButton x:Name="MaximizeButton" WinSysType="Maximize" />
+                        <ctrls:WindowSystemButton x:Name="CloseButton" WinSysType="Close" />
                     </StackPanel>
                     <Image
                         x:Name="PART_Icon"
