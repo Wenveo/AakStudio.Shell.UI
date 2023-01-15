@@ -1,9 +1,9 @@
-﻿using Microsoft.Xaml.Behaviors;
-
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+
+using Microsoft.Xaml.Behaviors;
 
 namespace Aak.Shell.UI.Controls
 {
