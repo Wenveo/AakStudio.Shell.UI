@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:Aak.Shell.UI.Showcase.Models"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
     <UniformGrid HorizontalAlignment="Left">
@@ -35,7 +36,7 @@
                 Height="150"
                 Margin="0,15,0,0"
                 HorizontalAlignment="Left"
-                ItemsSource="{Binding Datas}">
+                ItemsSource="{Binding Path=DataSource, Source={x:Static models:SimpleDataSource.Instance}}">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
@@ -83,7 +84,7 @@
                 Margin="0,15,0,0"
                 HorizontalAlignment="Left"
                 IsEnabled="False"
-                ItemsSource="{Binding Datas}">
+                ItemsSource="{Binding Path=DataSource, Source={x:Static models:SimpleDataSource.Instance}}">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
