@@ -36,7 +36,7 @@
                 Height="150"
                 Margin="0,15,0,0"
                 HorizontalAlignment="Left"
-                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.Instance}}">
+                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.NewDataSource}}">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
@@ -84,7 +84,7 @@
                 Margin="0,15,0,0"
                 HorizontalAlignment="Left"
                 IsEnabled="False"
-                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.Instance}}">
+                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.NewDataSource}}">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>

@@ -20,7 +20,7 @@
                 Margin="0,15,0,0"
                 HorizontalAlignment="Left"
                 HeadersVisibility="All"
-                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.Instance}}"
+                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.NewDataSource}}"
                 RowHeaderWidth="20"
                 RowHeight="22" />
         </StackPanel>
@@ -37,7 +37,7 @@
                 HorizontalAlignment="Left"
                 HeadersVisibility="All"
                 IsEnabled="False"
-                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.Instance}}"
+                ItemsSource="{Binding Path=NewDataSource, Source={x:Static models:SimpleDataSource.NewDataSource}}"
                 RowHeaderWidth="20"
                 RowHeight="22" />
         </StackPanel>
