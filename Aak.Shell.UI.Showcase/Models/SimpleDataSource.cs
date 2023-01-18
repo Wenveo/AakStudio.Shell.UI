@@ -4,9 +4,7 @@ namespace Aak.Shell.UI.Showcase.Models
 {
     internal sealed class SimpleDataSource
     {
-        private static SimpleDataSource? instance;
-
-        public static SimpleDataSource Instance => instance ??= new();
+        public static SimpleDataSource NewDataSource => new();
 
         public ObservableCollection<SimpleData> DataSource { get; }
 
