@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -148,16 +147,7 @@ namespace Aak.Shell.UI.Controls
 
         static MetroWindow()
         {
-            const string resourceKey = "MetroWindowBaseStyle";
-            var windowStyle = Application.Current.TryFindResource(resourceKey);
-            if (windowStyle == null)
-            {
-                var resourceDictionary = (ResourceDictionary)Application.LoadComponent(
-                    new Uri("/Aak.Shell.UI;Component/Styles/MetroWindow.xaml", UriKind.Relative));
-
-                windowStyle = resourceDictionary[resourceKey];
-            }
-            StyleProperty.OverrideMetadata(typeof(MetroWindow), new FrameworkPropertyMetadata(windowStyle));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MetroWindow), new FrameworkPropertyMetadata(typeof(MetroWindow)));
         }
 
         public MetroWindow()

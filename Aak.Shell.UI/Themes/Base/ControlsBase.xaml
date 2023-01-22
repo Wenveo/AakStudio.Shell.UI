@@ -1,14 +1,33 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ctrls="clr-namespace:Aak.Shell.UI.Controls">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <!--  Templates and Base Styles  -->
-        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/Base/ControlsBase.xaml" />
-        <!--  Custom Controls  -->
-        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/MetroWindow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Styles/TabButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ButtonBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/CheckBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ComboBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ContextMenuBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/DataGridBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ExpanderBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/FocusVisualBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/GridSplitterBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/GroupBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/HyperlinkBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/LabelBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ListBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ListViewBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/MenuBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/PasswordBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ProgressBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/RadioButtonBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ResizeGripBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ScrollViewerBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/StatusBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/TabControlBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/TextBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ToolBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ToolTipBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/TreeViewBase.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <!--  Common Control Styles  -->
 
     <Style
         x:Key="{x:Type ToggleButton}"
@@ -279,10 +298,4 @@
         BasedOn="{StaticResource TreeViewBaseStyle}"
         TargetType="{x:Type TreeView}" />
 
-    <!--  Custom Control Styles  -->
-
-    <Style
-        x:Key="{x:Type ctrls:TabButton}"
-        BasedOn="{StaticResource TabButtonBaseStyle}"
-        TargetType="{x:Type ctrls:TabButton}" />
 </ResourceDictionary>

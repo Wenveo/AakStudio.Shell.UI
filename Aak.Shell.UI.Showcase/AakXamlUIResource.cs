@@ -154,7 +154,7 @@ namespace Aak.Shell.UI.Showcase
         {
             MergedDictionaries.Add(new ResourceDictionary
             {
-                Source = new Uri("/Aak.Shell.UI;component/Styles/Controls.xaml", UriKind.Relative)
+                Source = new Uri("/Aak.Shell.UI;component/Themes/Generic.xaml", UriKind.Relative)
             });
 
             MergedDictionaries.Add(theme);
