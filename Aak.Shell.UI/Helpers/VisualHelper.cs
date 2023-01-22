@@ -5,16 +5,17 @@ namespace Aak.Shell.UI.Helpers
 {
     internal static class VisualHelper
     {
-        public static T? GetParent<T>(DependencyObject d) where T : DependencyObject
+        public static T? GetParent<T>(DependencyObject elem) where T : DependencyObject
         {
-            if (d is null)
-                return default;
-            if (d is T t)
-                return t;
-            if (d is Window)
-                return null;
+            for (var parent = VisualTreeHelper.GetParent(elem); parent != null; parent = VisualTreeHelper.GetParent(parent))
+            {
+                if (parent is T tmp)
+                {
+                    return tmp;
+                }
+            }
 
-            return GetParent<T>(VisualTreeHelper.GetParent(d));
+            return null;
         }
     }
 }
