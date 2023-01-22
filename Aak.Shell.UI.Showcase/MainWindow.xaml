@@ -236,12 +236,14 @@
                     </styles:AakTemplateSelector.AakToolWellTemplate>
                     <styles:AakTemplateSelector.AakCollectionTemplate>
                         <DataTemplate DataType="{x:Type shell:AakCollection}">
-                            <Grid Margin="15">
-                                <StackPanel>
-                                    <TextBlock FontSize="24" Text="{Binding Title}" />
-                                    <ItemsControl ItemsSource="{Binding Views, Mode=OneWay}" />
-                                </StackPanel>
-                            </Grid>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                                <Grid Margin="15">
+                                    <StackPanel>
+                                        <TextBlock FontSize="24" Text="{Binding Title}" />
+                                        <ItemsControl ItemsSource="{Binding Views, Mode=OneWay}" />
+                                    </StackPanel>
+                                </Grid>
+                            </ScrollViewer>
                         </DataTemplate>
                     </styles:AakTemplateSelector.AakCollectionTemplate>
                 </styles:AakTemplateSelector>
