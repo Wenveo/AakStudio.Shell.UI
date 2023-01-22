@@ -178,7 +178,8 @@
         <StackPanel Orientation="Horizontal">
             <ComboBox
                 Width="160"
-                Margin="4,6"
+                Margin="6"
+                VerticalAlignment="Top"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding CurrentTheme, Mode=TwoWay}">
                 <x:Static Member="local:AakVS2019Blue.Default" />
