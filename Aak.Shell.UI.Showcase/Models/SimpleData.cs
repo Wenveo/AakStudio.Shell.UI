@@ -2,11 +2,11 @@
 {
     internal sealed class SimpleData
     {
-        public int Id { get; }
+        public int Id { get; set; }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public string Description { get; }
+        public string Description { get; set; }
 
         public SimpleData(int id, string name, string description)
         {
