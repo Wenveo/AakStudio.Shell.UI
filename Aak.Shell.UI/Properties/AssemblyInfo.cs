@@ -12,11 +12,9 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Attachs")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Controls")]
 [assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Converters")]
-[assembly: XmlnsDefinition("http://schemas.microsoft.com/winfx/2006/xaml/presentation", "Aak.Shell.UI.Themes")]
 
 [assembly: XmlnsPrefix("http://aak.shell.ui", "aakui")]
 [assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI")]
 [assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Attachs")]
 [assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Controls")]
 [assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Converters")]
-[assembly: XmlnsDefinition("http://aak.shell.ui", "Aak.Shell.UI.Themes")]
