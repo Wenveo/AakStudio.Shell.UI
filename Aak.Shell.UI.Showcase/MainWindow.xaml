@@ -60,7 +60,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2019Blue.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2019Blue.Default}" />
@@ -74,7 +74,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2019Dark.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2019Dark.Default}" />
@@ -88,7 +88,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2019Light.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2019Light.Default}" />
@@ -102,7 +102,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2022Blue.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2022Blue.Default}" />
@@ -116,7 +116,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2022Dark.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2022Dark.Default}" />
@@ -130,7 +130,7 @@
                         Header="{Binding Path=Name, Source={x:Static local:AakVS2022Light.Default}}"
                         IsCheckable="True">
                         <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakThemesToBooleanConverter}" Mode="OneWay">
+                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
                                 <MultiBinding.Bindings>
                                     <Binding Path="CurrentTheme" />
                                     <Binding Source="{x:Static local:AakVS2022Light.Default}" />

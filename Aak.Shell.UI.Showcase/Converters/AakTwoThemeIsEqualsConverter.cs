@@ -5,7 +5,7 @@ using System.Windows.Data;
 namespace Aak.Shell.UI.Showcase.Converters
 {
     [ValueConversion(typeof(AakTheme), typeof(bool))]
-    internal sealed class AakThemesToBooleanConverter : IMultiValueConverter
+    internal sealed class AakTwoThemeIsEqualsConverter : IMultiValueConverter
     {
         public object? Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
         {
