@@ -165,5 +165,4 @@ namespace Aak.Shell.UI.Showcase
             MergedDictionaries[1] = theme;
         }
     }
-
 }

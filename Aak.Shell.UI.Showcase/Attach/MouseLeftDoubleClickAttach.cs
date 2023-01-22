@@ -7,43 +7,47 @@ namespace Aak.Shell.UI.Showcase.Attach
     internal sealed class MouseLeftDoubleClickAttach
     {
         public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.RegisterAttached(
-                "Command", typeof(ICommand), typeof(MouseLeftDoubleClickAttach), new PropertyMetadata(OnCommandChanged));
+            DependencyProperty.RegisterAttached("Command", typeof(ICommand),
+                typeof(MouseLeftDoubleClickAttach), new FrameworkPropertyMetadata(OnCommandChanged));
 
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is FrameworkElement element)
+            if (d is not Control ctrl)
             {
-                element.Loaded += Element_Loaded;
+                return;
             }
+
+            ctrl.MouseDoubleClick -= OnMouseDoubleClick;
+            ctrl.MouseDoubleClick += OnMouseDoubleClick;
+
+            ctrl.Unloaded -= OnUnloaded;
+            ctrl.Unloaded += OnUnloaded;
         }
 
-        private static void Element_Loaded(object sender, RoutedEventArgs e)
+        private static void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender is TreeViewItem element)
+            if (e.LeftButton == MouseButtonState.Pressed && sender is Control ctrl)
             {
-                element.MouseDoubleClick += Element_MouseDoubleClick;
-            }
-        }
-
-        private static void Element_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is DependencyObject d)
-            {
-                e.Handled = true;
-                var command = GetCommand(d);
+                var command = GetCommand(ctrl);
                 command?.Execute(null);
+
+                e.Handled = true;
+            }
+        }
+
+        private static void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is Control ctrl)
+            {
+                ctrl.MouseDoubleClick -= OnMouseDoubleClick;
+                ctrl.Unloaded -= OnUnloaded;
             }
         }
 
         public static ICommand GetCommand(DependencyObject element)
-        {
-            return (ICommand)element.GetValue(CommandProperty);
-        }
+        => (ICommand)element.GetValue(CommandProperty);
 
         public static void SetCommand(DependencyObject element, bool value)
-        {
-            element.SetValue(CommandProperty, value);
-        }
+        => element.SetValue(CommandProperty, value);
     }
 }
