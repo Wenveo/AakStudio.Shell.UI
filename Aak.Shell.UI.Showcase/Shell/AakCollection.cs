@@ -2,11 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 
-using Aak.Shell.UI.Showcase.Interfaces;
-
 namespace Aak.Shell.UI.Showcase.Shell
 {
-    internal abstract class AakCollection : AakDocumentWell, IAakCollection
+    internal abstract class AakCollection : AakDocumentWell
     {
         public bool IsExpanded
         {
@@ -28,13 +26,13 @@ namespace Aak.Shell.UI.Showcase.Shell
             }
         }
 
-        public ObservableCollection<IAakDocumentWell>? Items
+        public ObservableCollection<AakDocumentWell>? Items
         {
             get => items;
             set => SetProperty(ref items, value);
         }
 
-        private ObservableCollection<IAakDocumentWell>? items;
+        private ObservableCollection<AakDocumentWell>? items;
         private string? displayName;
         private bool isExpanded;
     }

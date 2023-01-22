@@ -1,8 +1,6 @@
-﻿using Aak.Shell.UI.Showcase.Interfaces;
-
-namespace Aak.Shell.UI.Showcase.Shell
+﻿namespace Aak.Shell.UI.Showcase.Shell
 {
-    internal abstract class AakToolWell : AakViewElement, IAakToolWell
+    internal abstract class AakToolWell : AakViewElement
     {
         public bool CanHide
         {

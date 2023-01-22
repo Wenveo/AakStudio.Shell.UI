@@ -3,11 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-using Aak.Shell.UI.Showcase.Interfaces;
-
 namespace Aak.Shell.UI.Showcase.Shell
 {
-    internal abstract class AakViewElement : IAakViewElement, INotifyPropertyChanged
+    internal abstract class AakViewElement : INotifyPropertyChanged
     {
         public UIElement? View
         {

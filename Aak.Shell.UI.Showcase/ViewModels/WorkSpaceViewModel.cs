@@ -3,19 +3,19 @@ using System.Linq;
 using System.Windows.Input;
 
 using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.ViewModels
 {
     internal sealed class WorkSpaceViewModel : ViewModelBase
     {
-        public ObservableCollection<IAakToolWell> Anchorables
+        public ObservableCollection<AakToolWell> Anchorables
         {
             get => anchorables;
             set => OnPropertyChanged(ref anchorables, value, nameof(Anchorables));
         }
 
-        public ObservableCollection<IAakDocumentWell> DocumentViews
+        public ObservableCollection<AakDocumentWell> DocumentViews
         {
             get => documentViews;
             set => OnPropertyChanged(ref documentViews, value, nameof(DocumentViews));
@@ -31,7 +31,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             }
         }
 
-        public IAakViewElement? ActiveDocument
+        public AakViewElement? ActiveDocument
         {
             get => activeDocument;
             set => OnPropertyChanged(ref activeDocument, value, nameof(ActiveDocument));
@@ -47,17 +47,17 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             StyleSelector = new StyleSelectorViewModel(this);
             currentTheme = AakXamlUIResource.Instance.Theme;
 
-            anchorables = new ObservableCollection<IAakToolWell>() { StyleSelector };
-            documentViews = new ObservableCollection<IAakDocumentWell>();
+            anchorables = new ObservableCollection<AakToolWell>() { StyleSelector };
+            documentViews = new ObservableCollection<AakDocumentWell>();
         }
 
         public StyleSelectorViewModel StyleSelector { get; }
 
-        private ObservableCollection<IAakToolWell> anchorables;
-        private ObservableCollection<IAakDocumentWell> documentViews;
+        private ObservableCollection<AakToolWell> anchorables;
+        private ObservableCollection<AakDocumentWell> documentViews;
         private AakTheme currentTheme;
 
-        private IAakViewElement? activeDocument;
+        private AakViewElement? activeDocument;
         private ICommand? themeSwitchCommand;
 
 
@@ -70,7 +70,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             }
         }
 
-        public void AddOrActiveDocument(IAakDocumentWell view)
+        public void AddOrActiveDocument(AakDocumentWell view)
         {
             var item = DocumentViews.FirstOrDefault(x => x == view);
             if (item == null)
@@ -81,7 +81,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             ActiveDocument = item;
         }
 
-        public void CloseDocument(IAakDocumentWell view)
+        public void CloseDocument(AakDocumentWell view)
         {
             if (DocumentViews.Contains(view))
             {
@@ -90,7 +90,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             }
         }
 
-        public void AddOrActiveAnchor(IAakToolWell view)
+        public void AddOrActiveAnchor(AakToolWell view)
         {
             var item = Anchorables.FirstOrDefault(x => x == view);
             if (item == null)
@@ -101,7 +101,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             ActiveDocument = item;
         }
 
-        public void CloseAnchor(IAakToolWell view)
+        public void CloseAnchor(AakToolWell view)
         {
             if (Anchorables.Contains(view))
             {

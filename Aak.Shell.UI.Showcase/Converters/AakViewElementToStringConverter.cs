@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.Converters
 {
@@ -10,11 +10,11 @@ namespace Aak.Shell.UI.Showcase.Converters
     {
         public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is IAakCollection aakCollection)
+            if (value is AakCollection aakCollection)
             {
                 return aakCollection.DisplayName;
             }
-            else if (value is IAakDocumentWell aakDocumentWell)
+            else if (value is AakDocumentWell aakDocumentWell)
             {
                 return aakDocumentWell.Title;
             }

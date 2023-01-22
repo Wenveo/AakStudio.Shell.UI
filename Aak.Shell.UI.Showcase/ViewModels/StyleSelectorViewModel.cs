@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 
-using Aak.Shell.UI.Showcase.Interfaces;
 using Aak.Shell.UI.Showcase.Shell;
 using Aak.Shell.UI.Showcase.ViewModels.Collection;
 using Aak.Shell.UI.Showcase.Views;
@@ -31,12 +30,12 @@ namespace Aak.Shell.UI.Showcase.ViewModels
         private ObservableCollection<AakCollectionViewModel> collections;
 
 
-        internal void ActiveDocument(IAakDocumentWell view)
+        internal void ActiveDocument(AakDocumentWell view)
         {
             workSpaceViewModel.AddOrActiveDocument(view);
         }
 
-        internal void CloseTab(IAakDocumentWell view)
+        internal void CloseTab(AakDocumentWell view)
         {
             workSpaceViewModel.CloseDocument(view);
         }

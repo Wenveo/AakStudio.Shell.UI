@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 
 using Aak.Shell.UI.Showcase.ControlViews;
-using Aak.Shell.UI.Showcase.Interfaces;
+using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection
 {
@@ -9,7 +9,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels.Collection
     {
         public BasicCollectionViewModel(StyleSelectorViewModel parent) : base(parent, "WPF Basic Control Styles", "Basic", true)
         {
-            Items = new ObservableCollection<IAakDocumentWell>()
+            Items = new ObservableCollection<AakDocumentWell>()
             {
                 new AakDocumentWellViewModel(new ButtonView(), "Button", this),
                 new AakDocumentWellViewModel(new CheckBoxView(), "CheckBox", this),

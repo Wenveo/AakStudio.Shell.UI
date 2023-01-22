@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 
 using Aak.Shell.UI.Showcase.Commands;
-using Aak.Shell.UI.Showcase.Interfaces;
 using Aak.Shell.UI.Showcase.Shell;
 
 namespace Aak.Shell.UI.Showcase.ViewModels.Collection
@@ -65,13 +64,13 @@ namespace Aak.Shell.UI.Showcase.ViewModels.Collection
             Parent.CloseTab(this);
         }
 
-        internal void ActiveDocument(IAakDocumentWell view)
+        internal void ActiveDocument(AakDocumentWell view)
         {
             isSubItemActive = true;
             Parent.ActiveDocument(view);
         }
 
-        internal void CloseTab(IAakDocumentWell view)
+        internal void CloseTab(AakDocumentWell view)
         {
             Parent.CloseTab(view);
         }
