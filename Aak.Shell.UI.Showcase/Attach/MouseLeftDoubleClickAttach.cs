@@ -13,15 +13,12 @@ namespace Aak.Shell.UI.Showcase.Attach
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is not Control ctrl)
-            {
                 return;
-            }
 
             ctrl.MouseDoubleClick -= OnMouseDoubleClick;
-            ctrl.MouseDoubleClick += OnMouseDoubleClick;
 
-            ctrl.Unloaded -= OnUnloaded;
-            ctrl.Unloaded += OnUnloaded;
+            if (e.NewValue != null)
+                ctrl.MouseDoubleClick += OnMouseDoubleClick;
         }
 
         private static void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -32,15 +29,6 @@ namespace Aak.Shell.UI.Showcase.Attach
                 command?.Execute(null);
 
                 e.Handled = true;
-            }
-        }
-
-        private static void OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            if (sender is Control ctrl)
-            {
-                ctrl.MouseDoubleClick -= OnMouseDoubleClick;
-                ctrl.Unloaded -= OnUnloaded;
             }
         }
 

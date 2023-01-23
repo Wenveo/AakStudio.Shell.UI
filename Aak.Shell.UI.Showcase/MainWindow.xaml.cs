@@ -24,6 +24,8 @@ namespace Aak.Shell.UI.Showcase
         {
             if (!isCleanValue && IsNotToolWell(dockingManager.ActiveContent))
             {
+                ClearValue(ActiveGlowBrushProperty);
+
                 mainStatusBar.ClearValue(BackgroundProperty);
                 mainStatusBar.ClearValue(ForegroundProperty);
 
