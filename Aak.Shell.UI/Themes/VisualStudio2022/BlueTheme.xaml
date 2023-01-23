@@ -22,13 +22,13 @@
     <SolidColorBrush x:Key="CommonControlsButtonDisabled" Color="#FFF5F5F5" />
     <SolidColorBrush x:Key="CommonControlsButtonFocused" Color="#FFC9DEF5" />
     <SolidColorBrush x:Key="CommonControlsButtonHover" Color="#FFC9DEF5" />
-    <SolidColorBrush x:Key="CommonControlsButtonPressed" Color="#FFC9DEF5" />
+    <SolidColorBrush x:Key="CommonControlsButtonPressed" Color="#FF007ACC" />
     <SolidColorBrush x:Key="CommonControlsButtonText" Color="#FF1E1E1E" />
     <SolidColorBrush x:Key="CommonControlsButtonDefaultText" Color="#FF1E1E1E" />
     <SolidColorBrush x:Key="CommonControlsButtonDisabledText" Color="#FFA2A4A5" />
     <SolidColorBrush x:Key="CommonControlsButtonFocusedText" Color="#FF1E1E1E" />
     <SolidColorBrush x:Key="CommonControlsButtonHoverText" Color="#FF1E1E1E" />
-    <SolidColorBrush x:Key="CommonControlsButtonPressedText" Color="#FF1E1E1E" />
+    <SolidColorBrush x:Key="CommonControlsButtonPressedText" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="CommonControlsButtonBorder" Color="#FFACACAC" />
     <SolidColorBrush x:Key="CommonControlsButtonBorderDefault" Color="#FF3399FF" />
     <SolidColorBrush x:Key="CommonControlsButtonBorderDisabled" Color="#FFCCCEDB" />

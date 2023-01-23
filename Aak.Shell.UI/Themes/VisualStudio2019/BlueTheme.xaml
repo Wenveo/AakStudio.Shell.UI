@@ -30,10 +30,10 @@
     <SolidColorBrush x:Key="CommonControlsButtonHoverText" Color="#FF1E1E1E" />
     <SolidColorBrush x:Key="CommonControlsButtonPressedText" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="CommonControlsButtonBorder" Color="#FFACACAC" />
-    <SolidColorBrush x:Key="CommonControlsButtonBorderDefault" Color="#FF3399FF" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderDefault" Color="#FF007ACC" />
     <SolidColorBrush x:Key="CommonControlsButtonBorderDisabled" Color="#FFCCCEDB" />
-    <SolidColorBrush x:Key="CommonControlsButtonBorderFocused" Color="#FF3399FF" />
-    <SolidColorBrush x:Key="CommonControlsButtonBorderHover" Color="#FF3399FF" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderFocused" Color="#FF007ACC" />
+    <SolidColorBrush x:Key="CommonControlsButtonBorderHover" Color="#FF007ACC" />
     <SolidColorBrush x:Key="CommonControlsButtonBorderPressed" Color="#FF007ACC" />
 
     <SolidColorBrush x:Key="CommonControlsCheckBoxBackground" Color="#FFFEFEFE" />
