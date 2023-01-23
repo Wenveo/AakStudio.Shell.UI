@@ -4,7 +4,6 @@
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/CheckBoxBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ComboBoxBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ContextMenuBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/DataGridBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/ExpanderBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/FocusVisualBase.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Aak.Shell.UI;Component/Themes/Base/GridSplitterBase.xaml" />

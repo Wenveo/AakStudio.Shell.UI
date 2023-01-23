@@ -15,7 +15,6 @@ namespace Aak.Shell.UI.Showcase.ViewModels.Collection
                 new AakDocumentWellViewModel(new CheckBoxView(), "CheckBox", this),
                 new AakDocumentWellViewModel(new ComboBoxView(), "ComboBox", this),
                 new AakDocumentWellViewModel(new ContextMenuView(), "ContextMenu", this),
-                new AakDocumentWellViewModel(new DataGridView(), "DataGrid", this),
                 new AakDocumentWellViewModel(new ExpanderView(), "Expander", this),
                 new AakDocumentWellViewModel(new GridSplitterView(), "GridSplitter", this),
                 new AakDocumentWellViewModel(new GroupBoxView(), "GroupBox", this),
