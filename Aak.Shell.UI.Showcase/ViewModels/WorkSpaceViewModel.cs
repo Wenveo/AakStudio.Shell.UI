@@ -9,6 +9,8 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 {
     internal sealed class WorkSpaceViewModel : ViewModelBase
     {
+        public static WorkSpaceViewModel Default { get; } = new WorkSpaceViewModel();
+
         public ObservableCollection<AakToolWell> Anchorables
         {
             get => anchorables;
@@ -42,7 +44,7 @@ namespace Aak.Shell.UI.Showcase.ViewModels
             get => themeSwitchCommand ??= new RelayCommand<AakTheme>(OnThemeSwitch);
         }
 
-        public WorkSpaceViewModel()
+        private WorkSpaceViewModel()
         {
             StyleSelector = new StyleSelectorViewModel(this);
             currentTheme = AakXamlUIResource.Instance.Theme;
@@ -59,8 +61,6 @@ namespace Aak.Shell.UI.Showcase.ViewModels
 
         private AakViewElement? activeDocument;
         private ICommand? themeSwitchCommand;
-
-
 
         private void OnThemeSwitch(AakTheme? newTheme)
         {

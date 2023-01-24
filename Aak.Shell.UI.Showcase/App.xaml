@@ -13,8 +13,8 @@
             </ResourceDictionary.MergedDictionaries>
             <BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
+            <converters:AakThemeIsEqualsConverter x:Key="AakThemeIsEqualsConverter" />
             <converters:AakActiveDocumentConverter x:Key="AakActiveDocumentConverter" />
-            <converters:AakTwoThemeIsEqualsConverter x:Key="AakTwoThemeIsEqualsConverter" />
             <converters:AakViewElementToStringConverter x:Key="AakViewElementToStringConverter" />
 
             <Style x:Key="WindowIconRectangle" TargetType="{x:Type Rectangle}">

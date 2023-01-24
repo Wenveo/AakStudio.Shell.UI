@@ -14,6 +14,7 @@
     d:DataContext="{d:DesignInstance Type=vm:WorkSpaceViewModel}"
     Activated="MetroWindow_Activated"
     ActiveGlowBrush="Gray"
+    DataContext="{x:Static vm:WorkSpaceViewModel.Default}"
     Icon="pack://application:,,,/icon.ico"
     IsShowIcon="False"
     IsShowTitle="False"
@@ -26,9 +27,6 @@
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <MetroWindow.DataContext>
-        <vm:WorkSpaceViewModel />
-    </MetroWindow.DataContext>
     <MetroWindow.LeftWindowCommands>
         <Grid Margin="4,6">
             <Grid.ColumnDefinitions>
@@ -53,92 +51,33 @@
                         IsCheckable="True"
                         IsChecked="{Binding StyleSelector.IsVisible, Mode=TwoWay}" />
                 </MenuItem>
-                <MenuItem Header="Themes(_T)">
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2019Blue.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2019Blue.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2019Blue.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2019Dark.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2019Dark.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2019Dark.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2019Light.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2019Light.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2019Light.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2022Blue.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2022Blue.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2022Blue.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2022Dark.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2022Dark.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2022Dark.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
-                    <MenuItem
-                        Command="{Binding ThemeSwitchCommand, Mode=OneWay}"
-                        CommandParameter="{x:Static local:AakVS2022Light.Default}"
-                        Header="{Binding Path=Name, Source={x:Static local:AakVS2022Light.Default}}"
-                        IsCheckable="True">
-                        <MenuItem.IsChecked>
-                            <MultiBinding Converter="{StaticResource AakTwoThemeIsEqualsConverter}" Mode="OneWay">
-                                <MultiBinding.Bindings>
-                                    <Binding Path="CurrentTheme" />
-                                    <Binding Source="{x:Static local:AakVS2022Light.Default}" />
-                                </MultiBinding.Bindings>
-                            </MultiBinding>
-                        </MenuItem.IsChecked>
-                    </MenuItem>
+                <MenuItem Header="Themes(_T)" ItemsSource="{x:Static local:AakThemeCollection.AllThemes}">
+                    <MenuItem.Resources>
+                        <Style x:Key="BindingCommandsMenuItem" TargetType="{x:Type MenuItem}">
+                            <Setter Property="Command" Value="{Binding ThemeSwitchCommand, Source={x:Static vm:WorkSpaceViewModel.Default}}" />
+                            <Setter Property="CommandParameter" Value="{Binding .}" />
+                            <Setter Property="Header" Value="{Binding Name}" />
+                            <Setter Property="IsCheckable" Value="True" />
+                            <Setter Property="IsChecked">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource AakThemeIsEqualsConverter}" Mode="OneWay">
+                                        <MultiBinding.Bindings>
+                                            <Binding Path="CurrentTheme" Source="{x:Static vm:WorkSpaceViewModel.Default}" />
+                                            <Binding Path="." />
+                                        </MultiBinding.Bindings>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </MenuItem.Resources>
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="{x:Type MenuItem}">
+                            <Setter Property="DynamicResourceStyle.BasedOn" Value="{DynamicResource MenuItemBaseStyle}" />
+                            <Setter Property="DynamicResourceStyle.Derived" Value="{DynamicResource BindingCommandsMenuItem}" />
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
                 </MenuItem>
+
             </Menu>
             <Border
                 Grid.Column="2"
@@ -182,14 +121,8 @@
                 Margin="6"
                 VerticalAlignment="Top"
                 DisplayMemberPath="Name"
-                SelectedItem="{Binding CurrentTheme, Mode=TwoWay}">
-                <x:Static Member="local:AakVS2019Blue.Default" />
-                <x:Static Member="local:AakVS2019Dark.Default" />
-                <x:Static Member="local:AakVS2019Light.Default" />
-                <x:Static Member="local:AakVS2022Blue.Default" />
-                <x:Static Member="local:AakVS2022Dark.Default" />
-                <x:Static Member="local:AakVS2022Light.Default" />
-            </ComboBox>
+                ItemsSource="{x:Static local:AakThemeCollection.AllThemes}"
+                SelectedItem="{Binding CurrentTheme, Mode=TwoWay}" />
             <Button
                 Width="45"
                 Height="32"

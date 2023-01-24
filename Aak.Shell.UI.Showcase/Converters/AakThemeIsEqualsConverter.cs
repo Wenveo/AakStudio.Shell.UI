@@ -5,7 +5,7 @@ using System.Windows.Data;
 namespace Aak.Shell.UI.Showcase.Converters
 {
     [ValueConversion(typeof(AakTheme), typeof(bool))]
-    internal sealed class AakTwoThemeIsEqualsConverter : IMultiValueConverter
+    internal sealed class AakThemeIsEqualsConverter : IMultiValueConverter
     {
         public object? Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -27,4 +27,5 @@ namespace Aak.Shell.UI.Showcase.Converters
             throw new NotImplementedException();
         }
     }
+
 }
