@@ -1,0 +1,53 @@
+﻿<UserControl
+    x:Class="AakStudio.Shell.UI.Showcase.ControlViews.ComboBoxView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default ComboBox" />
+            <ComboBox
+                x:Name="comboBox1"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                SelectedIndex="0">
+                <ComboBoxItem Content="ComboBoxItem1" />
+                <ComboBoxItem Content="ComboBoxItem2" />
+                <ComboBoxItem Content="ComboBoxItem3" />
+                <ComboBoxItem Content="ComboBoxItem4" />
+                <ComboBoxItem Content="ComboBoxItem5" />
+                <ComboBoxItem Content="ComboBoxItem6" />
+            </ComboBox>
+            <ComboBox
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                IsEnabled="False"
+                ItemsSource="{Binding Items, ElementName=comboBox1}"
+                SelectedIndex="{Binding SelectedIndex, ElementName=comboBox1}" />
+        </StackPanel>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="IsEditable" />
+            <ComboBox
+                x:Name="editComboBox1"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                IsEditable="True"
+                SelectedIndex="0">
+                <ComboBoxItem Content="ComboBoxItem1" />
+                <ComboBoxItem Content="ComboBoxItem2" />
+                <ComboBoxItem Content="ComboBoxItem3" />
+                <ComboBoxItem Content="ComboBoxItem4" />
+                <ComboBoxItem Content="ComboBoxItem5" />
+                <ComboBoxItem Content="ComboBoxItem6" />
+            </ComboBox>
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

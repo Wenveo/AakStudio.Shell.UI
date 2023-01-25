@@ -1,0 +1,140 @@
+﻿<UserControl
+    x:Class="AakStudio.Shell.UI.Showcase.ControlViews.ToolBarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UniformGrid>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default ToolBar" />
+
+            <ToolBarTray Margin="0,15,0,0" Background="Transparent">
+                <ToolBar BandIndex="1">
+                    <Button Content="ButtonA" ToolBar.OverflowMode="Never" />
+                    <Separator />
+                    <Button Content="ButtonB" />
+                </ToolBar>
+                <ToolBar BandIndex="2">
+                    <CheckBox Content="CheckBox" />
+                </ToolBar>
+                <ToolBar BandIndex="3">
+                    <ToggleButton Content="ToggleButton" />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="1">
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="ItemA" />
+                        <ComboBoxItem Content="ItemB" />
+                    </ComboBox>
+                </ToolBar>
+                <ToolBar BandIndex="5">
+                    <RadioButton Content="RadioButton" />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="2">
+                    <TextBox Text="This is a Text." />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="3">
+                    <Menu>
+                        <MenuItem Header="File(_F)">
+                            <MenuItem Header="New(_N)" />
+                            <MenuItem Header="Open(_O)" />
+                            <Separator />
+                            <MenuItem Header="Close(_C)" />
+                            <Separator />
+                            <MenuItem Header="Save(_S)" />
+                            <MenuItem Header="SaveAs" />
+                        </MenuItem>
+                        <MenuItem Header="Edit(_E)">
+                            <MenuItem Header="Cut" />
+                            <MenuItem Header="Copy" />
+                            <MenuItem Header="Paste" />
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="Code" />
+                            <Separator />
+                            <MenuItem Header="Property Grid" />
+                            <Separator />
+                            <MenuItem Header="Error List" />
+                            <MenuItem Header="Output Window" />
+                        </MenuItem>
+                        <MenuItem Header="Tools">
+                            <MenuItem Header="Settings" />
+                        </MenuItem>
+                        <MenuItem Header="Help">
+                            <MenuItem Header="About" />
+                        </MenuItem>
+                    </Menu>
+                </ToolBar>
+            </ToolBarTray>
+            <TextBlock
+                Margin="0,15,0,0"
+                FontSize="24"
+                FontWeight="Light"
+                Text="Disabled" />
+
+            <ToolBarTray
+                Margin="0,15,0,0"
+                Background="Transparent"
+                IsEnabled="False">
+                <ToolBar BandIndex="1">
+                    <Button Content="ButtonA" />
+                    <Separator />
+                    <Button Content="ButtonB" />
+                </ToolBar>
+                <ToolBar BandIndex="2">
+                    <CheckBox Content="CheckBox" />
+                </ToolBar>
+                <ToolBar BandIndex="3">
+                    <ToggleButton Content="ToggleButton" />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="1">
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="ItemA" />
+                        <ComboBoxItem Content="ItemB" />
+                    </ComboBox>
+                </ToolBar>
+                <ToolBar BandIndex="5">
+                    <RadioButton Content="RadioButton" />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="2">
+                    <TextBox Text="This is a Text." />
+                </ToolBar>
+                <ToolBar Band="1" BandIndex="3">
+                    <Menu>
+                        <MenuItem Header="File(_F)">
+                            <MenuItem Header="New(_N)" />
+                            <MenuItem Header="Open(_O)" />
+                            <Separator />
+                            <MenuItem Header="Close(_C)" />
+                            <Separator />
+                            <MenuItem Header="Save(_S)" />
+                            <MenuItem Header="SaveAs" />
+                        </MenuItem>
+                        <MenuItem Header="Edit(_E)">
+                            <MenuItem Header="Cut" />
+                            <MenuItem Header="Copy" />
+                            <MenuItem Header="Paste" />
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="Code" />
+                            <Separator />
+                            <MenuItem Header="Property Grid" />
+                            <Separator />
+                            <MenuItem Header="Error List" />
+                            <MenuItem Header="Output Window" />
+                        </MenuItem>
+                        <MenuItem Header="Tools">
+                            <MenuItem Header="Settings" />
+                        </MenuItem>
+                        <MenuItem Header="Help">
+                            <MenuItem Header="About" />
+                        </MenuItem>
+                    </Menu>
+                </ToolBar>
+            </ToolBarTray>
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

@@ -1,11 +1,11 @@
-# Aak.Shell.UI (WIP)
+# AakStudio.Shell.UI (WIP)
 
-***Wpf control styles and themes for Aak.Shell***
+***Wpf control styles and themes for AakStudio***
 
 ![NetFramework](https://img.shields.io/badge/.Net%20Framework->=4.6.2-green) ![NetCore](https://img.shields.io/badge/.Net%20Core->=v3.1-blue)
-[![CodeQL](https://github.com/Noisrev/Aak.Shell.UI/actions/workflows/codeql.yml/badge.svg)](https://github.com/Noisrev/Aak.Shell.UI/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/Noisrev/AakStudio.Shell.UI/actions/workflows/codeql.yml/badge.svg)](https://github.com/Noisrev/AakStudio.Shell.UI/actions/workflows/codeql.yml)
 
-[![Downloads](https://img.shields.io/nuget/dt/Aak.Shell.UI)](https://www.nuget.org/stats/packages/Aak.Shell.UI?groupby=Version) [![PackageVersion](https://img.shields.io/nuget/v/Aak.Shell.UI)](https://www.nuget.org/packages/Aak.Shell.UI/)
+[![Downloads](https://img.shields.io/nuget/dt/AakStudio.Shell.UI)](https://www.nuget.org/stats/packages/AakStudio.Shell.UI?groupby=Version) [![PackageVersion](https://img.shields.io/nuget/v/AakStudio.Shell.UI)](https://www.nuget.org/packages/AakStudio.Shell.UI/)
 
  [![Bilibili](https://img.shields.io/badge/dynamic/json?color=ff69b4&label=bilibili&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dbilibili%26queryKey%3D176863848)](https://space.bilibili.com/176863848)
 
@@ -43,13 +43,13 @@
 
  # Screenshots
  
-![Screenshot1](https://raw.githubusercontent.com/Noisrev/Aak.Shell.UI/main/Screenshots/1.png)
+![Screenshot1](https://raw.githubusercontent.com/Noisrev/AakStudio.Shell.UI/main/Screenshots/1.png)
 
-![Screenshot2](https://raw.githubusercontent.com/Noisrev/Aak.Shell.UI/main/Screenshots/2.png)
+![Screenshot2](https://raw.githubusercontent.com/Noisrev/AakStudio.Shell.UI/main/Screenshots/2.png)
 
-![Screenshot3](https://raw.githubusercontent.com/Noisrev/Aak.Shell.UI/main/Screenshots/3.png)
+![Screenshot3](https://raw.githubusercontent.com/Noisrev/AakStudio.Shell.UI/main/Screenshots/3.png)
 
-![Screenshot4](https://raw.githubusercontent.com/Noisrev/Aak.Shell.UI/main/Screenshots/4.png)
+![Screenshot4](https://raw.githubusercontent.com/Noisrev/AakStudio.Shell.UI/main/Screenshots/4.png)
 
 
  # LICENSE

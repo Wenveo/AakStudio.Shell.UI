@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="AakStudio.Shell.UI.Showcase.ControlViews.ExpanderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default Expander" />
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Down"
+                Header="Expander">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+            <TextBlock
+                Margin="0,20,0,0"
+                FontSize="24"
+                FontWeight="Light"
+                Text="Default Expander" />
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Down"
+                Header="Expander"
+                IsEnabled="False">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="15">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Light"
+                Text="Expand Direction" />
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Left"
+                Header="Left">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Up"
+                Header="Up">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Right"
+                Header="Right">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+            <Expander
+                Margin="0,15,0,0"
+                HorizontalAlignment="Left"
+                ExpandDirection="Down"
+                Header="Down">
+                <Border>
+                    <TextBlock MaxWidth="450" TextWrapping="Wrap">
+                        He will only remember the people he crossed the mountains to find, not the people who crossed the mountains to find him.
+                    </TextBlock>
+                </Border>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</UserControl>
