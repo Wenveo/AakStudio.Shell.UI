@@ -13,7 +13,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2019/BlueTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/BlueTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/BlueTheme.xaml";
                 }
             }
         }
@@ -27,7 +27,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2019/DarkTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/DarkTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/DarkTheme.xaml";
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2019/LightTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/LightTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2019/LightTheme.xaml";
                 }
             }
         }
@@ -55,7 +55,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2022/BlueTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/BlueTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/BlueTheme.xaml";
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2022/DarkTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/DarkTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/DarkTheme.xaml";
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace AakStudio.Shell.UI.Showcase
                 get
                 {
                     yield return "/AakStudio.Shell.UI;component/Themes/VisualStudio2022/LightTheme.xaml";
-                    yield return "/Aak.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml";
+                    yield return "/AakStudio.Shell.UI.Themes.AvalonDock;component/Themes/VisualStudio2022/LightTheme.xaml";
                 }
             }
         }
