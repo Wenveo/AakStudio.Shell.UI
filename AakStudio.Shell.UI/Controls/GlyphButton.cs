@@ -6,65 +6,65 @@ using System.Windows.Media;
 namespace AakStudio.Shell.UI.Controls
 {
     /// <summary>
-    /// A tab button.
+    /// A glyph button.
     /// </summary>
-    public class TabButton : ButtonBase
+    public class GlyphButton : ButtonBase
     {
         /// <summary>
         /// Identifies the <see cref="HoverBackground"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty HoverBackgroundProperty =
             DependencyProperty.Register(nameof(HoverBackground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="HoverBorderBrush"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty HoverBorderBrushProperty =
             DependencyProperty.Register(nameof(HoverBorderBrush), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="HoverForeground"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty HoverForegroundProperty =
             DependencyProperty.Register(nameof(HoverForeground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="PressedBackground"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty PressedBackgroundProperty =
             DependencyProperty.Register(nameof(PressedBackground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="PressedBorderBrush"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty PressedBorderBrushProperty =
             DependencyProperty.Register(nameof(PressedBorderBrush), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="PressedForeground"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty PressedForegroundProperty =
             DependencyProperty.Register(nameof(PressedForeground), typeof(Brush),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="HoverBorderThickness"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty HoverBorderThicknessProperty =
             DependencyProperty.Register(nameof(HoverBorderThickness), typeof(Thickness),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         /// <summary>
         /// Identifies the <see cref="PressedBorderThickness"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty PressedBorderThicknessProperty =
             DependencyProperty.Register(nameof(PressedBorderThickness), typeof(Thickness),
-                typeof(TabButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
+                typeof(GlyphButton), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         /// <summary>
         /// The background of the button when the mouse is over them.
@@ -149,17 +149,17 @@ namespace AakStudio.Shell.UI.Controls
         }
 
         /// <summary>
-        /// The static class constructor of the <see cref="TabButton"/>.
+        /// The static class constructor of the <see cref="GlyphButton"/>.
         /// </summary>
-        static TabButton()
+        static GlyphButton()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(TabButton), new FrameworkPropertyMetadata(typeof(TabButton)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(GlyphButton), new FrameworkPropertyMetadata(typeof(GlyphButton)));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TabButton"/> class.
+        /// Initializes a new instance of the <see cref="GlyphButton"/> class.
         /// </summary>
-        public TabButton()
+        public GlyphButton()
         {
         }
     }

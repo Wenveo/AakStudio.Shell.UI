@@ -3,18 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ctrls="clr-namespace:AakStudio.Shell.UI.Controls">
 
-    <Style x:Key="TabButtonBaseStyle" TargetType="{x:Type ctrls:TabButton}">
+    <Style x:Key="GlyphButtonBaseStyle" TargetType="{x:Type ctrls:GlyphButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="TextElement.Foreground" Value="{Binding GlyphForeground, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="TextElement.Foreground" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="1" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Control.Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ctrls:TabButton}">
+                <ControlTemplate TargetType="{x:Type ctrls:GlyphButton}">
                     <Border
                         x:Name="Border"
                         Background="{TemplateBinding Background}"
@@ -40,6 +40,9 @@
                             <Setter TargetName="Border" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="Border" Property="BorderThickness" Value="{Binding PressedBorderThickness, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource Self}}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Opacity" Value="0.56" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

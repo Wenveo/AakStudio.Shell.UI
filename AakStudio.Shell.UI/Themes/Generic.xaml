@@ -6,14 +6,14 @@
         <!--  Common Control Styles  -->
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/Base/ControlsBase.xaml" />
         <!--  Custom Controls Styles  -->
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/GlyphButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/MetroWindow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/TabButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
-        x:Key="{x:Type ctrls:TabButton}"
-        BasedOn="{StaticResource TabButtonBaseStyle}"
-        TargetType="{x:Type ctrls:TabButton}" />
+        x:Key="{x:Type ctrls:GlyphButton}"
+        BasedOn="{StaticResource GlyphButtonBaseStyle}"
+        TargetType="{x:Type ctrls:GlyphButton}" />
 
     <Style
         x:Key="{x:Type ctrls:MetroWindow}"
