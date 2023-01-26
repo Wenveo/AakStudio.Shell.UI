@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
 
-
     <Style x:Key="ToolBarComboBoxTransparentButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Width" Value="Auto" />
         <Setter Property="Background" Value="Transparent" />
@@ -227,19 +226,6 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource CommonControlsComboBoxBorderPressed}" />
                 <Setter Property="Foreground" Value="{DynamicResource CommonControlsComboBoxTextPressed}" />
             </Trigger>
-            <!--<MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsKeyboardFocusWithin" Value="True" />
-                    <Condition Property="IsDropDownOpen" Value="False" />
-                    <Condition Property="IsEditable" Value="False" />
-                </MultiTrigger.Conditions>
-                <Setter TargetName="SelectedContentBorder" Property="Background" Value="{DynamicResource CommonControlsComboBoxListItemBackgroundHover}" />
-            </MultiTrigger>-->
-            <Trigger Property="IsEditable" Value="True">
-                <!--<Setter TargetName="DropDownButton" Property="Background" Value="{x:Null}" />-->
-                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed" />
-                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
-            </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Separator" Property="BorderBrush" Value="{DynamicResource CommonControlsComboBoxSeparatorHover}" />
                 <Setter TargetName="DropDownButton" Property="Background" Value="{DynamicResource CommonControlsComboBoxGlyphBackgroundHover}" />
@@ -273,6 +259,8 @@
                 <Setter Property="Foreground" Value="{DynamicResource CommonControlsComboBoxListItemTextHover}" />
             </MultiTrigger>
             <Trigger Property="IsEditable" Value="True">
+                <Setter TargetName="ContentSite" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible" />
                 <Setter Property="IsTabStop" Value="False" />
                 <Setter Property="Padding" Value="2" />
             </Trigger>

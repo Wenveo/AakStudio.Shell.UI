@@ -11,12 +11,13 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style
+        x:Key="{x:Type ctrls:CustomChromeWindow}"
+        BasedOn="{StaticResource CustomChromeWindowBaseStyle}"
+        TargetType="{x:Type ctrls:CustomChromeWindow}" />
+
+    <Style
         x:Key="{x:Type ctrls:GlyphButton}"
         BasedOn="{StaticResource GlyphButtonBaseStyle}"
         TargetType="{x:Type ctrls:GlyphButton}" />
 
-    <Style
-        x:Key="{x:Type ctrls:CustomChromeWindow}"
-        BasedOn="{StaticResource CustomChromeWindowBaseStyle}"
-        TargetType="{x:Type ctrls:CustomChromeWindow}" />
 </ResourceDictionary>
