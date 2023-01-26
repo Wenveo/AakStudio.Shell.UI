@@ -1,4 +1,4 @@
-﻿<MetroWindow
+﻿<CustomChromeWindow
     x:Class="AakStudio.Shell.UI.Showcase.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -27,7 +27,7 @@
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <MetroWindow.LeftWindowCommands>
+    <CustomChromeWindow.LeftWindowCommands>
         <Grid Margin="4,6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -38,6 +38,7 @@
                 Width="16"
                 Height="16"
                 Margin="4,2,8,0"
+                VerticalAlignment="Top"
                 IsHitTestVisible="False">
                 <Rectangle
                     Width="16"
@@ -113,8 +114,8 @@
                 </TextBlock>
             </Border>
         </Grid>
-    </MetroWindow.LeftWindowCommands>
-    <MetroWindow.RightWindowCommands>
+    </CustomChromeWindow.LeftWindowCommands>
+    <CustomChromeWindow.RightWindowCommands>
         <StackPanel Orientation="Horizontal">
             <ComboBox
                 Width="160"
@@ -130,7 +131,7 @@
                 BorderBrush="{Binding Background, RelativeSource={RelativeSource Self}}"
                 Content="✨" />
         </StackPanel>
-    </MetroWindow.RightWindowCommands>
+    </CustomChromeWindow.RightWindowCommands>
     <Grid x:Name="root">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -223,4 +224,4 @@
                 ContentStringFormat="Selected: {0}" />
         </StatusBar>
     </Grid>
-</MetroWindow>
+</CustomChromeWindow>

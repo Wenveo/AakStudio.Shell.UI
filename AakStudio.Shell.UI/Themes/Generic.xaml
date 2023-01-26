@@ -6,8 +6,8 @@
         <!--  Common Control Styles  -->
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/Base/ControlsBase.xaml" />
         <!--  Custom Controls Styles  -->
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/CustomChromeWindow.xaml" />
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/GlyphButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/MetroWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
@@ -16,7 +16,7 @@
         TargetType="{x:Type ctrls:GlyphButton}" />
 
     <Style
-        x:Key="{x:Type ctrls:MetroWindow}"
-        BasedOn="{StaticResource MetroWindowBaseStyle}"
-        TargetType="{x:Type ctrls:MetroWindow}" />
+        x:Key="{x:Type ctrls:CustomChromeWindow}"
+        BasedOn="{StaticResource CustomChromeWindowBaseStyle}"
+        TargetType="{x:Type ctrls:CustomChromeWindow}" />
 </ResourceDictionary>

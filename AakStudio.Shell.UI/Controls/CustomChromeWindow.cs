@@ -20,7 +20,7 @@ namespace AakStudio.Shell.UI.Controls
     [TemplatePart(Name = PART_MinimizeButton, Type = typeof(ButtonBase))]
     [TemplatePart(Name = PART_MaximizeButton, Type = typeof(ButtonBase))]
     [TemplatePart(Name = PART_CloseButton, Type = typeof(ButtonBase))]
-    public class MetroWindow : Window
+    public class CustomChromeWindow : Window
     {
         private const string PART_Icon = nameof(PART_Icon);
         private const string PART_Title = nameof(PART_Title);
@@ -36,77 +36,77 @@ namespace AakStudio.Shell.UI.Controls
         /// </summary>
         public static readonly DependencyProperty ActiveGlowBrushProperty =
             DependencyProperty.Register(nameof(ActiveGlowBrush), typeof(SolidColorBrush),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="InactiveGlowBrush"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty InactiveGlowBrushProperty =
             DependencyProperty.Register(nameof(InactiveGlowBrush), typeof(SolidColorBrush),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(ObjectBoxes.TransparentBox));
 
         /// <summary>
         /// Identifies the <see cref="LeftWindowCommands"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty LeftWindowCommandsProperty =
             DependencyProperty.Register(nameof(LeftWindowCommands), typeof(FrameworkElement),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         /// <summary>
         /// Identifies the <see cref="RightWindowCommands"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty RightWindowCommandsProperty =
             DependencyProperty.Register(nameof(RightWindowCommands), typeof(FrameworkElement),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(ObjectBoxes.NullBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowIcon"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowIconProperty =
             DependencyProperty.Register(nameof(IsShowIcon), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowTitle"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowTitleProperty =
             DependencyProperty.Register(nameof(IsShowTitle), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowTitleBar"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowTitleBarProperty =
             DependencyProperty.Register(nameof(IsShowTitleBar), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowMinimizeButton"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowMinimizeButtonProperty =
             DependencyProperty.Register(nameof(IsShowMinimizeButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowMaximizeButton"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowMaximizeButtonProperty =
             DependencyProperty.Register(nameof(IsShowMaximizeButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="IsShowCloseButton"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsShowCloseButtonProperty =
             DependencyProperty.Register(nameof(IsShowCloseButton), typeof(bool),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(BooleanBoxes.TrueBox));
 
         /// <summary>
         /// Identifies the <see cref="OnMaximizedPadding"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty OnMaximizedPaddingProperty =
             DependencyProperty.Register(nameof(OnMaximizedPadding), typeof(Thickness),
-                typeof(MetroWindow), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
+                typeof(CustomChromeWindow), new FrameworkPropertyMetadata(ObjectBoxes.ThicknessBox));
 
         /// <summary>
         /// The glow brush of the window when activated
@@ -221,7 +221,7 @@ namespace AakStudio.Shell.UI.Controls
         }
 
         /// <summary>
-        /// The padding of the <see cref="MetroWindow"/> when maximized.
+        /// The padding of the <see cref="CustomChromeWindow"/> when maximized.
         /// </summary>
         [Bindable(true)]
         [Category("Layout")]
@@ -232,23 +232,23 @@ namespace AakStudio.Shell.UI.Controls
         }
 
         /// <summary>
-		/// The static class constructor of the <see cref="MetroWindow"/>.
+		/// The static class constructor of the <see cref="CustomChromeWindow"/>.
 		/// </summary>
-        static MetroWindow()
+        static CustomChromeWindow()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(MetroWindow), new FrameworkPropertyMetadata(typeof(MetroWindow)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomChromeWindow), new FrameworkPropertyMetadata(typeof(CustomChromeWindow)));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetroWindow"/> class.
+        /// Initializes a new instance of the <see cref="CustomChromeWindow"/> class.
         /// </summary>
-        public MetroWindow()
+        public CustomChromeWindow()
         {
             Loaded += OnLoaded;
         }
 
         /// <summary>
-        /// Initialize the <see cref="ControlzEx.Behaviors.GlowWindowBehavior"/> for the <see cref="MetroWindow"/>.
+        /// Initialize the <see cref="ControlzEx.Behaviors.GlowWindowBehavior"/> for the <see cref="CustomChromeWindow"/>.
         /// </summary>
         private void InitializeGlowWindowBehaviorEx()
         {
@@ -263,7 +263,7 @@ namespace AakStudio.Shell.UI.Controls
         }
 
         /// <summary>
-        /// Initialize the <see cref="ControlzEx.Behaviors.WindowChromeBehavior"/> for the <see cref="MetroWindow"/>.
+        /// Initialize the <see cref="ControlzEx.Behaviors.WindowChromeBehavior"/> for the <see cref="CustomChromeWindow"/>.
         /// </summary>
         private void InitializeWindowChromeEx()
         {
