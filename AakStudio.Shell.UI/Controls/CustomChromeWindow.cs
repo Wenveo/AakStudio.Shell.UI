@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
+
+using AakStudio.Shell.UI.Automation.Peers;
 
 using Microsoft.Xaml.Behaviors;
 
@@ -283,6 +286,12 @@ namespace AakStudio.Shell.UI.Controls
 
             InitializeGlowWindowBehaviorEx();
             InitializeWindowChromeEx();
+        }
+
+        /// <inheritdoc/>
+        protected override AutomationPeer OnCreateAutomationPeer()
+        {
+            return new CustomChromeWindowAutomationPeer(this);
         }
     }
 }
