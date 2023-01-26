@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -8,8 +9,36 @@ using AakStudio.Shell.UI.Helpers;
 
 namespace AakStudio.Shell.UI.Attachs
 {
-    public class MenuTopLineAttach
+    public sealed class MenuTopLineAttach
     {
+        private static class SystemParametersInfoHelper
+        {
+            [DllImport("USER32.dll", ExactSpelling = true, EntryPoint = "SystemParametersInfoW", SetLastError = true)]
+            [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+            private static extern unsafe IntPtr SystemParametersInfo(uint uiAction, uint uiParam, [Optional] RECT* pvParam, uint fWinIni);
+
+            [StructLayout(LayoutKind.Sequential)]
+            public struct RECT
+            {
+                public int Left;
+                public int Top;
+                public int Right;
+                public int Bottom;
+            }
+
+            public static bool GetWorkArea(out RECT rect)
+            {
+                unsafe
+                {
+                    fixed (RECT* ptr = &rect)
+                    {
+                        return SystemParametersInfo(0x00000030, 0, ptr, 0) != IntPtr.Zero;
+                    }
+                }
+            }
+        }
+
+        // 这个填充在所有windows系统上都是相同的。（也许？或者 Win10+）
         private const double SystemPopupRightPadding = 6.0d;
 
         public static readonly DependencyProperty PopupProperty =
@@ -35,24 +64,28 @@ namespace AakStudio.Shell.UI.Attachs
         {
             var menuItem = (FrameworkElement)sender;
             menuItem.Unloaded += MenuItem_Unloaded;
+
             var topLine = GetTopLine(menuItem);
             if (topLine is null)
                 return;
 
             var popup = GetPopup(topLine);
-            if (popup is not null) popup.Opened += Popup_Opened;
+            if (popup is not null)
+                popup.Opened += Popup_Opened;
         }
 
         private static void MenuItem_Unloaded(object sender, RoutedEventArgs e)
         {
             var menuItem = (FrameworkElement)sender;
             menuItem.Unloaded -= MenuItem_Unloaded;
+
             var topLine = GetTopLine(menuItem);
             if (topLine is null)
                 return;
 
             var popup = GetPopup(topLine);
-            if (popup is not null) popup.Opened -= Popup_Opened;
+            if (popup is not null)
+                popup.Opened -= Popup_Opened;
         }
 
         private static void Popup_Opened(object? sender, EventArgs e)
@@ -69,7 +102,7 @@ namespace AakStudio.Shell.UI.Attachs
                 var panel = VisualHelper.GetParent<Panel>(topLine);
                 if (panel is null) return;
 
-                if (!Win32Helper.GetWorkArea(out var workAreaRect)) return;
+                if (!SystemParametersInfoHelper.GetWorkArea(out var workAreaRect)) return;
 
                 var matrix = PresentationSource.FromVisual(menuItem).CompositionTarget.TransformToDevice;
                 var workAreaRectDpi = new Point(workAreaRect.Right / matrix.M11, workAreaRect.Bottom / matrix.M22);
@@ -138,7 +171,7 @@ namespace AakStudio.Shell.UI.Attachs
                     }
 
 
-                    // Fix High Dpi
+                    // Fix High Dpi ( >= 1.5)
                     if (remainderDpi >= 0.5)
                     {
                         popup.HorizontalOffset = -remainderDpi;
@@ -177,23 +210,15 @@ namespace AakStudio.Shell.UI.Attachs
         }
 
         public static void SetPopup(DependencyObject element, Popup value)
-        {
-            element.SetValue(PopupProperty, value);
-        }
+        => element.SetValue(PopupProperty, value);
 
         public static Popup GetPopup(DependencyObject element)
-        {
-            return (Popup)element.GetValue(PopupProperty);
-        }
+        => (Popup)element.GetValue(PopupProperty);
 
         public static void SetTopLine(DependencyObject element, FrameworkElement value)
-        {
-            element.SetValue(TopLineProperty, value);
-        }
+        => element.SetValue(TopLineProperty, value);
 
         public static FrameworkElement GetTopLine(DependencyObject element)
-        {
-            return (FrameworkElement)element.GetValue(TopLineProperty);
-        }
+        => (FrameworkElement)element.GetValue(TopLineProperty);
     }
 }
