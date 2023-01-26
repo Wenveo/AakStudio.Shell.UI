@@ -8,6 +8,7 @@
         <!--  Custom Controls Styles  -->
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/CustomChromeWindow.xaml" />
         <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/GlyphButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Themes/WindowSystemButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
@@ -19,5 +20,10 @@
         x:Key="{x:Type ctrls:GlyphButton}"
         BasedOn="{StaticResource GlyphButtonBaseStyle}"
         TargetType="{x:Type ctrls:GlyphButton}" />
+
+    <Style
+        x:Key="{x:Type ctrls:WindowSystemButton}"
+        BasedOn="{StaticResource WindowSystemButtonBaseStyle}"
+        TargetType="{x:Type ctrls:WindowSystemButton}" />
 
 </ResourceDictionary>
