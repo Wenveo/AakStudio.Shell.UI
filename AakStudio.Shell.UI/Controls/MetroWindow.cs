@@ -152,6 +152,7 @@ namespace AakStudio.Shell.UI.Controls
 
         public MetroWindow()
         {
+            Loaded += OnLoaded;
         }
 
         private void InitializeGlowWindowBehaviorEx()
@@ -176,13 +177,6 @@ namespace AakStudio.Shell.UI.Controls
                 new Binding { Path = new PropertyPath(IsShowMaximizeButtonProperty), Source = this });
 
             Interaction.GetBehaviors(this).Add(behavior);
-        }
-
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            Loaded += OnLoaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
