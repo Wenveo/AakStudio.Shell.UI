@@ -182,6 +182,13 @@ namespace AakStudio.Shell.UI.Controls
         {
             base.OnApplyTemplate();
 
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= OnLoaded;
+
             InitializeGlowWindowBehaviorEx();
             InitializeWindowChromeEx();
         }
