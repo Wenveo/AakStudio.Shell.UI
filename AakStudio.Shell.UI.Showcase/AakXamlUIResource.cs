@@ -28,7 +28,7 @@ namespace AakStudio.Shell.UI.Showcase
         public AakXamlUIResource()
         {
             instance = this;
-            theme = AakThemeCollection.AllThemes[AakThemeCollection.AllThemes.Count - 1];
+            theme = AakThemeCollection.AllThemes[AakThemeCollection.AllThemes.Count - 2];
 
             InitializeThemes();
         }
