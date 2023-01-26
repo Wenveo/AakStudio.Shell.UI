@@ -24,7 +24,7 @@ namespace AakStudio.Shell.UI.Controls
     }
 
     /// <summary>
-    /// 
+    /// A window system button. Used to minimize, maximize, restore, and close Windows
     /// </summary>
     public class WindowSystemButton : ButtonBase
     {
@@ -52,10 +52,14 @@ namespace AakStudio.Shell.UI.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowSystemButton), new FrameworkPropertyMetadata(typeof(WindowSystemButton)));
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WindowSystemButton"/> class.
+        /// </summary>
         public WindowSystemButton()
         {
         }
 
+        /// <inheritdoc/>
         protected override void OnClick()
         {
             var window = Window.GetWindow(this);
