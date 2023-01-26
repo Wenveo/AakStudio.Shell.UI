@@ -1,0 +1,29 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrls="clr-namespace:AakStudio.Shell.UI.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <!--  Common Control Styles  -->
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ControlsBase.xaml" />
+        <!--  Custom Controls Styles  -->
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/CustomChromeWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/GlyphButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/WindowSystemButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style
+        x:Key="{x:Type ctrls:CustomChromeWindow}"
+        BasedOn="{StaticResource CustomChromeWindowBaseStyle}"
+        TargetType="{x:Type ctrls:CustomChromeWindow}" />
+
+    <Style
+        x:Key="{x:Type ctrls:GlyphButton}"
+        BasedOn="{StaticResource GlyphButtonBaseStyle}"
+        TargetType="{x:Type ctrls:GlyphButton}" />
+
+    <Style
+        x:Key="{x:Type ctrls:WindowSystemButton}"
+        BasedOn="{StaticResource WindowSystemButtonBaseStyle}"
+        TargetType="{x:Type ctrls:WindowSystemButton}" />
+
+</ResourceDictionary>

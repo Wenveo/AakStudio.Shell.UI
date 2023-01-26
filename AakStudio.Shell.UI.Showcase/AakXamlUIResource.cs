@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 
-
 namespace AakStudio.Shell.UI.Showcase
 {
     internal class AakXamlUIResource : ResourceDictionary
@@ -37,18 +36,12 @@ namespace AakStudio.Shell.UI.Showcase
 
         private void InitializeThemes()
         {
-            MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/AakStudio.Shell.UI;component/Themes/Generic.xaml", UriKind.Relative)
-            });
-
             MergedDictionaries.Add(theme);
         }
 
         private void UpdateAakTheme(AakTheme theme)
         {
-            MergedDictionaries[1] = theme;
+            MergedDictionaries[0] = theme;
         }
     }
-
 }
