@@ -44,15 +44,18 @@
                             <Setter Property="Opacity" Value="0.32" />
                         </Trigger>
                         <Trigger Property="WindowSystemButtonType" Value="Minimize">
+                            <Setter Property="AutomationProperties.AutomationId" Value="Minimize" />
                             <Setter Property="AutomationProperties.Name" Value="Minimize" />
                             <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="MINBUTTON" />
                             <Setter TargetName="path" Property="Data" Value="M14 8v1H3V8h11z" />
                         </Trigger>
                         <Trigger Property="WindowSystemButtonType" Value="Maximize">
+                            <Setter Property="AutomationProperties.AutomationId" Value="Maximize" />
                             <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="MAXBUTTON" />
                             <Setter TargetName="path" Property="Data" Value="M3 3v10h10V3H3zm9 9H4V4h8v8z" />
                         </Trigger>
                         <Trigger Property="WindowSystemButtonType" Value="Close">
+                            <Setter Property="AutomationProperties.AutomationId" Value="Close" />
                             <Setter Property="AutomationProperties.Name" Value="Close" />
                             <Setter Property="controlzEx:NonClientControlProperties.HitTestResult" Value="CLOSE" />
                             <Setter TargetName="path" Property="Data" Value="M7.116 8l-4.558 4.558.884.884L8 8.884l4.558 4.558.884-.884L8.884 8l4.558-4.558-.884-.884L8 7.116 3.442 2.558l-.884.884L7.116 8z" />
@@ -105,6 +108,7 @@
                                 <Condition Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="{x:Static WindowState.Maximized}" />
                                 <Condition Binding="{Binding WindowSystemButtonType, RelativeSource={RelativeSource Self}}" Value="{x:Static ctrls:WindowSystemButtonType.Maximize}" />
                             </MultiDataTrigger.Conditions>
+                            <Setter Property="AutomationProperties.AutomationId" Value="Restore" />
                             <Setter Property="AutomationProperties.Name" Value="Restore" />
                             <Setter TargetName="path" Property="Data" Value="M3 5v9h9V5H3zm8 8H4V6h7v7z M5 5h1V4h7v7h-1v1h2V3H5v2z" />
                         </MultiDataTrigger>
