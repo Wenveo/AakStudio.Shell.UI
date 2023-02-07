@@ -4,11 +4,11 @@
     xmlns:ctrls="clr-namespace:AakStudio.Shell.UI.Controls">
     <ResourceDictionary.MergedDictionaries>
         <!--  Common Control Styles  -->
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ControlsBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ControlsBase.xaml" />
         <!--  Custom Controls Styles  -->
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/CustomChromeWindow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/GlyphButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/WindowSystemButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/CustomChromeWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/GlyphButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/WindowSystemButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style

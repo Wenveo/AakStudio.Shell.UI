@@ -1,29 +1,29 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ButtonBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/CheckBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ComboBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ContextMenuBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ExpanderBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/FocusVisualBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/GridSplitterBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/GroupBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/HyperlinkBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/LabelBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ListBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ListViewBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/MenuBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/PasswordBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ProgressBarBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/RadioButtonBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ResizeGripBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ScrollViewerBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/StatusBarBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/TabControlBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/TextBoxBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ToolBarBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/ToolTipBase.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VisualStudio/Base/TreeViewBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ButtonBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/CheckBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ComboBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ContextMenuBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ExpanderBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/FocusVisualBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/GridSplitterBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/GroupBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/HyperlinkBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/LabelBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ListBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ListViewBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/MenuBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/PasswordBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ProgressBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/RadioButtonBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ResizeGripBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ScrollViewerBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/StatusBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/TabControlBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/TextBoxBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ToolBarBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/ToolTipBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/AakStudio.Shell.UI;Component/Styles/VS/Base/TreeViewBase.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Common Control Styles  -->
