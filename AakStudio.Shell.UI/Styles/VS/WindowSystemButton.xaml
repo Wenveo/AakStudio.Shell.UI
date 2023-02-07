@@ -80,14 +80,19 @@
                             <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonDownBorder}" />
                             <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonDownGlyph}" />
                         </Trigger>
-                        <DataTrigger Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False">
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsLoaded, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonInactive}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource EnvironmentMainWindowButtonInactiveBorder}" />
                             <Setter Property="Foreground" Value="{DynamicResource EnvironmentMainWindowButtonInactiveGlyph}" />
-                        </DataTrigger>
+                        </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
+                                <Condition Binding="{Binding Path=IsLoaded, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
                                 <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactive}" />
@@ -96,7 +101,8 @@
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
+                                <Condition Binding="{Binding Path=IsLoaded, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsActive, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="False" />
                                 <Condition Binding="{Binding Path=(controlzEx:NonClientControlProperties.IsNCMouseOver), RelativeSource={RelativeSource Self}}" Value="True" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource EnvironmentMainWindowButtonHoverInactive}" />
@@ -105,7 +111,8 @@
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="{x:Static WindowState.Maximized}" />
+                                <Condition Binding="{Binding Path=IsLoaded, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Path=WindowState, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Value="{x:Static WindowState.Maximized}" />
                                 <Condition Binding="{Binding WindowSystemButtonType, RelativeSource={RelativeSource Self}}" Value="{x:Static ctrls:WindowSystemButtonType.Maximize}" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="AutomationProperties.AutomationId" Value="Restore" />
