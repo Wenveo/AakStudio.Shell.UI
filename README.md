@@ -34,8 +34,9 @@
  - TreeView
 
  # Custom Controls
- - MetroWindow
- - TabButton
+ - CustomChromeWindow
+ - GlyphButton
+ - WindowSystemButton
 
  # Themes
  - VS2019 (Blue, Dark, Light)
