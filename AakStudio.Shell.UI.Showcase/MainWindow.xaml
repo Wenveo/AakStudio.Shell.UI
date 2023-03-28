@@ -73,8 +73,8 @@
                     </MenuItem.Resources>
                     <MenuItem.ItemContainerStyle>
                         <Style TargetType="{x:Type MenuItem}">
-                            <Setter Property="DynamicResourceStyle.BasedOn" Value="{DynamicResource MenuItemBaseStyle}" />
-                            <Setter Property="DynamicResourceStyle.Derived" Value="{DynamicResource BindingCommandsMenuItem}" />
+                            <Setter Property="DynamicStyleProvider.BasedOn" Value="{DynamicResource MenuItemBaseStyle}" />
+                            <Setter Property="DynamicStyleProvider.Derived" Value="{DynamicResource BindingCommandsMenuItem}" />
                         </Style>
                     </MenuItem.ItemContainerStyle>
                 </MenuItem>
