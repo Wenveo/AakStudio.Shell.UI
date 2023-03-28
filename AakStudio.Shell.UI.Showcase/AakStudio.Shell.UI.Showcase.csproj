@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AakStudio.Shell.UI.Themes.AvalonDock" Version="4.71.2" />
+    <PackageReference Include="AakStudio.Shell.UI.Themes.AvalonDock" Version="4.72.0" />
   </ItemGroup>
 
   <ItemGroup>
