@@ -3,16 +3,16 @@ using System.Windows;
 
 namespace AakStudio.Shell.UI
 {
-    public static class DynamicResourceStyle
+    public static class DynamicStyleProvider
     {
         public static readonly DependencyProperty BasedOnProperty =
             DependencyProperty.RegisterAttached("BasedOn", typeof(Style),
-                typeof(DynamicResourceStyle), new FrameworkPropertyMetadata(null,
+                typeof(DynamicStyleProvider), new FrameworkPropertyMetadata(null,
                     FrameworkPropertyMetadataOptions.AffectsRender, OnStyleChanged));
 
         public static readonly DependencyProperty DerivedProperty =
             DependencyProperty.RegisterAttached("Derived", typeof(Style),
-                typeof(DynamicResourceStyle), new FrameworkPropertyMetadata(null,
+                typeof(DynamicStyleProvider), new FrameworkPropertyMetadata(null,
                     FrameworkPropertyMetadataOptions.AffectsRender, OnStyleChanged));
 
         private static void OnStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
