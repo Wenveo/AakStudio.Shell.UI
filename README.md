@@ -1,6 +1,6 @@
 # AakStudio.Shell.UI (WIP)
 
-***Wpf control styles and themes for AakStudio***
+***Wpf control styles and themes of AakStudio***
 
 ![NetFramework](https://img.shields.io/badge/.Net%20Framework->=4.6.2-green) ![NetCore](https://img.shields.io/badge/.Net%20Core->=v3.1-blue)
 [![CodeQL](https://github.com/Wenveo/AakStudio.Shell.UI/actions/workflows/codeql.yml/badge.svg)](https://github.com/Wenveo/AakStudio.Shell.UI/actions/workflows/codeql.yml)
