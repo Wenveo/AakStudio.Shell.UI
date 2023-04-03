@@ -1,4 +1,4 @@
-# AakStudio.Shell.UI (WIP)
+# AakStudio.Shell.UI
 
 ***Wpf control styles and themes of AakStudio***
 
