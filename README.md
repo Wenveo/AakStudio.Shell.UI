@@ -1,3 +1,11 @@
+# About
+**The code in this repository was in one of my private projects, which is no longer in development. I then reorganized some of the code (which I thought was valuable) and made it open source.**
+
+**For some reason, I won't be maintaining this repository long term, but you're still free to copy and use the files.**
+
+- [AakStudio.Shell.UI](https://github.com/Wenveo/AakStudio.Shell.UI)
+- [AakStudio.Shell.UI.Themes.AvalonDock](https://github.com/Wenveo/AakStudio.Shell.UI.Themes.AvalonDock)
+
 # AakStudio.Shell.UI
 
 ***Wpf control styles and themes of AakStudio***
